@@ -1,8 +1,9 @@
 extends Button
 
-
+@onready var Menu = $Menu
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Menu.visible = false
 	pass # Replace with function body.
 
 
@@ -12,5 +13,10 @@ func _process(delta):
 
 
 func _on_pressed():
-	print("Settings Aren't Made yet Either.")
+	Menu.visible = true
+	pass # Replace with function body.
+
+
+func _on_exit_button_pressed():
+	Menu.visible = false
 	pass # Replace with function body.
