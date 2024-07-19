@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_5ceaf"]
 [ext_resource type="Script" path="res://Scripts/PlayGameButton.gd" id="1_daqvn"]
-[ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/Settings.tscn" id="3_nbu60"]
+[ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/SettingsButtons.tscn" id="3_nbu60"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjwb2"]
 font_size = 50
