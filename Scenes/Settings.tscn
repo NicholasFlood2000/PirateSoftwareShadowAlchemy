@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6pctbsywub2"]
+
+[ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_ct15b"]
+[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="2_8phgq"]
+
+[node name="Button" type="Button"]
+modulate = Color(0.380392, 0.454902, 0.717647, 1)
+offset_left = -136.0
+offset_top = -38.0
+offset_right = 160.0
+offset_bottom = 43.0
+theme = ExtResource("1_ct15b")
+text = "Settings"
+script = ExtResource("2_8phgq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

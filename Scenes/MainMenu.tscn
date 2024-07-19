@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://brsyfl1pdn22i"]
+
+[ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_5ceaf"]
+[ext_resource type="Script" path="res://Scripts/PlayGameButton.gd" id="1_daqvn"]
+[ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/Settings.tscn" id="3_nbu60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cjwb2"]
+font_size = 50
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1288.0
+offset_bottom = 727.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1305.0
+offset_bottom = 748.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 55.0
+offset_right = 1178.0
+offset_bottom = 151.0
+text = "Shadow Alchemy WIP Title"
+label_settings = SubResource("LabelSettings_cjwb2")
+
+[node name="PlayGameButton" type="Button" parent="Control"]
+modulate = Color(0.380392, 0.454902, 0.717647, 1)
+layout_mode = 0
+offset_left = 526.0
+offset_top = 284.0
+offset_right = 785.0
+offset_bottom = 379.0
+theme = ExtResource("1_5ceaf")
+text = "Play Game"
+script = ExtResource("1_daqvn")
+
+[node name="Button" parent="." instance=ExtResource("3_nbu60")]
+offset_left = 522.0
+offset_top = 441.0
+offset_right = 771.0
+offset_bottom = 532.0
+
+[connection signal="pressed" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_pressed"]
