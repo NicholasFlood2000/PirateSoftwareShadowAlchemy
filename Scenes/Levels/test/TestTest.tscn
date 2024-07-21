@@ -4,9 +4,6 @@
 
 [node name="BaseLevel" instance=ExtResource("1_wranl")]
 
-[node name="FireBackground" parent="." index="0"]
-visible = true
-
 [node name="WaterBackground" parent="." index="1"]
 visible = false
 

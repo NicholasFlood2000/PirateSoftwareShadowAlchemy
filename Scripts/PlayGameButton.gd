@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_pressed():
-	print("Game not Added Yet")
+	get_tree().change_scene_to_file("res://Scenes/Levels/base_level.tscn")
 	pass # Replace with function body.
