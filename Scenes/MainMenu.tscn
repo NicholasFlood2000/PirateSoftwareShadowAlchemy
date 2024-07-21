@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://brsyfl1pdn22i"]
+[gd_scene load_steps=8 format=3 uid="uid://brsyfl1pdn22i"]
 
 [ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_5ceaf"]
 [ext_resource type="Theme" uid="uid://bjjf52pu6ckx6" path="res://Themes/Menu.tres" id="1_b1v7n"]
 [ext_resource type="Script" path="res://Scripts/PlayGameButton.gd" id="1_daqvn"]
 [ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/SettingsButtons.tscn" id="3_nbu60"]
+[ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="5_7c5o5"]
+[ext_resource type="Script" path="res://Scenes/MusicVolume.gd" id="6_uqsmb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjwb2"]
 font_size = 50
@@ -53,10 +55,10 @@ script = ExtResource("1_daqvn")
 
 [node name="HSlider" type="HSlider" parent="Control"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 179.0
-offset_right = 418.0
-offset_bottom = 234.0
+offset_left = 44.0
+offset_top = 176.0
+offset_right = 419.0
+offset_bottom = 231.0
 step = 1.73
 value = 38.06
 
@@ -65,5 +67,10 @@ offset_left = 522.0
 offset_top = 441.0
 offset_right = 771.0
 offset_bottom = 532.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7c5o5")
+autoplay = true
+script = ExtResource("6_uqsmb")
 
 [connection signal="pressed" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_pressed"]
