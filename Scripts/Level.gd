@@ -1,13 +1,15 @@
 extends Node2D
 
-@onready var EarthBackgroundMain = $FireBackground
-@onready var EarthBackgroundBack = $FireBackground/FireBackground2
-@onready var EarthBackgroundMiddle = $FireBackground/ParallaxLayer2/Sprite2D
-@onready var EarthBackgroundFront = $FireBackground/ParallaxLayer/Sprite2D
+@onready var EarthBackgroundMain = $EarthBackground
+@onready var EarthBackgroundBack = $EarthBackground/EarthBackground2
+@onready var EarthBackgroundMiddle = $EarthBackground/ParallaxLayer2/Sprite2D
+@onready var EarthBackgroundFront = $EarthBackground/ParallaxLayer/Sprite2D
 @onready var WaterBackgroundMain = $WaterBackground
 @onready var WaterBackgroundBack = $WaterBackground/WaterBackground2
 @onready var WaterBackgroundMiddle = $WaterBackground/ParallaxLayer2/Sprite2D
 @onready var WaterBackgroundFront = $WaterBackground/ParallaxLayer3/Sprite2D
+
+signal BackgroundChanged(NewBackground)
 
 var LayerNum = -100
 var CurrentBackground = "Water"
@@ -52,3 +54,4 @@ func toggleBackGround(OldBackground, NewBackground):
 			WaterBackgroundFront.visible = false
 			EarthBackgroundFront.visible = true
 			CurrentBackground = "Earth"
+			BackgroundChanged.emit("Earth")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds2o7rq81j15c"]
+
+[ext_resource type="Texture2D" uid="uid://dqj3p81k24jf5" path="res://Assets/Graphics/Tree trunk platform 2.png" id="1_f4yq4"]
+[ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="2_x3hs7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1kio"]
+size = Vector2(119, 24)
+
+[node name="TreeTrunkPlatform2" type="Sprite2D"]
+texture = ExtResource("1_f4yq4")
+script = ExtResource("2_x3hs7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-29.5, 0)
+shape = SubResource("RectangleShape2D_v1kio")
+one_way_collision = true
