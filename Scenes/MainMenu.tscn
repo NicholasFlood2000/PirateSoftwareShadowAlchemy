@@ -19,19 +19,13 @@ offset_right = 1288.0
 offset_bottom = 727.0
 theme = ExtResource("1_b1v7n")
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_right = 1305.0
-offset_bottom = 748.0
-color = Color(0.101961, 0.101961, 0.101961, 1)
-
 [node name="ColorRect2" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 64.0
-offset_right = 467.0
-offset_bottom = 380.0
-color = Color(0.0265618, 0.0794935, 0.261544, 1)
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 1305.0
+offset_bottom = 756.0
+color = Color(0.027451, 0.0784314, 0.262745, 1)
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
