@@ -22,7 +22,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("MoveLeft", "MoveRight")
 	if direction:
 		velocity.x = direction * SPEED
+		$sprite.scale.x = 1 if direction > 0 else -1
+		$AnimationPlayer.play("walk")
 	else:
+		$AnimationPlayer.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
