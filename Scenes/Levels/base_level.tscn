@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=16 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -10,7 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://bvadp7txaxst6" path="res://Assets/Graphics/WaterParallax2.png" id="5_775rm"]
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
+[ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
 [ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Objects/player.tscn" id="10_mtodc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbhf"]
+texture = ExtResource("9_xxdnw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhak0"]
 texture = ExtResource("1_yvmax")
@@ -186,6 +194,7 @@ terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_jhak0")
+sources/0 = SubResource("TileSetAtlasSource_wwbhf")
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_kebkd")
