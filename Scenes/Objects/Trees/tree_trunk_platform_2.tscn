@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="2_x3hs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1kio"]
-size = Vector2(119, 30)
+size = Vector2(119, 24)
 
 [node name="TreeTrunkPlatform2" type="Sprite2D"]
 texture = ExtResource("1_f4yq4")
@@ -13,6 +13,6 @@ script = ExtResource("2_x3hs7")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-29.5, -3)
+position = Vector2(-29.5, 0)
 shape = SubResource("RectangleShape2D_v1kio")
 one_way_collision = true
