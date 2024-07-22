@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
-[ext_resource type="Texture2D" uid="uid://wyym0uc5vxhx" path="res://Assets/Graphics/FireParallax2.png" id="2_7yue0"]
+[ext_resource type="Texture2D" uid="uid://cn3pyraxxsub1" path="res://Assets/Graphics/GrassBackground.png" id="2_gde4f"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="2_xvrj2"]
-[ext_resource type="Texture2D" uid="uid://cne0jutjstal6" path="res://Assets/Graphics/FireParallax1.png" id="3_l7o2e"]
-[ext_resource type="Texture2D" uid="uid://vode1ke151a5" path="res://Assets/Graphics/FireBackground.png" id="3_x7jug"]
+[ext_resource type="Texture2D" uid="uid://blget2uen20g6" path="res://Assets/Graphics/GrassParallax2.png" id="3_n4mmx"]
 [ext_resource type="Texture2D" uid="uid://0f4om11ea4jr" path="res://Assets/Graphics/WaterBackground.png" id="4_wy01d"]
+[ext_resource type="Texture2D" uid="uid://bllvlblnebk8j" path="res://Assets/Graphics/GrassParallax1.png" id="4_xrirw"]
 [ext_resource type="Texture2D" uid="uid://bvadp7txaxst6" path="res://Assets/Graphics/WaterParallax2.png" id="5_775rm"]
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
@@ -212,31 +212,31 @@ sources/0 = SubResource("TileSetAtlasSource_wwbhf")
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_kebkd")
 
-[node name="FireBackground" type="ParallaxBackground" parent="."]
+[node name="EarthBackground" type="ParallaxBackground" parent="."]
 
-[node name="FireBackground2" type="Sprite2D" parent="FireBackground"]
+[node name="EarthBackground2" type="Sprite2D" parent="EarthBackground"]
 visible = false
-texture = ExtResource("3_x7jug")
+texture = ExtResource("2_gde4f")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="FireBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="EarthBackground"]
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(1280, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="FireBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="EarthBackground/ParallaxLayer2"]
 visible = false
 position = Vector2(0, 119)
-texture = ExtResource("2_7yue0")
+texture = ExtResource("3_n4mmx")
 centered = false
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="FireBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="EarthBackground"]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1280, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="FireBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="EarthBackground/ParallaxLayer"]
 visible = false
 position = Vector2(0, 142)
-texture = ExtResource("3_l7o2e")
+texture = ExtResource("4_xrirw")
 centered = false
 
 [node name="WaterBackground" type="ParallaxBackground" parent="."]
@@ -277,6 +277,8 @@ grow_vertical = 2
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3uvdj")
 format = 2
+layer_1/name = "Vines"
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("10_mtodc")]
 
