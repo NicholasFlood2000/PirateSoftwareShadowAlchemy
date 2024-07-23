@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/PlayGameButton.gd" id="1_daqvn"]
 [ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/SettingsButtons.tscn" id="3_nbu60"]
 [ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="5_7c5o5"]
-[ext_resource type="Script" path="res://Scenes/MusicVolume.gd" id="6_uqsmb"]
+[ext_resource type="Script" path="res://Scripts/MusicVolume.gd" id="6_uqsmb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjwb2"]
 font_size = 50

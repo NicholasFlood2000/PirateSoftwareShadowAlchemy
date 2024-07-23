@@ -12,7 +12,7 @@ const JUMP_VELOCITY = -500.0
 @export var movement_speed = 500
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
-@export var jump_velocity = 600.0
+@export var jump_velocity = 600.0 #Default 600.0
 
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5

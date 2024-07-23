@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0uj15vrm0v1s"]
+[gd_scene load_steps=4 format=3 uid="uid://d0uj15vrm0v1s"]
 
 [ext_resource type="Texture2D" uid="uid://bqgj8rxbu4201" path="res://Assets/Graphics/Tree2Branch2.png" id="1_vsbwb"]
+[ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="2_d8hks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61i21"]
 size = Vector2(80.5, 17)
 
 [node name="Tree2Branch2" type="Sprite2D"]
 texture = ExtResource("1_vsbwb")
+script = ExtResource("2_d8hks")
 
 [node name="Staticbody2D" type="StaticBody2D" parent="."]
 collision_layer = 64
