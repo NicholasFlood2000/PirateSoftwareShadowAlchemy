@@ -15,7 +15,7 @@ var LayerNum = -100
 var CurrentBackground = "Water"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	BackgroundChanged.emit( CurrentBackground )
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,4 +54,5 @@ func toggleBackGround(OldBackground, NewBackground):
 			WaterBackgroundFront.visible = false
 			EarthBackgroundFront.visible = true
 			CurrentBackground = "Earth"
-			BackgroundChanged.emit("Earth")
+	
+	BackgroundChanged.emit( CurrentBackground )
