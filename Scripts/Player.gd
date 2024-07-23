@@ -210,6 +210,8 @@ func detect_water() -> bool:
 	
 	return false
 
+func die() -> void:
+	get_tree().reload_current_scene()
 
 # reusable state machine code
 # I'm not lazy, I just hate redoing work.
@@ -235,6 +237,8 @@ func check_whether_player_is_on_floor() -> void:
 	#else:
 	
 	
+
+
 
 
 func _BackgroundChanged(NewBackground):
