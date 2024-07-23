@@ -569,6 +569,7 @@ floor_snap_length = 10.0
 script = ExtResource("1_wk67q")
 gravity = 1500
 jump_gravity = 1600
+movement_speed = 350
 jump_velocity = 790.0
 coyote_set_time = 0.25
 
