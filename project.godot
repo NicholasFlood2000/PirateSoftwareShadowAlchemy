@@ -56,6 +56,11 @@ Pause={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_10="Vine"
+2d_physics/layer_11="Water"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

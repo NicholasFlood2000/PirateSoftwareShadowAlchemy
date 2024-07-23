@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxsx5umdmpcj8"]
+
+[ext_resource type="Texture2D" uid="uid://c17wida2j8dwe" path="res://Assets/Graphics/White small Vine 120.png" id="1_enc04"]
+[ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="2_8male"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4i1f"]
+size = Vector2(86, 179)
+
+[node name="Vine" type="Area2D"]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 89.5)
+shape = SubResource("RectangleShape2D_o4i1f")
+
+[node name="WhiteSmallVine" type="Sprite2D" parent="."]
+texture = ExtResource("1_enc04")
+offset = Vector2(0, 120)
+script = ExtResource("2_8male")
