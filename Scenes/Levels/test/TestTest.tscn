@@ -27,7 +27,7 @@ texture = ExtResource("6_6h0k0")
 script = ExtResource("10_su4ho")
 
 [node name="Tree2" type="Sprite2D" parent="." index="6"]
-position = Vector2(2357, 767)
+position = Vector2(2352, 769)
 texture = ExtResource("6_6h0k0")
 script = ExtResource("10_su4ho")
 

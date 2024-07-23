@@ -11,6 +11,8 @@ texture = ExtResource("1_cmhp5")
 script = ExtResource("2_opfft")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 512
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(27, -42.5)

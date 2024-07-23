@@ -25,6 +25,10 @@ const JUMP_VELOCITY = -500.0
 
 var hanging_vine = null
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
+	pass # Replace with function body.
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -48,20 +52,25 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 	
 #	This is there for testing, please change/remove when writting a proper system for it
+#	We can make vine climbing by replacing with a velocity y lerp and adding
+#	a climb action with w.
 	if detect_vine():
 		velocity.y = 0
+		pass
 
 	move_and_slide()
 	
 	#print(detect_vine())
 
 func detect_vine() -> bool:
+	if(not get_collision_mask_value(10)):
+		return false
 	var space_state = get_world_2d().direct_space_state
 	var shape_queary = PhysicsPointQueryParameters2D.new()
 	
 	shape_queary.position = vine_detection_marker.global_position
 	shape_queary.collide_with_areas = true;
-	shape_queary.collide_with_bodies = false;
+	shape_queary.collide_with_bodies = true;
 	shape_queary.collision_mask = 1 << 9 
 	if hanging_vine:
 		shape_queary.exclude = [ hanging_vine ]
@@ -89,3 +98,9 @@ func detect_water() -> bool:
 		return true
 	
 	return false
+
+func _BackgroundChanged(NewBackground):
+	if(NewBackground == "Earth"):
+		set_collision_mask_value(10, true)
+	else:
+		set_collision_mask_value(10, false)
