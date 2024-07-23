@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var InitialBackground: String
+
 @onready var EarthBackgroundMain = $EarthBackground
 @onready var EarthBackgroundBack = $EarthBackground/EarthBackground2
 @onready var EarthBackgroundMiddle = $EarthBackground/ParallaxLayer2/Sprite2D
@@ -15,6 +17,7 @@ var LayerNum = -100
 var CurrentBackground = "Water"
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CurrentBackground = InitialBackground
 	BackgroundChanged.emit( CurrentBackground )
 
 
