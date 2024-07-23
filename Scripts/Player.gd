@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
+enum states {IDLE, WALKING, JUMP, FALLING, CLIMBING}
+enum  transformations {NORMAL, MOLE, FISH, BIRD}
 
 #const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 
 
 @export var gravity = 1000
+@export var jump_gravity = 900
 @export var movement_speed = 500
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
-@export var jump_velocity = -600.0
+@export var jump_velocity = 600.0
 
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5
@@ -20,50 +23,111 @@ const JUMP_VELOCITY = -500.0
 
 
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_state :states = states.IDLE
 
 var hanging_vine = null
 
-# Called when the node enters the scene tree for the first time.
+var coyote_timer :float = 0.0
+var jump_buffer_timer :float = 0.0
+
 func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
-	pass # Replace with function body.
+
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("MoveLeft", "MoveRight")
-	if direction:
-		velocity.x = lerp(velocity.x, direction * movement_speed, acceleration * delta)
-		#velocity.x = direction * movement_speed
-		$sprite.scale.x = 1 if direction > 0 else -1
-		$AnimationPlayer.play("walk")
-	else:
-		$AnimationPlayer.play("idle")
-		velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+	
+	var input_direction :Vector2 = Vector2.ZERO
+	input_direction.x = Input.get_action_strength("MoveRight") - Input.get_action_strength("MoveLeft")#, "MoveUp", "MoveDown")
+	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
+	
+	if Input.is_action_just_pressed("Jump"):
+		#coyote_timer = coyote_set_time
+		jump_buffer_timer = jump_buffer_set_time
+	
+	coyote_timer -= 1 * delta
+	jump_buffer_timer -= 1 * delta
+	
+	match(current_state):
+		states.IDLE:
+			$AnimationPlayer.play("idle")
+			
+			velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+			
+			if input_direction.x != 0:
+				current_state = states.WALKING
+			
+			check_jump()
+			check_whether_player_is_on_floor()
+		
+		states.WALKING:
+			$AnimationPlayer.play("walk")
+			
+			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+			
+			
+			if input_direction.x == 0:
+				current_state = states.IDLE
+			else:
+				$sprite.scale.x = 1 if input_direction.x > 0 else -1
+			
+			check_jump()
+			check_whether_player_is_on_floor()
+			#check_whether_player_is_on_floor()
+			
+		states.JUMP:
+			$AnimationPlayer.play("jump")
+			velocity.y += jump_gravity * delta
+			
+			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+			
+			if velocity.y > 0:
+				current_state = states.FALLING
+			
+			if input_direction.x != 0:
+				$sprite.scale.x = 1 if input_direction.x > 0 else -1
+			
+			if detect_vine():
+				current_state = states.CLIMBING
+				velocity.y = 0
+				
+		states.FALLING:
+			$AnimationPlayer.play("fall")
+			velocity.y += gravity * delta
+			
+			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+			
+			if input_direction.x != 0:
+				$sprite.scale.x = 1 if input_direction.x > 0 else -1
+			
+			if detect_vine():
+				print("Fuck!!")
+				#current_state = states.CLIMBING
+				velocity.y = 0 
+				current_state = states.CLIMBING
+			else:
+				check_whether_player_is_on_floor()
+			
+		
+		states.CLIMBING:
+			velocity = velocity.lerp(input_direction * movement_speed, acceleration * delta)
+			
+			if not detect_vine():
+				current_state = states.IDLE
+			
+			if input_direction.x != 0:
+				$sprite.scale.x = 1 if input_direction.x > 0 else -1
 	
 #	This is there for testing, please change/remove when writting a proper system for it
 #	We can make vine climbing by replacing with a velocity y lerp and adding
 #	a climb action with w.
-	if detect_vine():
-		velocity.y = 0
-		pass
+	
 
 	move_and_slide()
 	
 	#print(detect_vine())
 
 func detect_vine() -> bool:
-	if(not get_collision_mask_value(10)):
+	if(not get_collision_mask_value(7)):
 		return false
 	var space_state = get_world_2d().direct_space_state
 	var shape_queary = PhysicsPointQueryParameters2D.new()
@@ -99,8 +163,34 @@ func detect_water() -> bool:
 	
 	return false
 
+
+# reusable state machine code
+# I'm not lazy, I just hate redoing work.
+
+func check_jump() -> void:
+	
+		
+	if coyote_timer > 0.0 and jump_buffer_timer > 0.0:
+		velocity.y = -jump_velocity
+		coyote_timer = 0
+		jump_buffer_timer = 0
+		current_state = states.JUMP
+
+func check_whether_player_is_on_floor() -> void:
+	if not is_on_floor():
+		if current_state != states.JUMP:
+			current_state = states.FALLING
+	if is_on_floor():
+		coyote_timer = coyote_set_time
+		if current_state == states.FALLING:
+			current_state = states.IDLE
+	#else:
+	
+	
+
+
 func _BackgroundChanged(NewBackground):
 	if(NewBackground == "Earth"):
-		set_collision_mask_value(10, true)
+		set_collision_mask_value(7, true)
 	else:
-		set_collision_mask_value(10, false)
+		set_collision_mask_value(7, false)
