@@ -47,15 +47,6 @@ theme = ExtResource("1_5ceaf")
 text = "Play Game"
 script = ExtResource("1_daqvn")
 
-[node name="HSlider" type="HSlider" parent="Control"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 176.0
-offset_right = 419.0
-offset_bottom = 231.0
-step = 1.73
-value = 38.06
-
 [node name="Button" parent="." instance=ExtResource("3_nbu60")]
 offset_left = 522.0
 offset_top = 441.0
