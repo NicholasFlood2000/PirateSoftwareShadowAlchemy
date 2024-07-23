@@ -567,6 +567,10 @@ graph_offset = Vector2(-176, -161)
 z_index = 5
 floor_snap_length = 10.0
 script = ExtResource("1_wk67q")
+gravity = 1500
+jump_gravity = 1600
+jump_velocity = 790.0
+coyote_set_time = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

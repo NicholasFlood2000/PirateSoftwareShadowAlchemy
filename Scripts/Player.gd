@@ -140,7 +140,7 @@ func _physics_process(delta):
 			if detect_vine():
 				#print("Fuck!!")
 				#current_state = states.CLIMBING
-				velocity.y = 0 
+				#velocity.y = 0 
 				current_state = states.CLIMBING
 			else:
 				check_whether_player_is_on_floor()
