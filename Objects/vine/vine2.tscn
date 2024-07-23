@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxc735wfbopw"]
+
+[ext_resource type="PackedScene" uid="uid://bxsx5umdmpcj8" path="res://Objects/vine/vine.tscn" id="1_k8ivd"]
+[ext_resource type="Texture2D" uid="uid://cxymhl6d5g3io" path="res://Assets/Graphics/White Vine 120.png" id="2_4xy76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7k58"]
+size = Vector2(86, 282)
+
+[node name="Vine" instance=ExtResource("1_k8ivd")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 141)
+shape = SubResource("RectangleShape2D_s7k58")
+
+[node name="WhiteSmallVine" parent="." index="1"]
+texture = ExtResource("2_4xy76")
+offset = Vector2(0, 180)
