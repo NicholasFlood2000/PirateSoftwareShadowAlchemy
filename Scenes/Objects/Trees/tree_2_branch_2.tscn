@@ -8,11 +8,11 @@ size = Vector2(80.5, 17)
 [node name="Tree2Branch2" type="Sprite2D"]
 texture = ExtResource("1_vsbwb")
 
-[node name="Area2D" type="StaticBody2D" parent="."]
-collision_layer = 512
+[node name="Staticbody2D" type="StaticBody2D" parent="."]
+collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Staticbody2D"]
 position = Vector2(54.75, -21.5)
 shape = SubResource("RectangleShape2D_61i21")
 one_way_collision = true
