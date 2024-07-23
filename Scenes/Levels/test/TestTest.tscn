@@ -1,17 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://r7c8bdc0ltmg"]
+[gd_scene load_steps=11 format=3 uid="uid://r7c8bdc0ltmg"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_wranl"]
 [ext_resource type="Texture2D" uid="uid://bjg42hw66hehb" path="res://Assets/Graphics/Tree.png" id="6_6h0k0"]
 [ext_resource type="Texture2D" uid="uid://opuck81b4cf7" path="res://Assets/Graphics/Tree trunk bottom.png" id="6_yocyo"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="7_1dxy4"]
-[ext_resource type="Texture2D" uid="uid://cxymhl6d5g3io" path="res://Assets/Graphics/White Vine 120.png" id="7_e4kwc"]
-[ext_resource type="Texture2D" uid="uid://c17wida2j8dwe" path="res://Assets/Graphics/White small Vine 120.png" id="7_yprq7"]
 [ext_resource type="PackedScene" uid="uid://ds2o7rq81j15c" path="res://Scenes/Objects/Trees/tree_trunk_platform_2.tscn" id="8_rdijl"]
 [ext_resource type="Texture2D" uid="uid://c4l2hgr1jbn4a" path="res://Assets/Graphics/Tree top.png" id="8_ydxq2"]
 [ext_resource type="PackedScene" uid="uid://d0uj15vrm0v1s" path="res://Scenes/Objects/Trees/tree_2_branch_2.tscn" id="9_kp3mv"]
 [ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="10_su4ho"]
-[ext_resource type="PackedScene" uid="uid://bxsx5umdmpcj8" path="res://Objects/vine/vine.tscn" id="11_gbqax"]
-[ext_resource type="PackedScene" uid="uid://drxc735wfbopw" path="res://Objects/vine/vine2.tscn" id="12_14std"]
+[ext_resource type="PackedScene" uid="uid://bxsx5umdmpcj8" path="res://Scenes/Objects/vine/vine.tscn" id="11_gbqax"]
+[ext_resource type="PackedScene" uid="uid://drxc735wfbopw" path="res://Scenes/Objects/vine/vine2.tscn" id="12_14std"]
 
 [node name="BaseLevel" instance=ExtResource("1_wranl")]
 
@@ -21,61 +19,63 @@ layer_0/tile_data = PackedInt32Array(655360, 65539, 0, 655361, 65539, 0, 655362,
 [node name="Player" parent="." index="4"]
 position = Vector2(3006, 529)
 
-[node name="Tree" type="Sprite2D" parent="." index="5"]
-position = Vector2(2110, 769)
-texture = ExtResource("6_6h0k0")
-script = ExtResource("10_su4ho")
+[node name="Objects" type="Node" parent="." index="5"]
 
-[node name="Tree2" type="Sprite2D" parent="." index="6"]
-position = Vector2(2352, 769)
-texture = ExtResource("6_6h0k0")
-script = ExtResource("10_su4ho")
+[node name="Vines" type="Node" parent="Objects" index="0"]
 
-[node name="WhiteVine120" type="Sprite2D" parent="." index="7"]
-position = Vector2(2913, 372)
-texture = ExtResource("7_e4kwc")
+[node name="Vine" parent="Objects/Vines" index="0" instance=ExtResource("11_gbqax")]
+position = Vector2(2820, 192)
 
-[node name="WhiteVine121" type="Sprite2D" parent="." index="8"]
-position = Vector2(2726, 371)
-texture = ExtResource("7_e4kwc")
+[node name="Vine2" parent="Objects/Vines" index="1" instance=ExtResource("12_14std")]
+position = Vector2(2985, 192)
 
-[node name="WhiteSmallVine120" type="Sprite2D" parent="." index="9"]
-position = Vector2(3065, 312)
-texture = ExtResource("7_yprq7")
+[node name="Vine5" parent="Objects/Vines" index="2" instance=ExtResource("12_14std")]
+position = Vector2(2897, 185)
 
-[node name="WhiteSmallVine121" type="Sprite2D" parent="." index="10"]
-position = Vector2(2561, 312)
-texture = ExtResource("7_yprq7")
+[node name="Vine6" parent="Objects/Vines" index="3" instance=ExtResource("12_14std")]
+position = Vector2(2699, 187)
 
-[node name="BigTree" type="Node" parent="." index="11"]
+[node name="Vine3" parent="Objects/Vines" index="4" instance=ExtResource("11_gbqax")]
+position = Vector2(3084, 191)
 
-[node name="TreeTop" type="Sprite2D" parent="BigTree" index="0"]
+[node name="Vine4" parent="Objects/Vines" index="5" instance=ExtResource("11_gbqax")]
+position = Vector2(2570, 189)
+
+[node name="Trees" type="Node" parent="Objects" index="1"]
+
+[node name="BigTree" type="Node" parent="Objects/Trees" index="0"]
+
+[node name="TreeTop" type="Sprite2D" parent="Objects/Trees/BigTree" index="0"]
 position = Vector2(1967, 460)
 texture = ExtResource("8_ydxq2")
 script = ExtResource("10_su4ho")
 
-[node name="TreeTrunkBottom" type="Sprite2D" parent="BigTree" index="1"]
+[node name="TreeTrunkBottom" type="Sprite2D" parent="Objects/Trees/BigTree" index="1"]
 position = Vector2(1966, 773)
 texture = ExtResource("6_yocyo")
 script = ExtResource("10_su4ho")
 
-[node name="TreeTrunkBottom2" type="Sprite2D" parent="BigTree" index="2"]
+[node name="TreeTrunkBottom2" type="Sprite2D" parent="Objects/Trees/BigTree" index="2"]
 position = Vector2(1968, 570)
 texture = ExtResource("6_yocyo")
 script = ExtResource("10_su4ho")
 
-[node name="TreeTrunkPlatform1" parent="BigTree" index="3" instance=ExtResource("7_1dxy4")]
+[node name="TreeTrunkPlatform1" parent="Objects/Trees/BigTree" index="3" instance=ExtResource("7_1dxy4")]
 position = Vector2(2042, 655)
 
-[node name="TreeTrunkPlatform2" parent="BigTree" index="4" instance=ExtResource("8_rdijl")]
+[node name="TreeTrunkPlatform2" parent="Objects/Trees/BigTree" index="4" instance=ExtResource("8_rdijl")]
 position = Vector2(1903, 734)
 
-[node name="Tree2Branch2" parent="BigTree" index="5" instance=ExtResource("9_kp3mv")]
+[node name="Tree2Branch2" parent="Objects/Trees/BigTree" index="5" instance=ExtResource("9_kp3mv")]
 position = Vector2(1976, 801)
 script = ExtResource("10_su4ho")
 
-[node name="Vine" parent="." index="12" instance=ExtResource("11_gbqax")]
-position = Vector2(2820, 192)
+[node name="Tree" type="Sprite2D" parent="Objects/Trees" index="1"]
+position = Vector2(2110, 769)
+texture = ExtResource("6_6h0k0")
+script = ExtResource("10_su4ho")
 
-[node name="Vine2" parent="." index="13" instance=ExtResource("12_14std")]
-position = Vector2(2985, 192)
+[node name="Tree2" type="Sprite2D" parent="Objects/Trees" index="2"]
+position = Vector2(2352, 769)
+texture = ExtResource("6_6h0k0")
+script = ExtResource("10_su4ho")

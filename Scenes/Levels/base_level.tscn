@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
 [ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
-[ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Objects/player.tscn" id="10_mtodc"]
+[ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Scenes/player.tscn" id="10_mtodc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbhf"]
 texture = ExtResource("9_xxdnw")
@@ -272,6 +272,7 @@ sources/0 = SubResource("TileSetAtlasSource_wwbhf")
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_kebkd")
+InitialBackground = "Water"
 
 [node name="EarthBackground" type="ParallaxBackground" parent="."]
 
