@@ -12,6 +12,7 @@ func _process(delta):
 func _BackgroundChanged(NewBackground):
 	if(NewBackground == "Earth"):
 		set_layer_modulate(1, Colors.EarthColor)
+		set_layer_modulate(2, Colors.Invisble)
 	else:
 		set_layer_modulate(1, Colors.ShadowColor)
-	pass
+		set_layer_modulate(2, Colors.WaterColor)
