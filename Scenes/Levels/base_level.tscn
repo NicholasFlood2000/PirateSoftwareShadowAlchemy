@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=17 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
 [ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
 [ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Scenes/player.tscn" id="10_mtodc"]
+[ext_resource type="Script" path="res://Scripts/TileMapModulate.gd" id="11_ed6eg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbhf"]
 texture = ExtResource("9_xxdnw")
@@ -341,6 +342,7 @@ tile_set = SubResource("TileSet_3uvdj")
 format = 2
 layer_1/name = "Vines"
 layer_1/tile_data = PackedInt32Array()
+script = ExtResource("11_ed6eg")
 
 [node name="Player" parent="." instance=ExtResource("10_mtodc")]
 

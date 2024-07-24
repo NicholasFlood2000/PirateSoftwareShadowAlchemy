@@ -51,7 +51,7 @@ func _physics_process(delta):
 	coyote_timer -= 1 * delta
 	jump_buffer_timer -= 1 * delta
 	
-	print(coyote_timer, jump_buffer_timer)
+	#print(coyote_timer, jump_buffer_timer)
 	
 	match(current_state):
 		states.IDLE:
@@ -88,7 +88,7 @@ func _physics_process(delta):
 				#else:
 			animation_tree_statemachine.travel("walk")
 			
-			print(last_direction, $sprite.scale.x)
+			#print(last_direction, $sprite.scale.x)
 			#if $sprite.scale.x == 1 and input_direction.x < 0 and velocity.x != 0 or $sprite.scale.x == -1 and input_direction.x > 0  and velocity.x != 0:
 				#animation_tree_statemachine.travel("turn_around")
 				#$sprite.scale.x = 1 if input_direction.x > 0 else -1
