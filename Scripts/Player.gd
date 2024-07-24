@@ -4,15 +4,16 @@ enum states {IDLE, WALKING, JUMP, FALLING, CLIMBING, JUMPED_FROM_CLIMBING}
 enum  transformations {NORMAL, MOLE, FISH, BIRD}
 
 #const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -500.0 #Default -500
 
 
 @export var gravity = 1000
 @export var jump_gravity = 900
 @export var movement_speed = 500
+@export var climbing_speed = 250
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
-@export var jump_velocity = 600.0 #Default 600.0
+@export var jump_velocity = 600.0 #Default 600.0 4 - 4.5 blocks
 
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5
@@ -147,13 +148,13 @@ func _physics_process(delta):
 			
 		
 		states.CLIMBING:
-			velocity = velocity.lerp(input_direction * (movement_speed / 2), acceleration * delta)
+			velocity = velocity.lerp(input_direction * (climbing_speed), acceleration * delta)
 			
 			if Input.is_action_just_pressed("Jump"):
 				velocity.y = -jump_velocity
 				current_state = states.JUMPED_FROM_CLIMBING
 			
-			velocity.y += 850 * delta
+			velocity.y += 850 * delta / (gravity*5)
 			
 			if not detect_vine():
 				current_state = states.IDLE
