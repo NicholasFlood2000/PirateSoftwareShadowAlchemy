@@ -27,6 +27,7 @@ const JUMP_VELOCITY = -500.0 #Default -500
 
 
 var current_state :states = states.IDLE
+var current_transform :transformations = transformations.NORMAL
 
 var last_direction :int = 0
 var hanging_vine = null
@@ -44,6 +45,7 @@ func _physics_process(delta):
 	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
 	
 	if Input.is_action_just_pressed("Jump"):
+		print(current_transform)
 		#coyote_timer = coyote_set_time
 		jump_buffer_timer = jump_buffer_set_time
 	
@@ -51,120 +53,121 @@ func _physics_process(delta):
 	jump_buffer_timer -= 1 * delta
 	
 	#print(coyote_timer, jump_buffer_timer)
-	
-	match(current_state):
-		states.IDLE:
-			animation_tree_statemachine.travel("idle")
-			#$AnimationPlayer.play("idle")
+	match(current_transform):
+		transformations.NORMAL:
+			match(current_state):
+				states.IDLE:
+					animation_tree_statemachine.travel("idle")
+					#$AnimationPlayer.play("idle")
+					
+					velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+					
+					if input_direction.x != 0:
+						current_state = states.WALKING
+					
+					check_jump()
+					check_whether_player_is_on_floor()
 			
-			velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
+				states.WALKING:
+					
+					#if velocity.x > 0 and input_direction.x < 0:
+						#animation_tree_statemachine.travel("turn_around")
+					#elif velocity.x < 0 and input_direction.x > 0:
+						#animation_tree_statemachine.travel("turn_around")
+					
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					
+					if input_direction.x == 0:
+						current_state = states.IDLE
+					#elif input_direction:
+						#last_direction = $sprite.scale.x
+					else:
+						$sprite.scale.x = sign(input_direction.x)
+						#if $sprite.scale.x >= last_direction or $sprite.scale.x <= last_direction:
+							#animation_tree_statemachine.travel("turn_around")
+						#else:
+					animation_tree_statemachine.travel("walk")
+					
+					#print(last_direction, $sprite.scale.x)
+					#if $sprite.scale.x == 1 and input_direction.x < 0 and velocity.x != 0 or $sprite.scale.x == -1 and input_direction.x > 0  and velocity.x != 0:
+						#animation_tree_statemachine.travel("turn_around")
+						#$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					#else:
+						#animation_tree_statemachine.travel("walk")
+					
+					check_jump()
+					check_whether_player_is_on_floor()
+					#check_whether_player_is_on_floor()
+					
+				states.JUMP:
+					animation_tree_statemachine.travel("jump")
+					velocity.y += jump_gravity * delta
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					
+					if velocity.y < 0:
+						current_state = states.FALLING
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					
+					if detect_vine():
+						current_state = states.CLIMBING
+						velocity.y = 0
+					if detect_water():
+						current_transform = transformations.FISH
+				states.JUMPED_FROM_CLIMBING:
+					animation_tree_statemachine.travel("jump")
+					velocity.y += jump_gravity * delta
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					if velocity.y > 0:
+						current_state = states.FALLING
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					
+				states.FALLING:
+					animation_tree_statemachine.travel("fall")
+					velocity.y += gravity * delta
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					
+					check_jump()
+					
+					if detect_vine():
+						#print("Fuck!!")
+						#current_state = states.CLIMBING
+						#velocity.y = 0 
+						current_state = states.CLIMBING
+					else:
+						check_whether_player_is_on_floor()
+					if detect_water():
+						current_transform = transformations.FISH
+				
+				states.CLIMBING:
+					velocity = velocity.lerp(input_direction * (climbing_speed), acceleration * delta)
 			
-			if input_direction.x != 0:
-				current_state = states.WALKING
-			
-			check_jump()
-			check_whether_player_is_on_floor()
-		
-		states.WALKING:
-			
-			#if velocity.x > 0 and input_direction.x < 0:
-				#animation_tree_statemachine.travel("turn_around")
-			#elif velocity.x < 0 and input_direction.x > 0:
-				#animation_tree_statemachine.travel("turn_around")
-			
-			
-			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
-			
-			
-			if input_direction.x == 0:
-				current_state = states.IDLE
-			#elif input_direction:
-				#last_direction = $sprite.scale.x
-			else:
-				$sprite.scale.x = sign(input_direction.x)
-				#if $sprite.scale.x >= last_direction or $sprite.scale.x <= last_direction:
-					#animation_tree_statemachine.travel("turn_around")
-				#else:
-			animation_tree_statemachine.travel("walk")
-			
-			#print(last_direction, $sprite.scale.x)
-			#if $sprite.scale.x == 1 and input_direction.x < 0 and velocity.x != 0 or $sprite.scale.x == -1 and input_direction.x > 0  and velocity.x != 0:
-				#animation_tree_statemachine.travel("turn_around")
-				#$sprite.scale.x = 1 if input_direction.x > 0 else -1
-			#else:
-				#animation_tree_statemachine.travel("walk")
-			
-			check_jump()
-			check_whether_player_is_on_floor()
-			#check_whether_player_is_on_floor()
-			
-		states.JUMP:
-			animation_tree_statemachine.travel("jump")
-			velocity.y += jump_gravity * delta
-			
-			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
-			
-			
-			if velocity.y < 0:
-				current_state = states.FALLING
-			
-			if input_direction.x != 0:
-				$sprite.scale.x = 1 if input_direction.x > 0 else -1
-			
-			if detect_vine():
-				current_state = states.CLIMBING
-				velocity.y = 0
-		states.JUMPED_FROM_CLIMBING:
-			animation_tree_statemachine.travel("jump")
-			velocity.y += jump_gravity * delta
-			
-			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
-			
-			if velocity.y > 0:
-				current_state = states.FALLING
-			
-			if input_direction.x != 0:
-				$sprite.scale.x = 1 if input_direction.x > 0 else -1
-			
-		states.FALLING:
-			animation_tree_statemachine.travel("fall")
-			velocity.y += gravity * delta
-			
-			velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
-			
-			if input_direction.x != 0:
-				$sprite.scale.x = 1 if input_direction.x > 0 else -1
-			
-			check_jump()
-			
-			if detect_vine():
-				#print("Fuck!!")
-				#current_state = states.CLIMBING
-				#velocity.y = 0 
-				current_state = states.CLIMBING
-			else:
-				check_whether_player_is_on_floor()
-			
-		
-		states.CLIMBING:
-			velocity = velocity.lerp(input_direction * (climbing_speed), acceleration * delta)
-			
-			if Input.is_action_just_pressed("Jump"):
-				velocity.y = -jump_velocity
-				current_state = states.JUMPED_FROM_CLIMBING
-			
-			velocity.y += 850 * delta / (gravity*5)
-			
-			if not detect_vine():
-				current_state = states.IDLE
-			
-			if input_direction.x != 0:
-				$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					if Input.is_action_just_pressed("Jump"):
+						velocity.y = -jump_velocity
+						current_state = states.JUMPED_FROM_CLIMBING
+					
+					velocity.y += 850 * delta / (gravity*5)
+					
+					if not detect_vine():
+						current_state = states.IDLE
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
 	
 #	This is there for testing, please change/remove when writting a proper system for it
-#	We can make vine climbing by replacing with a velocity y lerp and adding
-#	a climb action with w.
-	
 
 	move_and_slide()
 	
@@ -194,20 +197,22 @@ func detect_vine() -> bool:
 	return false
 
 func detect_water() -> bool:
+	if(not get_collision_mask_value(8)):
+		return false
 	
 	var space_state = get_world_2d().direct_space_state
 	var shape_queary = PhysicsPointQueryParameters2D.new()
 	
 	shape_queary.position = water_detection_marker.global_position
 	shape_queary.collide_with_areas = true;
-	shape_queary.collide_with_bodies = false;
+	shape_queary.collide_with_bodies = true;
 	shape_queary.collision_mask = 1 << 10
 	
 	var result := space_state.intersect_point(shape_queary, 1)
 	
 	if result:
 		return true
-	
+	print("Result Error?")
 	return false
 
 func die() -> void:
@@ -249,5 +254,7 @@ func FishBoost():
 func _BackgroundChanged(NewBackground):
 	if(NewBackground == "Earth"):
 		set_collision_mask_value(7, true)
+		set_collision_mask_value(8, false)
 	else:
 		set_collision_mask_value(7, false)
+		set_collision_mask_value(8, true)
