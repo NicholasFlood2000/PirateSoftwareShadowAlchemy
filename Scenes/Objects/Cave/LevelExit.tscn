@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkqr34qde8aal"]
+
+[ext_resource type="Script" path="res://Scripts/LevelExit.gd" id="1_a1pqc"]
+[ext_resource type="Texture2D" uid="uid://c52akw36p5qln" path="res://Assets/Graphics/Cave entrance back.png" id="1_gyvtc"]
+[ext_resource type="Texture2D" uid="uid://ec85n8mkv8i2" path="res://Assets/Graphics/Cave entrance front.png" id="2_ilgef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q07w"]
+size = Vector2(20, 231)
+
+[node name="LevelExit" type="Node2D"]
+script = ExtResource("1_a1pqc")
+
+[node name="CaveEntranceBack" type="Sprite2D" parent="."]
+texture = ExtResource("1_gyvtc")
+
+[node name="CaveEntranceFront" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("2_ilgef")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(31, 13)
+shape = SubResource("RectangleShape2D_7q07w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
