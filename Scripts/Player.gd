@@ -198,7 +198,7 @@ func detect_water() -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var shape_queary = PhysicsPointQueryParameters2D.new()
 	
-	shape_queary.position = vine_detection_marker.global_position
+	shape_queary.position = water_detection_marker.global_position
 	shape_queary.collide_with_areas = true;
 	shape_queary.collide_with_bodies = false;
 	shape_queary.collision_mask = 1 << 10

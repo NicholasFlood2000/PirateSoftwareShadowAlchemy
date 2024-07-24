@@ -13,6 +13,8 @@ func _BackgroundChanged(NewBackground):
 	if(NewBackground == "Earth"):
 		set_layer_modulate(1, Colors.EarthColor)
 		set_layer_modulate(2, Colors.Invisble)
+		set_layer_modulate(3, Colors.Invisble)
 	else:
 		set_layer_modulate(1, Colors.ShadowColor)
-		set_layer_modulate(2, Colors.WaterColor)
+		set_layer_modulate(2, Colors.NetColor)
+		set_layer_modulate(3, Colors.WaterColor)

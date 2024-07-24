@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=23 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
 [ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
+[ext_resource type="Texture2D" uid="uid://brt6q3jqkaf0v" path="res://Assets/Graphics/water tile top.png" id="10_82p8n"]
 [ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Scenes/player.tscn" id="10_mtodc"]
+[ext_resource type="Texture2D" uid="uid://cp1avytfnser5" path="res://Assets/Graphics/water tile.png" id="11_d80a0"]
 [ext_resource type="Script" path="res://Scripts/TileMapModulate.gd" id="11_ed6eg"]
+[ext_resource type="Texture2D" uid="uid://bp8mrk32w3pg5" path="res://Assets/Graphics/Net Pattern.png" id="13_edgyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbhf"]
 texture = ExtResource("9_xxdnw")
@@ -24,6 +27,24 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-71, -71, -70, 68, 73, 77, 74, -69)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqdab"]
+texture = ExtResource("10_82p8n")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hwfp"]
+texture = ExtResource("11_d80a0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhak0"]
 texture = ExtResource("1_yvmax")
@@ -260,6 +281,30 @@ texture_region_size = Vector2i(64, 64)
 14:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 14:2/0/physics_layer_1/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35jqu"]
+texture = ExtResource("13_edgyr")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_1/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_3uvdj"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
@@ -270,6 +315,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_jhak0")
 sources/0 = SubResource("TileSetAtlasSource_wwbhf")
+sources/1 = SubResource("TileSetAtlasSource_jqdab")
+sources/2 = SubResource("TileSetAtlasSource_0hwfp")
+sources/4 = SubResource("TileSetAtlasSource_35jqu")
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_kebkd")
