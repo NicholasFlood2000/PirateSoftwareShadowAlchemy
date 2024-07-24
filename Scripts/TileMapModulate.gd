@@ -10,11 +10,8 @@ func _process(delta):
 	pass
 
 func _BackgroundChanged(NewBackground):
-	print("New Background")
 	if(NewBackground == "Earth"):
-		print("Background is Earth")
 		set_layer_modulate(1, Colors.EarthColor)
 	else:
-		print("Background is Water")
 		set_layer_modulate(1, Colors.ShadowColor)
 	pass

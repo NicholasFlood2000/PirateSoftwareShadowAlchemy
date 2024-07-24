@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://drxc735wfbopw" path="res://Scenes/Objects/vine/vine2.tscn" id="12_14std"]
 [ext_resource type="Texture2D" uid="uid://cp7oeraivmqcr" path="res://Assets/Graphics/Grass2.png" id="13_xq71m"]
 [ext_resource type="Texture2D" uid="uid://cnu1jr7e7i2w7" path="res://Assets/Graphics/Grass.png" id="14_84jnx"]
+[ext_resource type="PackedScene" uid="uid://ceqbnkk7js2m" path="res://Scenes/Objects/PowerFlowers/BigEarthPowerFlower.tscn" id="15_2tx6e"]
 [ext_resource type="Texture2D" uid="uid://crk208wvvtm2q" path="res://Assets/Graphics/Rocks2.png" id="15_l4me5"]
 [ext_resource type="Texture2D" uid="uid://tjcc4lf5fvkj" path="res://Assets/Graphics/Rocks3.png" id="16_02n3f"]
-[ext_resource type="Texture2D" uid="uid://o6oe86ar42pk" path="res://Assets/Graphics/Flower for power.png" id="17_bvyj7"]
-[ext_resource type="Texture2D" uid="uid://dduew2limhp4o" path="res://Assets/Graphics/Flower for power 64.png" id="18_mcpb2"]
-[ext_resource type="Texture2D" uid="uid://cuv24sluby1g2" path="res://Assets/Graphics/Flower for power 64 water.png" id="19_gy2lm"]
+[ext_resource type="PackedScene" uid="uid://clanr00r131n7" path="res://Scenes/Objects/PowerFlowers/EarthPowerFlower.tscn" id="16_qdpbp"]
+[ext_resource type="PackedScene" uid="uid://dxs8oe7i6o6lr" path="res://Scenes/Objects/PowerFlowers/WaterPowerFlower.tscn" id="17_15tqw"]
 
 [node name="BaseLevel" instance=ExtResource("1_wranl")]
 
@@ -110,17 +110,14 @@ texture = ExtResource("16_02n3f")
 
 [node name="FlowerForPower" type="Node" parent="Objects" index="3"]
 
-[node name="BigFlowerForPowerEarth" type="Sprite2D" parent="Objects/FlowerForPower" index="0"]
+[node name="BigFlowerForPowerEarth" parent="Objects/FlowerForPower" index="0" instance=ExtResource("15_2tx6e")]
 position = Vector2(3268, 512)
-texture = ExtResource("17_bvyj7")
 
-[node name="FlowerForPower64Earth" type="Sprite2D" parent="Objects/FlowerForPower" index="1"]
+[node name="FlowerForPower64Earth" parent="Objects/FlowerForPower" index="1" instance=ExtResource("16_qdpbp")]
 position = Vector2(3092, 547)
-texture = ExtResource("18_mcpb2")
 
-[node name="FlowerForPower64Water" type="Sprite2D" parent="Objects/FlowerForPower" index="2"]
+[node name="FlowerForPower64Water" parent="Objects/FlowerForPower" index="2" instance=ExtResource("17_15tqw")]
 position = Vector2(2933, 545)
-texture = ExtResource("19_gy2lm")
 
 [node name="LevelExit" parent="." index="6" instance=ExtResource("11_87d22")]
 position = Vector2(3392, 448)
