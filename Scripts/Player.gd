@@ -39,7 +39,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	
 	var input_direction :Vector2 = Vector2.ZERO
 	input_direction.x = Input.get_action_strength("MoveRight") - Input.get_action_strength("MoveLeft")#, "MoveUp", "MoveDown")
 	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
@@ -239,7 +238,12 @@ func check_whether_player_is_on_floor() -> void:
 	
 	
 
-
+#Function for Implementing Fish Boost
+func FishBoost():
+	print("BOOST")
+	await get_tree().create_timer(1).timeout
+	print("Boost Done")
+	pass
 
 
 func _BackgroundChanged(NewBackground):
