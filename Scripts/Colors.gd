@@ -1,7 +1,7 @@
 extends Node
 
 var ShadowColor: Color = Color.hex(0x1a1a1aFF)
-var EarthColor: Color = Color.hex(0x00FF00FF)
+var EarthColor: Color = Color.hex(0x114537FF)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
