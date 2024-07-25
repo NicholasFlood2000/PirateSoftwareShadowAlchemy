@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://5eyjl134dorw"]
+[gd_scene load_steps=59 format=3 uid="uid://5eyjl134dorw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wk67q"]
 [ext_resource type="Texture2D" uid="uid://bsd72vhvg47n2" path="res://Assets/Graphics/playerchar.png" id="2_2ht03"]
@@ -1056,11 +1056,23 @@ animation = &"climbing_idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k5if8"]
 animation = &"fall"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sdaq3"]
+animation = &"fish_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lk8vl"]
+animation = &"fish_swim"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a1tvl"]
 animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akiyd"]
 animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jl38p"]
+animation = &"mole_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5q87b"]
+animation = &"mole_moving"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_td5w3"]
 animation = &"turn_around"
@@ -1098,6 +1110,28 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxilq"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_igewk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8v83q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3778c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qr7sl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2i533"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06d4t"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n8oyp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2y2c7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c2m4v"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ie6st"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_61lam"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o2k5k"]
 states/End/position = Vector2(1193.33, -53.6214)
 states/Start/position = Vector2(82.2222, 237.778)
@@ -1107,16 +1141,24 @@ states/climbing_idle/node = SubResource("AnimationNodeAnimation_l3td7")
 states/climbing_idle/position = Vector2(714.889, -53.5555)
 states/fall/node = SubResource("AnimationNodeAnimation_k5if8")
 states/fall/position = Vector2(606.37, 250.889)
+states/fish_idle/node = SubResource("AnimationNodeAnimation_sdaq3")
+states/fish_idle/position = Vector2(1172.56, 522.222)
+states/fish_swim/node = SubResource("AnimationNodeAnimation_lk8vl")
+states/fish_swim/position = Vector2(1370.44, 515.444)
 states/idle/node = SubResource("AnimationNodeAnimation_a1tvl")
 states/idle/position = Vector2(211.556, 237.435)
 states/jump/node = SubResource("AnimationNodeAnimation_akiyd")
 states/jump/position = Vector2(606, 64.4535)
+states/mole_idle/node = SubResource("AnimationNodeAnimation_jl38p")
+states/mole_idle/position = Vector2(306.222, 567.667)
+states/mole_moving/node = SubResource("AnimationNodeAnimation_5q87b")
+states/mole_moving/position = Vector2(552.889, 564.333)
 states/turn_around/node = SubResource("AnimationNodeAnimation_td5w3")
 states/turn_around/position = Vector2(-38.4445, 90.8763)
 states/walk/node = SubResource("AnimationNodeAnimation_onw8g")
 states/walk/position = Vector2(211.062, 58.6526)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2ifar"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mmnwd"), "turn_around", "idle", SubResource("AnimationNodeStateMachineTransition_1wrr8"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_4y1lv"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_x6e40"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_rkh0u"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_q4oie"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_yhbwj"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_ok8vy"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_y0ki5"), "jump", "climbing_idle", SubResource("AnimationNodeStateMachineTransition_irpu4"), "climbing_idle", "climbing", SubResource("AnimationNodeStateMachineTransition_uvpsc"), "climbing", "End", SubResource("AnimationNodeStateMachineTransition_g14lm"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fxilq")]
-graph_offset = Vector2(-176, -161)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2ifar"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mmnwd"), "turn_around", "idle", SubResource("AnimationNodeStateMachineTransition_1wrr8"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_4y1lv"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_x6e40"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_rkh0u"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_q4oie"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_yhbwj"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_ok8vy"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_y0ki5"), "jump", "climbing_idle", SubResource("AnimationNodeStateMachineTransition_irpu4"), "climbing_idle", "climbing", SubResource("AnimationNodeStateMachineTransition_uvpsc"), "climbing", "End", SubResource("AnimationNodeStateMachineTransition_g14lm"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fxilq"), "idle", "mole_idle", SubResource("AnimationNodeStateMachineTransition_igewk"), "mole_idle", "mole_moving", SubResource("AnimationNodeStateMachineTransition_8v83q"), "mole_idle", "idle", SubResource("AnimationNodeStateMachineTransition_3778c"), "idle", "fish_idle", SubResource("AnimationNodeStateMachineTransition_qr7sl"), "fall", "fish_idle", SubResource("AnimationNodeStateMachineTransition_2i533"), "jump", "fish_idle", SubResource("AnimationNodeStateMachineTransition_06d4t"), "fish_idle", "fall", SubResource("AnimationNodeStateMachineTransition_n8oyp"), "fish_idle", "jump", SubResource("AnimationNodeStateMachineTransition_2y2c7"), "mole_moving", "mole_idle", SubResource("AnimationNodeStateMachineTransition_c2m4v"), "fish_idle", "fish_swim", SubResource("AnimationNodeStateMachineTransition_ie6st"), "fish_swim", "fish_idle", SubResource("AnimationNodeStateMachineTransition_61lam")]
+graph_offset = Vector2(-353, 35)
 
 [node name="Player" type="CharacterBody2D"]
 editor_description = "Default Movement Speed 350, Acceleration 7, Jump Velocity 790, Climbing Speed 175
@@ -1178,9 +1220,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3y805")
-}
 tree_root = SubResource("AnimationNodeStateMachine_o2k5k")
 anim_player = NodePath("../AnimationPlayer")
 
