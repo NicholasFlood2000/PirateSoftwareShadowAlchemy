@@ -180,8 +180,8 @@ func _physics_process(delta):
 					#Makes the fish speed up when Jump is pressed.
 					#Still needs to be implemented
 					if Input.is_action_pressed("Jump"):
-						velocity.x *= 1.1
-						velocity.y *= 1.1
+						velocity.x *= swim_boost
+						velocity.y *= swim_boost
 						pass
 					
 					if input_direction.x != 0:
