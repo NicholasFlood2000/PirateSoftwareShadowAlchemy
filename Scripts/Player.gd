@@ -31,6 +31,10 @@ const JUMP_VELOCITY = -500.0 #Default -500
 
 @onready var animation_tree_statemachine = animation_tree["parameters/playback"]
 
+@onready var NormalSprite = $sprite/player_sprite
+@onready var FishSprite = $sprite/fish_sprite
+@onready var MoleSprite = $sprite/mole_sprite
+
 
 var current_state :states = states.IDLE
 var current_transform :transformations = transformations.NORMAL
@@ -127,8 +131,11 @@ func _physics_process(delta):
 						current_state = states.CLIMBING
 						velocity.y = 0
 					if detect_water():
+						print("Detecting Water")
 						current_transform = transformations.FISH
 						current_state = states.SWIMMING
+						
+					
 				states.JUMPED_FROM_CLIMBING:
 					animation_tree_statemachine.travel("jump")
 					velocity.y += jump_gravity * delta
@@ -162,6 +169,7 @@ func _physics_process(delta):
 					if detect_water():
 						current_transform = transformations.FISH
 						current_state = states.SWIMMING
+						
 				
 				states.CLIMBING:
 					velocity = velocity.lerp(input_direction * (climbing_speed), acceleration * delta)
@@ -180,6 +188,8 @@ func _physics_process(delta):
 		transformations.FISH:
 			match(current_state):
 				states.SWIMMING:
+					NormalSprite.visible = false
+					FishSprite.visible = true
 					if detect_net():
 						velocity.x *= net_slowdown
 						velocity.y *= net_slowdown
@@ -209,6 +219,8 @@ func _physics_process(delta):
 					if not detect_water():
 						current_state = states.IDLE
 						current_transform = transformations.NORMAL
+						NormalSprite.visible = true
+						FishSprite.visible = false
 						
 #	This is there for testing, please change/remove when writting a proper system for it
 
@@ -303,7 +315,7 @@ func check_whether_player_is_on_floor() -> void:
 #Function for Implementing Fish Boost
 func net_exit():
 	exited_net = true
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.05).timeout
 	exited_net = false
 	pass
 
