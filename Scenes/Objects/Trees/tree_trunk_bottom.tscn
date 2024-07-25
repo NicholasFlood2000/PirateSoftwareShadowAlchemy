@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdqwkj16afhwm"]
+
+[ext_resource type="Texture2D" uid="uid://opuck81b4cf7" path="res://Assets/Graphics/Tree trunk bottom.png" id="1_sv1vu"]
+[ext_resource type="Script" path="res://Scripts/TreeModulation.gd" id="2_aocjy"]
+
+[node name="TreeTrunkBottom" type="Sprite2D"]
+position = Vector2(499, 772)
+texture = ExtResource("1_sv1vu")
+script = ExtResource("2_aocjy")

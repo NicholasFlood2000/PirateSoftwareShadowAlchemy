@@ -16,5 +16,5 @@ func _BackgroundChanged(NewBackground):
 		set_layer_modulate(3, Colors.Invisble)
 	else:
 		set_layer_modulate(1, Colors.ShadowColor)
-		set_layer_modulate(2, Colors.NetColor)
-		set_layer_modulate(3, Colors.WaterColor)
+		set_layer_modulate(2, Colors.WaterColor)
+		set_layer_modulate(3, Colors.NetColor)
