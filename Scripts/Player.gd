@@ -13,6 +13,8 @@ const JUMP_VELOCITY = -500.0 #Default -500
 @export var climbing_speed = 250
 @export var swimming_speed = 250
 @export var swim_boost = 1.1
+@export var net_slowdown = .7
+@export var net_exit_boost = 7.0
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
 @export var jump_velocity = 600.0 #Default 600.0 4 - 4.5 blocks
@@ -23,6 +25,7 @@ const JUMP_VELOCITY = -500.0 #Default -500
 
 @onready var vine_detection_marker = $VineDetection
 @onready var water_detection_marker = $WaterDetection
+@onready var net_detection_marker = $NetDetection
 
 @onready var animation_tree = $AnimationTree
 
@@ -37,6 +40,10 @@ var hanging_vine = null
 
 var coyote_timer :float = 0.0
 var jump_buffer_timer :float = 0.0
+
+var in_net: bool = false
+var exited_net: bool = false
+var current_acceleration = acceleration
 
 func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
@@ -173,6 +180,15 @@ func _physics_process(delta):
 		transformations.FISH:
 			match(current_state):
 				states.SWIMMING:
+					if detect_net():
+						velocity.x *= net_slowdown
+						velocity.y *= net_slowdown
+						in_net = true
+					elif(in_net):
+						in_net = false
+						net_exit()
+						pass
+						
 					velocity = velocity.lerp(input_direction * (swimming_speed), acceleration * delta)
 					
 					velocity.y += 850 * delta / (gravity*5)
@@ -182,7 +198,10 @@ func _physics_process(delta):
 					if Input.is_action_pressed("Jump"):
 						velocity.x *= swim_boost
 						velocity.y *= swim_boost
-						pass
+					
+					if (exited_net):
+						velocity.x *= net_exit_boost
+						velocity.y *= net_exit_boost
 					
 					if input_direction.x != 0:
 						$sprite.scale.x = 1 if input_direction.x > 0 else -1
@@ -191,8 +210,6 @@ func _physics_process(delta):
 						current_state = states.IDLE
 						current_transform = transformations.NORMAL
 						
-					#Set up a detect_net code to check for nets in the water and if there is a net slow the player down.
-					pass
 #	This is there for testing, please change/remove when writting a proper system for it
 
 	move_and_slide()
@@ -240,6 +257,21 @@ func detect_water() -> bool:
 		return true
 	return false
 
+func detect_net() -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var shape_queary = PhysicsPointQueryParameters2D.new()
+	
+	shape_queary.position = net_detection_marker.global_position
+	shape_queary.collide_with_areas = true;
+	shape_queary.collide_with_bodies = true;
+	shape_queary.collision_mask = 1 << 11
+	
+	var result := space_state.intersect_point(shape_queary, 1)
+	
+	if result:
+		return true
+	return false
+
 func die() -> void:
 	get_tree().reload_current_scene()
 
@@ -269,7 +301,10 @@ func check_whether_player_is_on_floor() -> void:
 	
 
 #Function for Implementing Fish Boost
-func FishBoost():
+func net_exit():
+	exited_net = true
+	await get_tree().create_timer(.1).timeout
+	exited_net = false
 	pass
 
 

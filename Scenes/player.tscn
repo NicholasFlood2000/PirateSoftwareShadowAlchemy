@@ -573,7 +573,9 @@ script = ExtResource("1_wk67q")
 gravity = 1500
 jump_gravity = 1600
 climbing_speed = 300
-swim_boost = 1.05
+swim_boost = 1.075
+net_slowdown = 0.85
+net_exit_boost = 1.5
 acceleration = 3.0
 jump_velocity = 650.0
 coyote_set_time = 0.25
@@ -605,3 +607,5 @@ anim_player = NodePath("../AnimationPlayer")
 position = Vector2(0, 8)
 
 [node name="WaterDetection" type="Marker2D" parent="."]
+
+[node name="NetDetection" type="Marker2D" parent="."]

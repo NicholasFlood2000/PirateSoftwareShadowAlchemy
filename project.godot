@@ -82,6 +82,7 @@ Interact={
 2d_physics/layer_9="Air_Collision"
 2d_physics/layer_10="Vine"
 2d_physics/layer_11="Water"
+2d_physics/layer_12="Net"
 
 [rendering]
 
