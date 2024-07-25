@@ -16,9 +16,12 @@ grow_vertical = 2
 script = ExtResource("1_2bhc8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
 layout_mode = 0
-offset_right = 379.0
-offset_bottom = 499.0
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 413.0
+offset_bottom = 679.0
 color = Color(0.027451, 0.0784314, 0.262745, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
@@ -46,16 +49,26 @@ script = ExtResource("3_n3701")
 layout_mode = 2
 text = " "
 
-[node name="ExitButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+[node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+z_index = 1
 layout_mode = 2
-text = "Exit"
-script = null
+
+[node name="Menu" parent="VBoxContainer/SettingsButton" index="0"]
+visible = true
+offset_left = 355.0
+offset_top = -275.0
+offset_right = 773.0
+offset_bottom = 168.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = " "
 
-[node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+[node name="ExitButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
 layout_mode = 2
+text = "Exit"
+script = null
 
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+
+[editable path="VBoxContainer/SettingsButton"]

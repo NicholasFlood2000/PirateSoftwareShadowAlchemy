@@ -26,7 +26,7 @@ layout_mode = 0
 offset_left = -12.0
 offset_top = -12.0
 offset_right = 415.0
-offset_bottom = 469.0
+offset_bottom = 627.0
 color = Color(0.164706, 0.164706, 0.164706, 1)
 
 [node name="TitleLabel" type="Label" parent="Menu"]
@@ -43,6 +43,11 @@ offset_left = 74.0
 offset_top = 69.0
 offset_right = 342.0
 offset_bottom = 414.0
+
+[node name="Spacer3" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 2
+text = " "
 
 [node name="VolumeHeader" type="Label" parent="Menu/VBoxContainer"]
 layout_mode = 2
@@ -77,6 +82,24 @@ text = "Sound Effects Volume"
 layout_mode = 2
 min_value = -80.0
 max_value = 24.0
+
+[node name="Spacer" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 2
+text = " "
+
+[node name="BlurHeader" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Blur"
+
+[node name="BlurSlider" type="HSlider" parent="Menu/VBoxContainer"]
+layout_mode = 2
+max_value = 5.0
+
+[node name="Spacer2" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 2
+text = " "
 
 [node name="ExitButton" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2

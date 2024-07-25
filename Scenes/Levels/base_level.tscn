@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=25 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bvadp7txaxst6" path="res://Assets/Graphics/WaterParallax2.png" id="5_775rm"]
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
+[ext_resource type="PackedScene" uid="uid://qxjygcv0r2uf" path="res://Scenes/PauseMenu.tscn" id="9_8aui6"]
+[ext_resource type="Script" path="res://Scripts/BlurSlider.gd" id="9_iy67j"]
 [ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
 [ext_resource type="Texture2D" uid="uid://brt6q3jqkaf0v" path="res://Assets/Graphics/water tile top.png" id="10_82p8n"]
 [ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Scenes/player.tscn" id="10_mtodc"]
@@ -534,6 +536,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_iy67j")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3uvdj")
@@ -552,3 +555,14 @@ script = ExtResource("11_ed6eg")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 script = ExtResource("2_xvrj2")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("9_8aui6")]
+visible = false
+top_level = true
+z_index = 1000
+offset_left = 433.0
+offset_top = 34.0
+offset_right = 433.12
+offset_bottom = 34.04
