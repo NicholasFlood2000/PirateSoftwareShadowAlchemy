@@ -188,8 +188,12 @@ func _physics_process(delta):
 		transformations.FISH:
 			match(current_state):
 				states.SWIMMING:
+					
+					
 					NormalSprite.visible = false
 					FishSprite.visible = true
+					animation_tree_statemachine.travel("fish_swim")
+					
 					if detect_net():
 						velocity.x *= net_slowdown
 						velocity.y *= net_slowdown
@@ -199,6 +203,9 @@ func _physics_process(delta):
 						net_exit()
 						pass
 						
+					if (input_direction == Vector2.ZERO):
+						current_state = states.IDLE
+					
 					velocity = velocity.lerp(input_direction * (swimming_speed), acceleration * delta)
 					
 					velocity.y += 850 * delta / (gravity*5)
@@ -222,6 +229,11 @@ func _physics_process(delta):
 						NormalSprite.visible = true
 						FishSprite.visible = false
 						
+				states.IDLE:
+					velocity = lerp(velocity, Vector2.ZERO, deceleration * delta)
+					animation_tree_statemachine.travel("fish_idle")
+					if (input_direction != Vector2.ZERO):
+						current_state = states.SWIMMING
 #	This is there for testing, please change/remove when writting a proper system for it
 
 	move_and_slide()
