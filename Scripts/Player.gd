@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum states {IDLE, WALKING, JUMP, FALLING, CLIMBING, JUMPED_FROM_CLIMBING}
+enum states {IDLE, WALKING, JUMP, FALLING, CLIMBING, JUMPED_FROM_CLIMBING, SWIMMING}
 enum  transformations {NORMAL, MOLE, FISH, BIRD}
 
 #const SPEED = 400.0
@@ -11,9 +11,12 @@ const JUMP_VELOCITY = -500.0 #Default -500
 @export var jump_gravity = 900
 @export var movement_speed = 500
 @export var climbing_speed = 250
+@export var swimming_speed = 250
+@export var swim_boost = 1.1
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
 @export var jump_velocity = 600.0 #Default 600.0 4 - 4.5 blocks
+
 
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5
@@ -45,7 +48,6 @@ func _physics_process(delta):
 	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
 	
 	if Input.is_action_just_pressed("Jump"):
-		print(current_transform)
 		#coyote_timer = coyote_set_time
 		jump_buffer_timer = jump_buffer_set_time
 	
@@ -119,6 +121,7 @@ func _physics_process(delta):
 						velocity.y = 0
 					if detect_water():
 						current_transform = transformations.FISH
+						current_state = states.SWIMMING
 				states.JUMPED_FROM_CLIMBING:
 					animation_tree_statemachine.travel("jump")
 					velocity.y += jump_gravity * delta
@@ -151,6 +154,7 @@ func _physics_process(delta):
 						check_whether_player_is_on_floor()
 					if detect_water():
 						current_transform = transformations.FISH
+						current_state = states.SWIMMING
 				
 				states.CLIMBING:
 					velocity = velocity.lerp(input_direction * (climbing_speed), acceleration * delta)
@@ -166,7 +170,29 @@ func _physics_process(delta):
 					
 					if input_direction.x != 0:
 						$sprite.scale.x = 1 if input_direction.x > 0 else -1
-	
+		transformations.FISH:
+			match(current_state):
+				states.SWIMMING:
+					velocity = velocity.lerp(input_direction * (swimming_speed), acceleration * delta)
+					
+					velocity.y += 850 * delta / (gravity*5)
+					
+					#Makes the fish speed up when Jump is pressed.
+					#Still needs to be implemented
+					if Input.is_action_pressed("Jump"):
+						velocity.x *= 1.1
+						velocity.y *= 1.1
+						pass
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					
+					if not detect_water():
+						current_state = states.IDLE
+						current_transform = transformations.NORMAL
+						
+					#Set up a detect_net code to check for nets in the water and if there is a net slow the player down.
+					pass
 #	This is there for testing, please change/remove when writting a proper system for it
 
 	move_and_slide()
@@ -212,7 +238,6 @@ func detect_water() -> bool:
 	
 	if result:
 		return true
-	print("Result Error?")
 	return false
 
 func die() -> void:
@@ -245,9 +270,6 @@ func check_whether_player_is_on_floor() -> void:
 
 #Function for Implementing Fish Boost
 func FishBoost():
-	print("BOOST")
-	await get_tree().create_timer(1).timeout
-	print("Boost Done")
 	pass
 
 
