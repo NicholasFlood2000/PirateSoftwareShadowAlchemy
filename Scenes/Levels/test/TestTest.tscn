@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://clanr00r131n7" path="res://Scenes/Objects/PowerFlowers/EarthPowerFlower.tscn" id="16_qdpbp"]
 [ext_resource type="PackedScene" uid="uid://dxs8oe7i6o6lr" path="res://Scenes/Objects/PowerFlowers/WaterPowerFlower.tscn" id="17_15tqw"]
 
-[node name="BaseLevel" instance=ExtResource("1_wranl")]
+[node name="BaseLevel2" instance=ExtResource("1_wranl")]
 
 [node name="TileMap" parent="." index="3"]
 layer_0/z_index = 11
