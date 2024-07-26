@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/ScreenTransition.gd" id="1_3xyp3"]
 
 [node name="ScreenTransition" type="CanvasLayer"]
+layer = 100
 script = ExtResource("1_3xyp3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
