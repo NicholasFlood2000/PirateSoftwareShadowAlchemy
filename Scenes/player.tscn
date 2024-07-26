@@ -1,8 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://5eyjl134dorw"]
+[gd_scene load_steps=67 format=3 uid="uid://5eyjl134dorw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wk67q"]
 [ext_resource type="Texture2D" uid="uid://bsd72vhvg47n2" path="res://Assets/Graphics/playerchar.png" id="2_2ht03"]
+[ext_resource type="Texture2D" uid="uid://w2ildufaocrh" path="res://Assets/Graphics/DeathParticleSheet.png" id="2_eo01h"]
 [ext_resource type="Texture2D" uid="uid://dnlljebu8bf6k" path="res://Assets/Graphics/Waterform_body.png" id="3_xq8qj"]
+[ext_resource type="Texture2D" uid="uid://46bbgf1k70km" path="res://Assets/Graphics/TransformationSheet.png" id="3_yr6ch"]
 [ext_resource type="Texture2D" uid="uid://dsnn07imbuk0d" path="res://Assets/Graphics/FinsSheet.png" id="4_8w0o1"]
 [ext_resource type="Texture2D" uid="uid://cj6d5pd13nrxk" path="res://Assets/Graphics/Waterform_fins.png" id="4_a02mj"]
 [ext_resource type="Texture2D" uid="uid://b62qvq4eqtqw0" path="res://Assets/Graphics/Earthform_body.png" id="6_fm8xj"]
@@ -10,6 +12,127 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chcsq"]
 size = Vector2(44, 76)
+
+[sub_resource type="Animation" id="Animation_ond6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rmsgy"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1q1e6"]
+_data = {
+"RESET": SubResource("Animation_ond6v"),
+"start": SubResource("Animation_rmsgy")
+}
+
+[sub_resource type="Animation" id="Animation_pfb0t"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s2j8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afwa1"]
+_data = {
+"RESET": SubResource("Animation_s2j8x"),
+"start": SubResource("Animation_pfb0t")
+}
 
 [sub_resource type="Animation" id="Animation_0pui7"]
 length = 0.001
@@ -1181,6 +1304,28 @@ coyote_set_time = 0.25
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_chcsq")
 
+[node name="DeathParticle" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_eo01h")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeathParticle"]
+libraries = {
+"": SubResource("AnimationLibrary_1q1e6")
+}
+
+[node name="TransformParticle" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(-15, 10)
+texture = ExtResource("3_yr6ch")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransformParticle"]
+libraries = {
+"": SubResource("AnimationLibrary_afwa1")
+}
+
 [node name="sprite" type="Node2D" parent="."]
 
 [node name="player_sprite" type="Sprite2D" parent="sprite"]
@@ -1220,9 +1365,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3y805")
-}
 tree_root = SubResource("AnimationNodeStateMachine_o2k5k")
 anim_player = NodePath("../AnimationPlayer")
 

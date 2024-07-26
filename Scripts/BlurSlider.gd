@@ -4,7 +4,7 @@ extends ColorRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalSettings.BlurChanged.connect(UpdateBlur)
-	pass # Replace with function body.
+	self.material.set("shader_parameter/lod_value", 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
