@@ -215,10 +215,9 @@ func _physics_process(delta):
 					if Input.is_action_pressed("Jump"):
 						velocity.x *= swim_boost
 						velocity.y *= swim_boost
-					
-					if (exited_net):
-						velocity.x *= net_exit_boost
-						velocity.y *= net_exit_boost
+						if (exited_net):
+							velocity.x *= net_exit_boost
+							velocity.y *= net_exit_boost
 					
 					if input_direction.x != 0:
 						$sprite.scale.x = 1 if input_direction.x > 0 else -1
