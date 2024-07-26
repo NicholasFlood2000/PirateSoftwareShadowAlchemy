@@ -45,6 +45,7 @@ var hanging_vine = null
 var coyote_timer :float = 0.0
 var jump_buffer_timer :float = 0.0
 
+var is_dead: bool = false
 var in_net: bool = false
 var exited_net: bool = false
 var current_acceleration = acceleration
@@ -52,8 +53,11 @@ var current_acceleration = acceleration
 func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
 
-
 func _physics_process(delta):
+	if not is_dead:
+		player_update(delta)
+
+func player_update(delta):
 	var input_direction :Vector2 = Vector2.ZERO
 	input_direction.x = Input.get_action_strength("MoveRight") - Input.get_action_strength("MoveLeft")#, "MoveUp", "MoveDown")
 	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
@@ -297,7 +301,11 @@ func detect_net() -> bool:
 	return false
 
 func die() -> void:
-	get_tree().reload_current_scene()
+	$DeathParticle/AnimationPlayer.play("start")
+	$sprite.hide()
+	is_dead = true
+	await $DeathParticle/AnimationPlayer.animation_finished
+	get_tree().call_deferred("reload_current_scene")
 
 # reusable state machine code
 # I'm not lazy, I just hate redoing work.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://44xdjx2fu0i7"]
+[gd_scene load_steps=10 format=3 uid="uid://44xdjx2fu0i7"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_x334a"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_tlouy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wbigjlgrc47" path="res://Scenes/Objects/Spike/spike2.tscn" id="6_vtryl"]
 [ext_resource type="PackedScene" uid="uid://dxs8oe7i6o6lr" path="res://Scenes/Objects/PowerFlowers/WaterPowerFlower.tscn" id="7_fbyol"]
 [ext_resource type="PackedScene" uid="uid://dm0ciksd1jpgx" path="res://Scenes/Objects/Spike/Spike.tscn" id="8_eylyf"]
+[ext_resource type="PackedScene" uid="uid://cw0diiawdgh5a" path="res://Scenes/Objects/Seaweed/sea_weed.tscn" id="9_lv7d6"]
 
 [node name="BaseLevel" instance=ExtResource("1_x334a")]
 
@@ -57,3 +58,6 @@ position = Vector2(2653, 758)
 [node name="Spike7" parent="." index="17" instance=ExtResource("6_vtryl")]
 position = Vector2(3065, 571)
 rotation = -1.57079
+
+[node name="SeaWeed" parent="." index="18" instance=ExtResource("9_lv7d6")]
+position = Vector2(1239, 505)
