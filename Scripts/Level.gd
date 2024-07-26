@@ -17,6 +17,10 @@ var LayerNum = -100
 var CurrentBackground = "Water"
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	ScreenTransition.transition_out()
+	
+	
 	CurrentBackground = InitialBackground
 	BackgroundChanged.emit( CurrentBackground )
 
