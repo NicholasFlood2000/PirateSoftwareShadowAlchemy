@@ -293,7 +293,7 @@ func detect_net() -> bool:
 	shape_queary.collide_with_bodies = true;
 	shape_queary.collision_mask = 1 << 11
 	
-	var result := space_state.intersect_point(shape_queary, 1)
+	var result := space_state.intersect_point(shape_queary, 5)
 	
 	if result:
 		return true
@@ -304,6 +304,9 @@ func die() -> void:
 	$sprite.hide()
 	is_dead = true
 	await $DeathParticle/AnimationPlayer.animation_finished
+	ScreenTransition.transition_in()
+	await  get_tree().create_timer(1).timeout
+	
 	get_tree().call_deferred("reload_current_scene")
 
 # reusable state machine code
