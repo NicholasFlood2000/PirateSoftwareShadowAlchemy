@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=28 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -10,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bvadp7txaxst6" path="res://Assets/Graphics/WaterParallax2.png" id="5_775rm"]
 [ext_resource type="Texture2D" uid="uid://bbgk1pel4ovig" path="res://Assets/Graphics/WaterParallax1.png" id="6_62yhw"]
 [ext_resource type="Material" uid="uid://dj51ycwt4n72n" path="res://Shaders/Blur.tres" id="7_b355m"]
+[ext_resource type="Texture2D" uid="uid://dq66v58rpn512" path="res://Assets/Graphics/AirBackground.png" id="8_vnh8c"]
 [ext_resource type="PackedScene" uid="uid://qxjygcv0r2uf" path="res://Scenes/PauseMenu.tscn" id="9_8aui6"]
 [ext_resource type="Script" path="res://Scripts/BlurSlider.gd" id="9_iy67j"]
+[ext_resource type="Texture2D" uid="uid://2v6e6rroylbi" path="res://Assets/Graphics/AirParallax2.png" id="9_jj0os"]
 [ext_resource type="Texture2D" uid="uid://b03l11p54r0bw" path="res://Assets/Graphics/vines 64 white.png" id="9_xxdnw"]
 [ext_resource type="Texture2D" uid="uid://brt6q3jqkaf0v" path="res://Assets/Graphics/water tile top.png" id="10_82p8n"]
+[ext_resource type="Texture2D" uid="uid://cf7u3rmlrn8m" path="res://Assets/Graphics/AirParallax1.png" id="10_hc7pf"]
 [ext_resource type="PackedScene" uid="uid://5eyjl134dorw" path="res://Scenes/player.tscn" id="10_mtodc"]
 [ext_resource type="Texture2D" uid="uid://cp1avytfnser5" path="res://Assets/Graphics/water tile.png" id="11_d80a0"]
 [ext_resource type="Script" path="res://Scripts/TileMapModulate.gd" id="11_ed6eg"]
@@ -505,6 +508,7 @@ centered = false
 [node name="WaterBackground" type="ParallaxBackground" parent="."]
 
 [node name="WaterBackground2" type="Sprite2D" parent="WaterBackground"]
+visible = false
 texture = ExtResource("4_wy01d")
 centered = false
 
@@ -513,6 +517,7 @@ motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WaterBackground/ParallaxLayer2"]
+visible = false
 position = Vector2(0, 119)
 texture = ExtResource("5_775rm")
 centered = false
@@ -522,8 +527,36 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WaterBackground/ParallaxLayer3"]
+visible = false
 position = Vector2(0, 142)
 texture = ExtResource("6_62yhw")
+centered = false
+
+[node name="AirBackground" type="ParallaxBackground" parent="."]
+
+[node name="AirBackground2" type="Sprite2D" parent="AirBackground"]
+visible = false
+texture = ExtResource("8_vnh8c")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="AirBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="AirBackground/ParallaxLayer2"]
+visible = false
+position = Vector2(0, 119)
+texture = ExtResource("9_jj0os")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="AirBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="AirBackground/ParallaxLayer3"]
+visible = false
+position = Vector2(0, 142)
+texture = ExtResource("10_hc7pf")
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
