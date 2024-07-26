@@ -48,7 +48,7 @@ _data = {
 position = Vector2(110, 269)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(-51.5, 0)
+position = Vector2(-51, 3)
 shape = SubResource("RectangleShape2D_gxf52")
 one_way_collision = true
 

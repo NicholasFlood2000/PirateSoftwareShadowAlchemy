@@ -17,11 +17,12 @@ const JUMP_VELOCITY = -500.0 #Default -500
 @export var net_exit_boost = 7.0
 @export var acceleration :float = 7.0
 @export var deceleration :float = 10.0
-@export var jump_velocity = 600.0 #Default 600.0 4 - 4.5 blocks
+@export var jump_velocity = 600.0 
 
 
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5
+@export var bird_jump_buffer = 0.1
 
 @onready var vine_detection_marker = $VineDetection
 @onready var water_detection_marker = $WaterDetection
@@ -50,6 +51,8 @@ var in_net: bool = false
 var exited_net: bool = false
 var current_acceleration = acceleration
 
+var current_jump_buffer = jump_buffer_set_time
+
 func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
 
@@ -61,10 +64,9 @@ func player_update(delta):
 	var input_direction :Vector2 = Vector2.ZERO
 	input_direction.x = Input.get_action_strength("MoveRight") - Input.get_action_strength("MoveLeft")#, "MoveUp", "MoveDown")
 	input_direction.y = Input.get_action_strength("MoveDown") - Input.get_action_strength("MoveUp")
-	
 	if Input.is_action_just_pressed("Jump"):
 		#coyote_timer = coyote_set_time
-		jump_buffer_timer = jump_buffer_set_time
+		jump_buffer_timer = current_jump_buffer
 	
 	coyote_timer -= 1 * delta
 	jump_buffer_timer -= 1 * delta
@@ -72,6 +74,7 @@ func player_update(delta):
 	#print(coyote_timer, jump_buffer_timer)
 	match(current_transform):
 		transformations.NORMAL:
+			current_jump_buffer = jump_buffer_set_time
 			match(current_state):
 				states.IDLE:
 					animation_tree_statemachine.travel("idle")
@@ -135,7 +138,6 @@ func player_update(delta):
 						current_state = states.CLIMBING
 						velocity.y = 0
 					if detect_water():
-						print("Detecting Water")
 						current_transform = transformations.FISH
 						current_state = states.SWIMMING
 						
@@ -237,12 +239,86 @@ func player_update(delta):
 					animation_tree_statemachine.travel("fish_idle")
 					if (input_direction != Vector2.ZERO):
 						current_state = states.SWIMMING
+		transformations.BIRD:
+			current_jump_buffer = bird_jump_buffer
+			match(current_state):
+				states.IDLE:
+					velocity = lerp(velocity, Vector2.ZERO, deceleration * delta)
+					animation_tree_statemachine.travel("bird_idle")
+					if input_direction.x != 0:
+						current_state = states.WALKING
+					
+					check_jump()
+					check_whether_player_is_on_floor()
+				states.JUMP:
+					print("State is now Jump")
+					animation_tree_statemachine.travel("bird_jump")
+					velocity.y += jump_gravity * delta
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					
+					if velocity.y < 0:
+						current_state = states.FALLING
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+				states.FALLING:
+					animation_tree_statemachine.travel("bird_fall")
+					velocity.y += gravity * delta
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					if input_direction.x != 0:
+						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					check_jump()
+					check_whether_player_is_on_floor()
+					
+				states.WALKING:
+					
+					#if velocity.x > 0 and input_direction.x < 0:
+						#animation_tree_statemachine.travel("turn_around")
+					#elif velocity.x < 0 and input_direction.x > 0:
+						#animation_tree_statemachine.travel("turn_around")
+					
+					
+					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
+					
+					
+					if input_direction.x == 0:
+						current_state = states.IDLE
+					#elif input_direction:
+						#last_direction = $sprite.scale.x
+					else:
+						$sprite.scale.x = sign(input_direction.x)
+						#if $sprite.scale.x >= last_direction or $sprite.scale.x <= last_direction:
+							#animation_tree_statemachine.travel("turn_around")
+						#else:
+					animation_tree_statemachine.travel("bird_walk")
+					
+					#print(last_direction, $sprite.scale.x)
+					#if $sprite.scale.x == 1 and input_direction.x < 0 and velocity.x != 0 or $sprite.scale.x == -1 and input_direction.x > 0  and velocity.x != 0:
+						#animation_tree_statemachine.travel("turn_around")
+						#$sprite.scale.x = 1 if input_direction.x > 0 else -1
+					#else:
+						#animation_tree_statemachine.travel("walk")
+					
+					check_jump()
+					check_whether_player_is_on_floor()
+					#check_whether_player_is_on_floor()
+
 #	This is there for testing, please change/remove when writting a proper system for it
 
 	move_and_slide()
 	
-	if Input.is_action_just_released("Jump") and velocity.y < 0:
-		velocity.y *= 0.5
+	if(current_transform == transformations.BIRD):
+		if Input.is_action_just_released("Jump") and velocity.y < 0:
+			print("JUMP")
+			velocity.y *= 0.5
+	else:
+		if Input.is_action_just_released("Jump") and velocity.y < 0:
+			print("JUMP")
+			velocity.y *= 0.5
 	
 	#print(detect_vine())
 
@@ -313,14 +389,17 @@ func die() -> void:
 # I'm not lazy, I just hate redoing work.
 
 func check_jump() -> void:
-	
-		
-	if coyote_timer > 0.0 and jump_buffer_timer > 0.0:
-		
-		coyote_timer = 0
-		jump_buffer_timer = 0
-		velocity.y = -jump_velocity
-		current_state = states.JUMP
+	if(current_transform == transformations.BIRD):
+		if(jump_buffer_timer > 0.0):
+			jump_buffer_timer = 0
+			velocity.y = -jump_velocity
+			current_state = states.JUMP
+	else:
+		if (coyote_timer > 0.0 and jump_buffer_timer > 0.0):
+			coyote_timer = 0
+			jump_buffer_timer = 0
+			velocity.y = -jump_velocity
+			current_state = states.JUMP
 
 func check_whether_player_is_on_floor() -> void:
 	if not is_on_floor():
@@ -330,17 +409,16 @@ func check_whether_player_is_on_floor() -> void:
 		coyote_timer = coyote_set_time
 		if current_state == states.FALLING:
 			current_state = states.IDLE
+			#if(current_transform == transformations.BIRD):
+				#current_transform = transformations.NORMAL
+		
 	#else:
-	
-	
 
 #Function for Implementing Fish Boost
 func net_exit():
 	exited_net = true
 	await get_tree().create_timer(.05).timeout
 	exited_net = false
-	pass
-
 
 func _BackgroundChanged(NewBackground):
 	if(NewBackground == "Earth"):
