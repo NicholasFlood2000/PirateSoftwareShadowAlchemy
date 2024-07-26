@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://5eyjl134dorw"]
+[gd_scene load_steps=82 format=3 uid="uid://5eyjl134dorw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wk67q"]
 [ext_resource type="Texture2D" uid="uid://bsd72vhvg47n2" path="res://Assets/Graphics/playerchar.png" id="2_2ht03"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cj6d5pd13nrxk" path="res://Assets/Graphics/Waterform_fins.png" id="4_a02mj"]
 [ext_resource type="Texture2D" uid="uid://b62qvq4eqtqw0" path="res://Assets/Graphics/Earthform_body.png" id="6_fm8xj"]
 [ext_resource type="Texture2D" uid="uid://celwjgcmkn4jf" path="res://Assets/Graphics/Earthform_arm.png" id="7_smj2e"]
+[ext_resource type="Texture2D" uid="uid://boqni6duo3xqg" path="res://Assets/Graphics/AirformSheet.png" id="10_jbkyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chcsq"]
 size = Vector2(44, 76)
@@ -269,6 +270,64 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sprite/bird_sprite:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sprite/bird_sprite:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("sprite/bird_sprite:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("sprite/bird_sprite:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("sprite/bird_sprite:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3ocei"]
 resource_name = "climbing"
@@ -356,6 +415,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sprite/bird_sprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_gx30m"]
 resource_name = "climbing_idle"
@@ -442,6 +513,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sprite/bird_sprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7cwi4"]
@@ -531,6 +614,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sprite/bird_sprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bquhx"]
 resource_name = "fish_idle"
@@ -582,6 +677,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/bird_sprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pej5s"]
 resource_name = "fish_swim"
@@ -631,6 +738,18 @@ tracks/3/path = NodePath("sprite/player_sprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/bird_sprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -735,6 +854,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("sprite/bird_sprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_d1fjj"]
 resource_name = "jump"
@@ -834,6 +965,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("sprite/bird_sprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_gbbbx"]
 resource_name = "mole_idle"
@@ -892,6 +1035,18 @@ tracks/4/path = NodePath("sprite/player_sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -958,6 +1113,18 @@ tracks/4/path = NodePath("sprite/player_sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1064,6 +1231,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("sprite/bird_sprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_b7g7h"]
 resource_name = "walk"
@@ -1166,10 +1345,341 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("sprite/bird_sprite:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xcoxb"]
+resource_name = "bird_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/bird_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/bird_sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/mole_sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite/fish_sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/player_sprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("sprite/bird_sprite:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_j7w7f"]
+resource_name = "bird_walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/bird_sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/mole_sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/fish_sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite/player_sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/bird_sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -6), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nsx8v"]
+resource_name = "bird_jump"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/mole_sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/fish_sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/player_sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite/bird_sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/bird_sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jfv6s"]
+resource_name = "bird_fall"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite/mole_sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite/fish_sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/player_sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite/bird_sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprite/bird_sprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprite/bird_sprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3y805"]
 _data = {
 "RESET": SubResource("Animation_0pui7"),
+"bird_fall": SubResource("Animation_jfv6s"),
+"bird_idle": SubResource("Animation_xcoxb"),
+"bird_jump": SubResource("Animation_nsx8v"),
+"bird_walk": SubResource("Animation_j7w7f"),
 "climbing": SubResource("Animation_3ocei"),
 "climbing_idle": SubResource("Animation_gx30m"),
 "fall": SubResource("Animation_7cwi4"),
@@ -1182,6 +1692,18 @@ _data = {
 "turn_around": SubResource("Animation_dq5bj"),
 "walk": SubResource("Animation_b7g7h")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_swbmm"]
+animation = &"bird_fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lwyu3"]
+animation = &"bird_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ihf5n"]
+animation = &"bird_jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82l73"]
+animation = &"bird_walk"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_glqkm"]
 animation = &"climbing"
@@ -1203,12 +1725,6 @@ animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akiyd"]
 animation = &"jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jl38p"]
-animation = &"mole_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5q87b"]
-animation = &"mole_moving"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_td5w3"]
 animation = &"turn_around"
@@ -1246,12 +1762,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxilq"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_igewk"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8v83q"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3778c"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qr7sl"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2i533"]
@@ -1262,15 +1772,45 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2y2c7"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c2m4v"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ie6st"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_61lam"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3y3c3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qwhj1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kew2c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5r8at"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oy6q3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_udqp0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gjnje"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gg5x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a3two"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bwhpp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2x33"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0j0k"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o2k5k"]
 states/End/position = Vector2(1193.33, -53.6214)
 states/Start/position = Vector2(82.2222, 237.778)
+states/bird_fall/node = SubResource("AnimationNodeAnimation_swbmm")
+states/bird_fall/position = Vector2(419.358, 614.531)
+states/bird_idle/node = SubResource("AnimationNodeAnimation_lwyu3")
+states/bird_idle/position = Vector2(210.42, 447.222)
+states/bird_jump/node = SubResource("AnimationNodeAnimation_ihf5n")
+states/bird_jump/position = Vector2(211.082, 614.111)
+states/bird_walk/node = SubResource("AnimationNodeAnimation_82l73")
+states/bird_walk/position = Vector2(419.667, 447.198)
 states/climbing/node = SubResource("AnimationNodeAnimation_glqkm")
 states/climbing/position = Vector2(956, -53.9259)
 states/climbing_idle/node = SubResource("AnimationNodeAnimation_l3td7")
@@ -1285,16 +1825,12 @@ states/idle/node = SubResource("AnimationNodeAnimation_a1tvl")
 states/idle/position = Vector2(211.556, 237.435)
 states/jump/node = SubResource("AnimationNodeAnimation_akiyd")
 states/jump/position = Vector2(606, 64.4535)
-states/mole_idle/node = SubResource("AnimationNodeAnimation_jl38p")
-states/mole_idle/position = Vector2(306.222, 567.667)
-states/mole_moving/node = SubResource("AnimationNodeAnimation_5q87b")
-states/mole_moving/position = Vector2(552.889, 564.333)
 states/turn_around/node = SubResource("AnimationNodeAnimation_td5w3")
 states/turn_around/position = Vector2(-38.4445, 90.8763)
 states/walk/node = SubResource("AnimationNodeAnimation_onw8g")
 states/walk/position = Vector2(211.062, 58.6526)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2ifar"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mmnwd"), "turn_around", "idle", SubResource("AnimationNodeStateMachineTransition_1wrr8"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_4y1lv"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_x6e40"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_rkh0u"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_q4oie"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_yhbwj"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_ok8vy"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_y0ki5"), "jump", "climbing_idle", SubResource("AnimationNodeStateMachineTransition_irpu4"), "climbing_idle", "climbing", SubResource("AnimationNodeStateMachineTransition_uvpsc"), "climbing", "End", SubResource("AnimationNodeStateMachineTransition_g14lm"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fxilq"), "idle", "mole_idle", SubResource("AnimationNodeStateMachineTransition_igewk"), "mole_idle", "mole_moving", SubResource("AnimationNodeStateMachineTransition_8v83q"), "mole_idle", "idle", SubResource("AnimationNodeStateMachineTransition_3778c"), "idle", "fish_idle", SubResource("AnimationNodeStateMachineTransition_qr7sl"), "fall", "fish_idle", SubResource("AnimationNodeStateMachineTransition_2i533"), "jump", "fish_idle", SubResource("AnimationNodeStateMachineTransition_06d4t"), "fish_idle", "fall", SubResource("AnimationNodeStateMachineTransition_n8oyp"), "fish_idle", "jump", SubResource("AnimationNodeStateMachineTransition_2y2c7"), "mole_moving", "mole_idle", SubResource("AnimationNodeStateMachineTransition_c2m4v"), "fish_idle", "fish_swim", SubResource("AnimationNodeStateMachineTransition_ie6st"), "fish_swim", "fish_idle", SubResource("AnimationNodeStateMachineTransition_61lam")]
-graph_offset = Vector2(-353, 35)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_2ifar"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mmnwd"), "turn_around", "idle", SubResource("AnimationNodeStateMachineTransition_1wrr8"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_4y1lv"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_x6e40"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_rkh0u"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_q4oie"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_yhbwj"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_ok8vy"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_y0ki5"), "jump", "climbing_idle", SubResource("AnimationNodeStateMachineTransition_irpu4"), "climbing_idle", "climbing", SubResource("AnimationNodeStateMachineTransition_uvpsc"), "climbing", "End", SubResource("AnimationNodeStateMachineTransition_g14lm"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fxilq"), "idle", "fish_idle", SubResource("AnimationNodeStateMachineTransition_qr7sl"), "fall", "fish_idle", SubResource("AnimationNodeStateMachineTransition_2i533"), "jump", "fish_idle", SubResource("AnimationNodeStateMachineTransition_06d4t"), "fish_idle", "fall", SubResource("AnimationNodeStateMachineTransition_n8oyp"), "fish_idle", "jump", SubResource("AnimationNodeStateMachineTransition_2y2c7"), "fish_idle", "fish_swim", SubResource("AnimationNodeStateMachineTransition_ie6st"), "fish_swim", "fish_idle", SubResource("AnimationNodeStateMachineTransition_61lam"), "idle", "bird_idle", SubResource("AnimationNodeStateMachineTransition_3y3c3"), "bird_jump", "bird_walk", SubResource("AnimationNodeStateMachineTransition_qwhj1"), "bird_idle", "bird_walk", SubResource("AnimationNodeStateMachineTransition_kew2c"), "bird_walk", "bird_idle", SubResource("AnimationNodeStateMachineTransition_5r8at"), "bird_walk", "bird_jump", SubResource("AnimationNodeStateMachineTransition_oy6q3"), "bird_jump", "bird_idle", SubResource("AnimationNodeStateMachineTransition_udqp0"), "bird_idle", "bird_jump", SubResource("AnimationNodeStateMachineTransition_gjnje"), "bird_idle", "bird_fall", SubResource("AnimationNodeStateMachineTransition_3gg5x"), "bird_fall", "bird_idle", SubResource("AnimationNodeStateMachineTransition_a3two"), "bird_fall", "bird_walk", SubResource("AnimationNodeStateMachineTransition_bwhpp"), "bird_walk", "bird_fall", SubResource("AnimationNodeStateMachineTransition_i2x33"), "bird_jump", "bird_fall", SubResource("AnimationNodeStateMachineTransition_p0j0k")]
+graph_offset = Vector2(-312, 347)
 
 [node name="Player" type="CharacterBody2D"]
 editor_description = "Default Movement Speed 350, Acceleration 7, Jump Velocity 790, Climbing Speed 175
@@ -1372,15 +1908,16 @@ position = Vector2(-31, 26)
 texture = ExtResource("7_smj2e")
 flip_h = true
 
+[node name="bird_sprite" type="Sprite2D" parent="sprite"]
+texture = ExtResource("10_jbkyu")
+hframes = 4
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3y805")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3y805")
-}
 tree_root = SubResource("AnimationNodeStateMachine_o2k5k")
 anim_player = NodePath("../AnimationPlayer")
 
