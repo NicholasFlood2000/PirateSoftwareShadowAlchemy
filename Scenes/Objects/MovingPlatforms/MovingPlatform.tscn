@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://inh0x5bqhxfw"]
+[gd_scene load_steps=9 format=3 uid="uid://inh0x5bqhxfw"]
 
+[ext_resource type="Script" path="res://Scenes/Objects/MovingPlatforms/AirModulation.gd" id="1_8cl5o"]
 [ext_resource type="Texture2D" uid="uid://cvddnr8f380m6" path="res://Assets/Graphics/Cloud Moving platform.png" id="1_xnnr2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vuqgx"]
@@ -53,6 +54,7 @@ radius = 14.9801
 height = 80.0228
 
 [node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_8cl5o")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(110, 269)

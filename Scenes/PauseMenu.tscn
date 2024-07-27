@@ -23,7 +23,7 @@ offset_left = -20.0
 offset_top = -30.0
 offset_right = 413.0
 offset_bottom = 679.0
-color = Color(0.027451, 0.0784314, 0.262745, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -42,6 +42,7 @@ offset_right = 270.0
 offset_bottom = 459.0
 
 [node name="ResetLevelButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 text = "Reset Level"
 script = ExtResource("3_n3701")
@@ -51,6 +52,7 @@ layout_mode = 2
 text = " "
 
 [node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+modulate = Color(1, 1, 1, 1)
 z_index = 1
 layout_mode = 2
 
@@ -61,11 +63,15 @@ offset_top = -275.0
 offset_right = 773.0
 offset_bottom = 168.0
 
+[node name="ColorRect" parent="VBoxContainer/SettingsButton/Menu" index="0"]
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = " "
 
 [node name="ExitButton" parent="VBoxContainer" instance=ExtResource("2_kqaxb")]
+modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 text = "Exit"
 script = null

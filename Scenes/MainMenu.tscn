@@ -25,7 +25,7 @@ offset_left = -3.0
 offset_top = -6.0
 offset_right = 1305.0
 offset_bottom = 756.0
-color = Color(0.027451, 0.0784314, 0.262745, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
@@ -33,11 +33,11 @@ offset_left = 289.0
 offset_top = 55.0
 offset_right = 1178.0
 offset_bottom = 151.0
-text = "Shadow Alchemy WIP Title"
+text = "Alchemist Quest
+Forged From Shadows"
 label_settings = SubResource("LabelSettings_cjwb2")
 
 [node name="PlayGameButton" type="Button" parent="Control"]
-modulate = Color(0.380392, 0.454902, 0.717647, 1)
 layout_mode = 0
 offset_left = 526.0
 offset_top = 284.0

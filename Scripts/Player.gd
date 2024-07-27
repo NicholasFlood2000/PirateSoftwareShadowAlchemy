@@ -23,6 +23,7 @@ const JUMP_VELOCITY = -500.0 #Default -500
 @export var coyote_set_time = 0.5
 @export var jump_buffer_set_time = 0.5
 @export var bird_jump_buffer = 0.1
+@export var bird_vine_speed_multiplier = .7
 
 @onready var vine_detection_marker = $VineDetection
 @onready var water_detection_marker = $WaterDetection
@@ -265,6 +266,9 @@ func player_update(delta):
 					
 					if input_direction.x != 0:
 						$sprite.scale.x = 1 if input_direction.x > 0 else -1
+						
+					if(detect_vine()):
+						velocity *= bird_vine_speed_multiplier
 				states.FALLING:
 					animation_tree_statemachine.travel("bird_fall")
 					velocity.y += gravity * delta
@@ -421,9 +425,9 @@ func net_exit():
 	exited_net = false
 
 func _BackgroundChanged(NewBackground):
-	if(NewBackground == "Earth"):
+	if(NewBackground == "Earth" or NewBackground == "Air"):
 		set_collision_mask_value(7, true)
 		set_collision_mask_value(8, false)
-	else:
+	elif(NewBackground == "Water"):
 		set_collision_mask_value(7, false)
 		set_collision_mask_value(8, true)

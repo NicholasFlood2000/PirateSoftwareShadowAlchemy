@@ -4,6 +4,8 @@ var Level
 var PlayerInside: bool = false
 var Player
 
+@export var Background: String = "Earth"
+
 func _ready():
 	Level = get_tree().current_scene
 
@@ -11,7 +13,7 @@ func _process(delta):
 	if(Input.is_action_just_pressed("Interact") and PlayerInside):
 		if(Player.current_transform == Player.transformations.BIRD):
 			Player.current_transform = Player.transformations.NORMAL
-			Level.toggleBackGround(Level.CurrentBackground, Level.InitialBackground)
+			Level.toggleBackGround(Level.CurrentBackground, Background)
 		else:
 			Player.current_transform = Player.transformations.BIRD
 			Level.toggleBackGround(Level.CurrentBackground, "Air")
