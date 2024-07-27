@@ -14,7 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_just_pressed("Interact") and PlayerInRange):
-		print(Level.CurrentBackground != EnvironmentPower)
 		if(Level.CurrentBackground != EnvironmentPower):
 			Level.toggleBackGround(Level.CurrentBackground, EnvironmentPower)
 			await get_tree().create_timer(2.5).timeout

@@ -57,6 +57,9 @@ func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
 
 func _physics_process(delta):
+	if(Input.is_action_just_pressed("Debug")):
+		print("Debug button pressed")
+		print(current_state, current_transform)
 	if not is_dead:
 		player_update(delta)
 
@@ -406,8 +409,8 @@ func check_whether_player_is_on_floor() -> void:
 		coyote_timer = coyote_set_time
 		if current_state == states.FALLING:
 			current_state = states.IDLE
-			if(current_transform == transformations.BIRD):
-				current_transform = transformations.NORMAL
+			#if(current_transform == transformations.BIRD):
+				#current_transform = transformations.NORMAL
 		
 	#else:
 

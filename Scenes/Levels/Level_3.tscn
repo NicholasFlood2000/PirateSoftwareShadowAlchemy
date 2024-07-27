@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c23jei12hdjji"]
+[gd_scene load_steps=16 format=3 uid="uid://c23jei12hdjji"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_7erpb"]
 [ext_resource type="Texture2D" uid="uid://opuck81b4cf7" path="res://Assets/Graphics/Tree trunk bottom.png" id="2_aqrg8"]
@@ -10,52 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://u2mmgirdqigp" path="res://Assets/Graphics/Tree branch extra.png" id="7_wvtk4"]
 [ext_resource type="PackedScene" uid="uid://d0uj15vrm0v1s" path="res://Scenes/Objects/Trees/tree_2_branch_2.tscn" id="8_ouceh"]
 [ext_resource type="PackedScene" uid="uid://dm0ciksd1jpgx" path="res://Scenes/Objects/Spike/Spike.tscn" id="9_1l6g7"]
-[ext_resource type="Texture2D" uid="uid://vn6m86qowmnt" path="res://Assets/Graphics/Tree2Branch1.png" id="11_d62v4"]
 [ext_resource type="PackedScene" uid="uid://wbigjlgrc47" path="res://Scenes/Objects/Spike/spike2.tscn" id="11_use5j"]
 [ext_resource type="PackedScene" uid="uid://bcn70jkgrsq1t" path="res://Scenes/Objects/Nest.tscn" id="12_27wjs"]
 [ext_resource type="PackedScene" uid="uid://drxc735wfbopw" path="res://Scenes/Objects/vine/vine2.tscn" id="14_74rmn"]
-[ext_resource type="Texture2D" uid="uid://cvddnr8f380m6" path="res://Assets/Graphics/Cloud Moving platform.png" id="15_7fjwt"]
-[ext_resource type="Texture2D" uid="uid://e4ruvmwbt4oc" path="res://Assets/Graphics/Nest Platform for bird.png" id="16_h1dii"]
+[ext_resource type="PackedScene" uid="uid://inh0x5bqhxfw" path="res://Scenes/Objects/MovingPlatforms/MovingPlatform.tscn" id="15_h4ps6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbvk8"]
-size = Vector2(67, 20)
-
-[sub_resource type="Animation" id="Animation_rosng"]
-resource_name = "MovingPlatform"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(110, 269), Vector2(542, 266), Vector2(75, 258)]
-}
-
-[sub_resource type="Animation" id="Animation_ktdr5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(110, 269)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0tmw"]
-_data = {
-"MovingPlatform": SubResource("Animation_rosng"),
-"RESET": SubResource("Animation_ktdr5")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0yak"]
+size = Vector2(322, 29)
 
 [node name="BaseLevel" instance=ExtResource("1_7erpb")]
 InitialBackground = "Earth"
@@ -97,7 +58,7 @@ rotation = -3.14159
 scale = Vector2(1.33286, -1)
 
 [node name="TreeTrunkPlatform5" parent="Objects/Trees" index="7" instance=ExtResource("6_owryl")]
-position = Vector2(599, -165)
+position = Vector2(602, -175)
 rotation = -3.14159
 scale = Vector2(1.4, -1)
 
@@ -198,12 +159,88 @@ texture = ExtResource("3_ym156")
 script = ExtResource("6_ts685")
 
 [node name="TreeTrunkPlatform6" parent="Objects/Trees" index="23" instance=ExtResource("6_owryl")]
-position = Vector2(-249, 375)
+z_index = -1
+position = Vector2(-245, 381)
 
 [node name="TreeTrunkBottom4" type="Sprite2D" parent="Objects/Trees" index="24"]
+z_index = -1
 position = Vector2(1593, -6107)
 scale = Vector2(2.41226, 13.244)
 texture = ExtResource("2_aqrg8")
+script = ExtResource("6_ts685")
+
+[node name="TreeTopExtra9" type="Sprite2D" parent="Objects/Trees" index="25"]
+position = Vector2(1219, -7038)
+scale = Vector2(4.76, 5.08)
+texture = ExtResource("3_ym156")
+script = ExtResource("6_ts685")
+
+[node name="TreeTop3" type="Sprite2D" parent="Objects/Trees" index="26"]
+position = Vector2(1528, -7435)
+scale = Vector2(2.76, 2.76)
+texture = ExtResource("4_lucam")
+script = ExtResource("6_ts685")
+
+[node name="TreeTopExtra10" type="Sprite2D" parent="Objects/Trees" index="27"]
+position = Vector2(1863, -7045)
+scale = Vector2(4.46038, 4.20001)
+texture = ExtResource("3_ym156")
+script = ExtResource("6_ts685")
+
+[node name="TreeTop4" type="Sprite2D" parent="Objects/Trees" index="28"]
+position = Vector2(1562, -6927)
+scale = Vector2(2.56, 2.2)
+texture = ExtResource("4_lucam")
+script = ExtResource("6_ts685")
+
+[node name="TreeBranchExtra3" type="Sprite2D" parent="Objects/Trees" index="29"]
+position = Vector2(1191, -7294)
+scale = Vector2(2.84, 2.72)
+texture = ExtResource("7_wvtk4")
+script = ExtResource("6_ts685")
+
+[node name="TreeTopExtra11" type="Sprite2D" parent="Objects/Trees" index="30"]
+position = Vector2(1139, -7546)
+rotation = 1.12689
+scale = Vector2(2.48, 2.56)
+texture = ExtResource("3_ym156")
+script = ExtResource("6_ts685")
+
+[node name="TreeBranchExtra4" type="Sprite2D" parent="Objects/Trees" index="31"]
+position = Vector2(1883, -6896)
+rotation = -2.02555
+scale = Vector2(3.12, 2.44)
+texture = ExtResource("7_wvtk4")
+script = ExtResource("6_ts685")
+
+[node name="TreeTopExtra12" type="Sprite2D" parent="Objects/Trees" index="32"]
+position = Vector2(1940, -6641)
+rotation = 0.74792
+scale = Vector2(2.43981, 2.50542)
+texture = ExtResource("3_ym156")
+script = ExtResource("6_ts685")
+
+[node name="TreeTop5" type="Sprite2D" parent="Objects/Trees" index="33"]
+position = Vector2(1711, -6562)
+rotation = -0.810965
+scale = Vector2(2.02214, 1.65968)
+texture = ExtResource("4_lucam")
+script = ExtResource("6_ts685")
+
+[node name="TreeTrunkPlatform7" parent="Objects/Trees" index="34" instance=ExtResource("7_qvrtj")]
+z_index = -1
+position = Vector2(2201, -7882)
+scale = Vector2(3.78009, 1.64)
+
+[node name="TreeTrunkPlatform8" parent="Objects/Trees" index="35" instance=ExtResource("7_qvrtj")]
+z_index = -1
+position = Vector2(2224, -8023)
+scale = Vector2(2.20001, 1.40002)
+
+[node name="TreeTrunkPlatform9" parent="Objects/Trees" index="36" instance=ExtResource("7_qvrtj")]
+z_index = -1
+position = Vector2(2258, -8148)
+scale = Vector2(1.36, 1)
 
 [node name="Spikes" type="Node" parent="Objects" index="1"]
 
@@ -264,155 +301,88 @@ rotation = -3.14159
 position = Vector2(883, -3708)
 rotation = -3.14159
 
-[node name="Decoration" type="Node" parent="Objects" index="2"]
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." index="8"]
-position = Vector2(110, 269)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" index="0"]
-position = Vector2(-51.5, 0)
-shape = SubResource("RectangleShape2D_dbvk8")
-one_way_collision = true
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" index="1"]
-texture = ExtResource("11_d62v4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_b0tmw")
-}
-autoplay = "MovingPlatform"
-
-[node name="Nest" parent="." index="9" instance=ExtResource("12_27wjs")]
-position = Vector2(756, -416)
-
-[node name="Vine" parent="." index="10" instance=ExtResource("14_74rmn")]
-position = Vector2(-222, 331)
-scale = Vector2(1, 2.2)
-
-[node name="TreeTopExtra" type="Sprite2D" parent="." index="11"]
-position = Vector2(1219, -7038)
-scale = Vector2(4.76, 5.08)
-texture = ExtResource("3_ym156")
-
-[node name="TreeTop" type="Sprite2D" parent="." index="12"]
-position = Vector2(1528, -7435)
-scale = Vector2(2.76, 2.76)
-texture = ExtResource("4_lucam")
-
-[node name="TreeTopExtra2" type="Sprite2D" parent="." index="13"]
-position = Vector2(1863, -7045)
-scale = Vector2(4.46038, 4.20001)
-texture = ExtResource("3_ym156")
-
-[node name="TreeTop2" type="Sprite2D" parent="." index="14"]
-position = Vector2(1562, -6927)
-scale = Vector2(2.56, 2.2)
-texture = ExtResource("4_lucam")
-
-[node name="TreeBranchExtra" type="Sprite2D" parent="." index="15"]
-position = Vector2(1191, -7294)
-scale = Vector2(2.84, 2.72)
-texture = ExtResource("7_wvtk4")
-
-[node name="TreeTopExtra3" type="Sprite2D" parent="." index="16"]
-position = Vector2(1139, -7546)
-rotation = 1.12689
-scale = Vector2(2.48, 2.56)
-texture = ExtResource("3_ym156")
-
-[node name="TreeBranchExtra2" type="Sprite2D" parent="." index="17"]
-position = Vector2(1883, -6896)
-rotation = -2.02555
-scale = Vector2(3.12, 2.44)
-texture = ExtResource("7_wvtk4")
-
-[node name="TreeTopExtra4" type="Sprite2D" parent="." index="18"]
-position = Vector2(1940, -6641)
-rotation = 0.74792
-scale = Vector2(2.43981, 2.50542)
-texture = ExtResource("3_ym156")
-
-[node name="TreeTop3" type="Sprite2D" parent="." index="19"]
-position = Vector2(1711, -6562)
-rotation = -0.810965
-scale = Vector2(2.02214, 1.65968)
-texture = ExtResource("4_lucam")
-
-[node name="TreeTrunkPlatform2" parent="." index="20" instance=ExtResource("7_qvrtj")]
-position = Vector2(2201, -7882)
-scale = Vector2(3.78009, 1.64)
-
-[node name="TreeTrunkPlatform3" parent="." index="21" instance=ExtResource("7_qvrtj")]
-position = Vector2(2224, -8023)
-scale = Vector2(2.20001, 1.40002)
-
-[node name="TreeTrunkPlatform4" parent="." index="22" instance=ExtResource("7_qvrtj")]
-position = Vector2(2258, -8148)
-scale = Vector2(1.36, 1)
-
-[node name="CloudMovingPlatform" type="Sprite2D" parent="." index="23"]
-position = Vector2(60, -2227)
-texture = ExtResource("15_7fjwt")
-
-[node name="CloudMovingPlatform2" type="Sprite2D" parent="." index="24"]
-position = Vector2(17, -1585)
-texture = ExtResource("15_7fjwt")
-
-[node name="CloudMovingPlatform3" type="Sprite2D" parent="." index="25"]
-position = Vector2(1136, -1608)
-texture = ExtResource("15_7fjwt")
-
-[node name="CloudMovingPlatform4" type="Sprite2D" parent="." index="26"]
-position = Vector2(916, -4305)
-texture = ExtResource("15_7fjwt")
-
-[node name="CloudMovingPlatform5" type="Sprite2D" parent="." index="27"]
-position = Vector2(1034, -5998)
-texture = ExtResource("15_7fjwt")
-
-[node name="CloudMovingPlatform6" type="Sprite2D" parent="." index="28"]
-position = Vector2(1865, -5651)
-texture = ExtResource("15_7fjwt")
-
-[node name="NestPlatformForBird" type="Sprite2D" parent="." index="29"]
-position = Vector2(791, -390)
-scale = Vector2(1.44, 1.4)
-texture = ExtResource("16_h1dii")
-
-[node name="NestPlatformForBird2" type="Sprite2D" parent="." index="30"]
-position = Vector2(1486, -7846)
-scale = Vector2(1.68, 1.6)
-texture = ExtResource("16_h1dii")
-
-[node name="Spike" parent="." index="31" instance=ExtResource("11_use5j")]
+[node name="Spike15" parent="Objects/Spikes" index="14" instance=ExtResource("11_use5j")]
 position = Vector2(2297, -4852)
 rotation = -1.57079
 
-[node name="Spike2" parent="." index="32" instance=ExtResource("11_use5j")]
+[node name="Spike16" parent="Objects/Spikes" index="15" instance=ExtResource("11_use5j")]
 position = Vector2(2296, -5246)
 rotation = -1.57079
 
-[node name="Spike3" parent="." index="33" instance=ExtResource("11_use5j")]
+[node name="Spike17" parent="Objects/Spikes" index="16" instance=ExtResource("11_use5j")]
 position = Vector2(2295, -4532)
 rotation = -1.57079
 
-[node name="Spike4" parent="." index="34" instance=ExtResource("11_use5j")]
+[node name="Spike18" parent="Objects/Spikes" index="17" instance=ExtResource("11_use5j")]
 position = Vector2(1994, -5024)
-rotation = -4.71238
+rotation = 1.57081
 
-[node name="Spike5" parent="." index="35" instance=ExtResource("11_use5j")]
+[node name="Spike19" parent="Objects/Spikes" index="18" instance=ExtResource("11_use5j")]
 position = Vector2(1993, -5418)
-rotation = -4.71238
+rotation = 1.57081
 
-[node name="Spike6" parent="." index="36" instance=ExtResource("11_use5j")]
+[node name="Spike20" parent="Objects/Spikes" index="19" instance=ExtResource("11_use5j")]
 position = Vector2(1992, -4704)
-rotation = -4.71238
+rotation = 1.57081
 
-[node name="Spike7" parent="." index="37" instance=ExtResource("11_use5j")]
+[node name="Spike21" parent="Objects/Spikes" index="20" instance=ExtResource("11_use5j")]
 position = Vector2(639, -5178)
 rotation = 3.14159
 
-[node name="Spike8" parent="." index="38" instance=ExtResource("11_use5j")]
+[node name="Spike22" parent="Objects/Spikes" index="21" instance=ExtResource("11_use5j")]
 position = Vector2(1078, -5176)
 rotation = 3.14159
+
+[node name="Nests" type="Node" parent="Objects" index="2"]
+
+[node name="Nest" parent="Objects/Nests" index="0" instance=ExtResource("12_27wjs")]
+position = Vector2(791, -390)
+scale = Vector2(1.44, 1.4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/Nests/Nest" index="2"]
+position = Vector2(-7.63889, 44.2857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Nests/Nest/StaticBody2D" index="0"]
+position = Vector2(7.63898, -7.5)
+scale = Vector2(0.694444, 0.714286)
+shape = SubResource("RectangleShape2D_c0yak")
+one_way_collision = true
+
+[node name="Nest2" parent="Objects/Nests" index="1" instance=ExtResource("12_27wjs")]
+position = Vector2(1486, -7846)
+scale = Vector2(1.68, 1.6)
+
+[node name="MovingPlatforms" type="Node" parent="Objects" index="3"]
+
+[node name="Vine" parent="." index="8" instance=ExtResource("14_74rmn")]
+position = Vector2(-222, 331)
+scale = Vector2(1, 2.2)
+
+[node name="MovingPlatform" parent="." index="9" instance=ExtResource("15_h4ps6")]
+position = Vector2(60, -2227)
+
+[node name="AnimationPlayer" parent="MovingPlatform/AnimatableBody2D" index="2"]
+speed_scale = 0.25
+
+[node name="MovingPlatform6" parent="." index="10" instance=ExtResource("15_h4ps6")]
+position = Vector2(916, -4305)
+
+[node name="MovingPlatform5" parent="." index="11" instance=ExtResource("15_h4ps6")]
+position = Vector2(1865, -5651)
+
+[node name="MovingPlatform4" parent="." index="12" instance=ExtResource("15_h4ps6")]
+position = Vector2(1034, -5998)
+
+[node name="MovingPlatform3" parent="." index="13" instance=ExtResource("15_h4ps6")]
+position = Vector2(1136, -1608)
+
+[node name="MovingPlatform2" parent="." index="14" instance=ExtResource("15_h4ps6")]
+position = Vector2(17, -1585)
+
+[editable path="Objects/Nests/Nest"]
+[editable path="MovingPlatform"]
+[editable path="MovingPlatform6"]
+[editable path="MovingPlatform5"]
+[editable path="MovingPlatform4"]
+[editable path="MovingPlatform3"]
+[editable path="MovingPlatform2"]

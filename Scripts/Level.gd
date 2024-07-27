@@ -18,7 +18,7 @@ extends Node2D
 signal BackgroundChanged(NewBackground)
 
 var LayerNum = -100
-var CurrentBackground = "Water"
+var CurrentBackground = InitialBackground
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ScreenTransition.transition_out()
@@ -42,12 +42,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("Debug")):
-		print("Debug button pressed")
-		if(CurrentBackground == "Earth"):
-			toggleBackGround("Earth", "Water")
-		elif(CurrentBackground == "Water"):
-			toggleBackGround("Water", "Earth")
+	pass
 
 func toggleBackGround(OldBackground, NewBackground):
 	if(OldBackground == "Earth"):
