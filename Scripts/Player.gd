@@ -251,7 +251,6 @@ func player_update(delta):
 					check_jump()
 					check_whether_player_is_on_floor()
 				states.JUMP:
-					print("State is now Jump")
 					animation_tree_statemachine.travel("bird_jump")
 					velocity.y += jump_gravity * delta
 					
@@ -313,11 +312,9 @@ func player_update(delta):
 	
 	if(current_transform == transformations.BIRD):
 		if Input.is_action_just_released("Jump") and velocity.y < 0:
-			print("JUMP")
 			velocity.y *= 0.5
 	else:
 		if Input.is_action_just_released("Jump") and velocity.y < 0:
-			print("JUMP")
 			velocity.y *= 0.5
 	
 	#print(detect_vine())
@@ -409,8 +406,8 @@ func check_whether_player_is_on_floor() -> void:
 		coyote_timer = coyote_set_time
 		if current_state == states.FALLING:
 			current_state = states.IDLE
-			#if(current_transform == transformations.BIRD):
-				#current_transform = transformations.NORMAL
+			if(current_transform == transformations.BIRD):
+				current_transform = transformations.NORMAL
 		
 	#else:
 

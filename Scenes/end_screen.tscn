@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4c7f7764qsos"]
+
+[ext_resource type="Script" path="res://Scripts/end_screen.gd" id="1_30m4x"]
+[ext_resource type="Theme" uid="uid://bjjf52pu6ckx6" path="res://Themes/Menu.tres" id="1_pn3cp"]
+
+[node name="EndScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 0.351
+anchor_bottom = 0.264
+offset_top = 3.0
+offset_right = 472.72
+offset_bottom = 225.92
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pn3cp")
+script = ExtResource("1_30m4x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.290196, 0.596078, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Congratulations. You have beaten the game."
+
+[node name="Spacer2" type="Label" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Now you have unlocked the ability to explore
+The Test Level. Here you will be able to use all the abilities
+you have unlocked and test them to your heart's content."
+
+[node name="Spacer" type="Label" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Start Exploring."
+
+[connection signal="pressed" from="CenterContainer/GridContainer/Button" to="." method="_on_button_pressed"]
