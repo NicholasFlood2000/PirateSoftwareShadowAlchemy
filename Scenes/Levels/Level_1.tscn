@@ -186,6 +186,3 @@ position = Vector2(2654, 1020)
 
 [node name="Spike3" parent="." index="25" instance=ExtResource("10_lsaw7")]
 position = Vector2(2828, 1020)
-
-[node name="PauseMenu" parent="CanvasLayer2" index="0"]
-process_mode = 3
