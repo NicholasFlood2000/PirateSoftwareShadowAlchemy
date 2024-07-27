@@ -12,5 +12,8 @@ func _process(delta):
 
 
 func _on_pressed():
+	
+	await ScreenTransition.transition_in()
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	pass # Replace with function body.

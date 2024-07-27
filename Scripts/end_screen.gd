@@ -16,4 +16,3 @@ func _on_button_pressed():
 	print("Button Pressed")
 	get_tree().paused = false
 	queue_free()
-	pass # Replace with function body.

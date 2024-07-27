@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/ResetButton.gd" id="3_n3701"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchor_right = 0.296
 anchor_bottom = 0.693
