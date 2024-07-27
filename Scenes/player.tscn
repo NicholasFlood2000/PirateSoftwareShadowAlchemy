@@ -1848,6 +1848,7 @@ net_exit_boost = 1.5
 acceleration = 3.0
 jump_velocity = 650.0
 coyote_set_time = 0.25
+bird_vine_speed_multiplier = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

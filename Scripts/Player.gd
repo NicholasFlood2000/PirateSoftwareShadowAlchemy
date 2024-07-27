@@ -59,8 +59,7 @@ func _ready():
 
 func _physics_process(delta):
 	if(Input.is_action_just_pressed("Debug")):
-		print("Debug button pressed")
-		print(current_state, current_transform)
+		pass
 	if not is_dead:
 		player_update(delta)
 
@@ -132,7 +131,7 @@ func player_update(delta):
 					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
 					
 					
-					if velocity.y < 0:
+					if velocity.y > 0:
 						current_state = states.FALLING
 					
 					if input_direction.x != 0:
@@ -261,12 +260,12 @@ func player_update(delta):
 					velocity.x = lerp(velocity.x, input_direction.x * movement_speed, acceleration * delta)
 					
 					
-					if velocity.y < 0:
+					if velocity.y > 0:
 						current_state = states.FALLING
 					
 					if input_direction.x != 0:
 						$sprite.scale.x = 1 if input_direction.x > 0 else -1
-						
+					
 					if(detect_vine()):
 						velocity *= bird_vine_speed_multiplier
 				states.FALLING:
@@ -300,6 +299,7 @@ func player_update(delta):
 						#if $sprite.scale.x >= last_direction or $sprite.scale.x <= last_direction:
 							#animation_tree_statemachine.travel("turn_around")
 						#else:
+					print("Walk animation")
 					animation_tree_statemachine.travel("bird_walk")
 					
 					#print(last_direction, $sprite.scale.x)
