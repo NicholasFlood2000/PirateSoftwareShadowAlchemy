@@ -70,7 +70,7 @@ text = "Music Volume"
 [node name="MusicVolumeSlider" type="HSlider" parent="Menu/VBoxContainer"]
 layout_mode = 2
 min_value = -80.0
-max_value = 24.0
+max_value = 1.0
 
 [node name="SoundEffectsVolume" type="Label" parent="Menu/VBoxContainer"]
 layout_mode = 2

@@ -5,7 +5,6 @@ extends AudioStreamPlayer
 func _ready():
 	volume_db = GlobalSettings.MusicVolume
 	GlobalSettings.MusicVolumeChanged.connect(UpdateVolume)
-	print(volume_db)
 	pass # Replace with function body.
 
 

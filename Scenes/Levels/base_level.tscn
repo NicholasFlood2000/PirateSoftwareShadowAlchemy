@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cinn1kp7a37h5"]
+[gd_scene load_steps=33 format=3 uid="uid://cinn1kp7a37h5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kebkd"]
 [ext_resource type="Texture2D" uid="uid://b1g0kx7kwn8w0" path="res://Assets/Graphics/MoreTiles2.png" id="1_yvmax"]
@@ -21,6 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://cp1avytfnser5" path="res://Assets/Graphics/water tile.png" id="11_d80a0"]
 [ext_resource type="Script" path="res://Scripts/TileMapModulate.gd" id="11_ed6eg"]
 [ext_resource type="Texture2D" uid="uid://bp8mrk32w3pg5" path="res://Assets/Graphics/Net Pattern.png" id="13_edgyr"]
+[ext_resource type="Script" path="res://Scenes/Levels/MusicManager.gd" id="22_bajjg"]
+[ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="22_gfvgd"]
+[ext_resource type="AudioStream" uid="uid://bxeagw7wos3pu" path="res://Music/EarthBackgroundMusic.ogg" id="23_ly5em"]
+[ext_resource type="Script" path="res://Scripts/MusicVolume.gd" id="24_5x3hu"]
+[ext_resource type="AudioStream" uid="uid://pidr5efhrnc3" path="res://Music/AirBackgroundMusic.ogg" id="24_ivvly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwbhf"]
 texture = ExtResource("9_xxdnw")
@@ -600,3 +605,18 @@ offset_left = 433.0
 offset_top = 34.0
 offset_right = 433.12
 offset_bottom = 34.04
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource("22_bajjg")
+
+[node name="Water" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("22_gfvgd")
+script = ExtResource("24_5x3hu")
+
+[node name="Earth" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("23_ly5em")
+script = ExtResource("24_5x3hu")
+
+[node name="Air" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("24_ivvly")
+script = ExtResource("24_5x3hu")

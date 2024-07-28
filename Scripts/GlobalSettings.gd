@@ -1,8 +1,8 @@
 extends Node
 
-var MasterVolume: int = 0
-var MusicVolume: int = 10
-var SoundVolume: int = 5
+var MasterVolume: int = 6
+var MusicVolume: int = 1
+var SoundVolume: int = -2
 var Blur: float = 0.0
 
 signal MusicVolumeChanged
@@ -16,6 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(Input.is_action_just_pressed("Debug")):
+		print(MusicVolume)
 	pass
 
 

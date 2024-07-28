@@ -58,8 +58,6 @@ func _ready():
 	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
 
 func _physics_process(delta):
-	if(Input.is_action_just_pressed("Debug")):
-		pass
 	if not is_dead:
 		player_update(delta)
 
