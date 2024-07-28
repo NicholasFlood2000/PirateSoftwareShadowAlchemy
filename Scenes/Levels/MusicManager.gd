@@ -6,7 +6,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().current_scene.BackgroundChanged.connect(_BackgroundChanged)
+	Water.play()
 	pass # Replace with function body.
 
 
@@ -19,12 +19,15 @@ func _BackgroundChanged(NewBackground):
 		"Air":
 			Water.playing = false
 			Earth.playing = false
-			Air.play()
+			if(not Air.playing):
+				Air.play()
 		"Water":
-			Water.play()
+			if(not Water.playing):
+				Water.play()
 			Earth.playing = false
 			Air.playing = false
 		"Earth":
 			Water.playing = false
-			Earth.play()
+			if(not Earth.playing):
+				Earth.play()
 			Air.playing = false

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://5hi8nwd3436p"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/MusicManager.gd" id="1_6lera"]
+[ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="2_p8ht7"]
+[ext_resource type="Script" path="res://Scripts/MusicVolume.gd" id="3_i07ic"]
+[ext_resource type="AudioStream" uid="uid://bxeagw7wos3pu" path="res://Music/EarthBackgroundMusic.ogg" id="4_xiicl"]
+[ext_resource type="AudioStream" uid="uid://pidr5efhrnc3" path="res://Music/AirBackgroundMusic.ogg" id="5_78rh6"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_6lera")
+
+[node name="Water" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p8ht7")
+script = ExtResource("3_i07ic")
+
+[node name="Earth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xiicl")
+script = ExtResource("3_i07ic")
+
+[node name="Air" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_78rh6")
+script = ExtResource("3_i07ic")

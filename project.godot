@@ -20,7 +20,8 @@ config/icon="res://icon.svg"
 GlobalSettings="*res://Scripts/GlobalSettings.gd"
 Colors="*res://Scripts/Colors.gd"
 LevelProgression="*res://Scripts/LevelProgression.gd"
-ScreenTransition="*res://Scenes/ScreenTransition.tscn"
+ScreenTransition="*res://Scenes/Global/ScreenTransition.tscn"
+Music="*res://Scenes/Global/music.tscn"
 
 [display]
 

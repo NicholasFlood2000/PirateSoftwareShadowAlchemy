@@ -22,7 +22,7 @@ var CurrentBackground = InitialBackground
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ScreenTransition.transition_out()
-	
+	BackgroundChanged.connect(Music._BackgroundChanged)
 	CurrentBackground = InitialBackground
 	BackgroundChanged.emit(CurrentBackground)
 	match(CurrentBackground):
