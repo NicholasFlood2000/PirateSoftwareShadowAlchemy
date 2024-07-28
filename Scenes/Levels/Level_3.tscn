@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c23jei12hdjji"]
+[gd_scene load_steps=18 format=3 uid="uid://c23jei12hdjji"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_7erpb"]
 [ext_resource type="Texture2D" uid="uid://opuck81b4cf7" path="res://Assets/Graphics/Tree trunk bottom.png" id="2_aqrg8"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://drxc735wfbopw" path="res://Scenes/Objects/vine/vine2.tscn" id="14_74rmn"]
 [ext_resource type="PackedScene" uid="uid://inh0x5bqhxfw" path="res://Scenes/Objects/MovingPlatforms/MovingPlatform.tscn" id="15_h4ps6"]
 [ext_resource type="Texture2D" uid="uid://bb0dpox654n2t" path="res://Assets/Graphics/Cloud decoration 2.png" id="15_t5bia"]
+[ext_resource type="PackedScene" uid="uid://bcgmhra24tt1e" path="res://horizontal_cloud.tscn" id="16_56cpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0yak"]
 size = Vector2(322, 29)
@@ -388,7 +389,7 @@ position = Vector2(-222, 331)
 scale = Vector2(1, 2.2)
 
 [node name="CloudDecoration2" type="Sprite2D" parent="." index="9"]
-position = Vector2(-184, -514)
+position = Vector2(520, -578)
 texture = ExtResource("15_t5bia")
 
 [node name="CloudDecoration3" type="Sprite2D" parent="." index="10"]
@@ -400,6 +401,11 @@ position = Vector2(799, -874)
 scale = Vector2(-2.04, 1)
 texture = ExtResource("15_t5bia")
 
+[node name="Horizontal cloud" parent="." index="12" instance=ExtResource("16_56cpd")]
+
+[node name="AnimatableBody2D" parent="Horizontal cloud" index="0"]
+position = Vector2(-321, 0)
+
 [editable path="Objects/Nests/Nest"]
 [editable path="Objects/Nests/Nest2"]
 [editable path="Objects/MovingPlatforms/MovingPlatform"]
@@ -408,3 +414,4 @@ texture = ExtResource("15_t5bia")
 [editable path="Objects/MovingPlatforms/MovingPlatform4"]
 [editable path="Objects/MovingPlatforms/MovingPlatform3"]
 [editable path="Objects/MovingPlatforms/MovingPlatform2"]
+[editable path="Horizontal cloud"]
