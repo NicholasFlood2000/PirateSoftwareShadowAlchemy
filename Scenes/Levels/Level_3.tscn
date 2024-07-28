@@ -402,9 +402,16 @@ scale = Vector2(-2.04, 1)
 texture = ExtResource("15_t5bia")
 
 [node name="Horizontal cloud" parent="." index="12" instance=ExtResource("16_56cpd")]
+position = Vector2(770, -708)
 
-[node name="AnimatableBody2D" parent="Horizontal cloud" index="0"]
-position = Vector2(-321, 0)
+[node name="Horizontal cloud2" parent="." index="13" instance=ExtResource("16_56cpd")]
+position = Vector2(596, -2787)
+
+[node name="Horizontal cloud3" parent="." index="14" instance=ExtResource("16_56cpd")]
+position = Vector2(1535, -4903)
+
+[node name="Horizontal cloud4" parent="." index="15" instance=ExtResource("16_56cpd")]
+position = Vector2(1557, -7188)
 
 [editable path="Objects/Nests/Nest"]
 [editable path="Objects/Nests/Nest2"]
@@ -415,3 +422,6 @@ position = Vector2(-321, 0)
 [editable path="Objects/MovingPlatforms/MovingPlatform3"]
 [editable path="Objects/MovingPlatforms/MovingPlatform2"]
 [editable path="Horizontal cloud"]
+[editable path="Horizontal cloud2"]
+[editable path="Horizontal cloud3"]
+[editable path="Horizontal cloud4"]

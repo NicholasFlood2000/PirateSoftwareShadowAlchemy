@@ -5,23 +5,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a560p"]
 size = Vector2(220, 70)
 
-[sub_resource type="Animation" id="Animation_nhtqh"]
-resource_name = "new_animation"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-321, 0), Vector2(149, 0), Vector2(522, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_v46pb"]
 length = 0.001
 tracks/0/type = "value"
@@ -34,7 +17,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-321, 0)]
+"values": [Vector2(-650, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nhtqh"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2000, 0), Vector2(2000, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwo28"]
@@ -47,7 +47,7 @@ _data = {
 position = Vector2(703, -590)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(-54.4983, 0)
+position = Vector2(-650, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(5, 10)
