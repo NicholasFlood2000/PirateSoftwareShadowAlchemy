@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://44xdjx2fu0i7"]
+[gd_scene load_steps=23 format=3 uid="uid://44xdjx2fu0i7"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_x334a"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_tlouy"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cgx610wrmr0y2" path="res://Assets/Graphics/Rocks.png" id="18_5grb7"]
 [ext_resource type="PackedScene" uid="uid://cw0diiawdgh5a" path="res://Scenes/Objects/Seaweed/sea_weed.tscn" id="19_xg2y2"]
 [ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="20_idlxg"]
+[ext_resource type="Texture2D" uid="uid://byep058cc3xkt" path="res://Assets/Graphics/Bubble2.png" id="21_71itr"]
+[ext_resource type="Texture2D" uid="uid://gfqeqe2dq3jv" path="res://Assets/Graphics/Bubble1.png" id="22_lvb0t"]
 
 [node name="BaseLevel" instance=ExtResource("1_x334a")]
 InitialBackground = "Earth"
@@ -248,6 +250,38 @@ text = "Go Get That Power Flower."
 
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-762, -81)
+
+[node name="Bubble2" type="Sprite2D" parent="." index="9"]
+position = Vector2(4896, 665)
+texture = ExtResource("21_71itr")
+
+[node name="Bubble1" type="Sprite2D" parent="." index="10"]
+position = Vector2(5472, 574)
+texture = ExtResource("22_lvb0t")
+
+[node name="Bubble3" type="Sprite2D" parent="." index="11"]
+position = Vector2(5725, 777)
+texture = ExtResource("21_71itr")
+
+[node name="Bubble4" type="Sprite2D" parent="." index="12"]
+position = Vector2(2935, 389)
+texture = ExtResource("22_lvb0t")
+
+[node name="Bubble5" type="Sprite2D" parent="." index="13"]
+position = Vector2(2695, 639)
+texture = ExtResource("21_71itr")
+
+[node name="Bubble6" type="Sprite2D" parent="." index="14"]
+position = Vector2(1808, 418)
+texture = ExtResource("21_71itr")
+
+[node name="Bubble7" type="Sprite2D" parent="." index="15"]
+position = Vector2(3506, 622)
+texture = ExtResource("22_lvb0t")
+
+[node name="Bubble8" type="Sprite2D" parent="." index="16"]
+position = Vector2(3411, 396)
+texture = ExtResource("21_71itr")
 
 [editable path="Objects/Caves/LevelEntrance"]
 [editable path="Tutorial"]
