@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://inh0x5bqhxfw"]
+[gd_scene load_steps=7 format=3 uid="uid://inh0x5bqhxfw"]
 
 [ext_resource type="Script" path="res://Scripts/AirModulation.gd" id="1_8cl5o"]
 [ext_resource type="Texture2D" uid="uid://cvddnr8f380m6" path="res://Assets/Graphics/Cloud Moving platform.png" id="1_xnnr2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vuqgx"]
-radius = 47.0163
-height = 140.049
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ximtt"]
+size = Vector2(94.9777, 230.88)
 
 [sub_resource type="Animation" id="Animation_rosng"]
 resource_name = "MovingPlatform"
@@ -45,14 +44,6 @@ _data = {
 "RESET": SubResource("Animation_ktdr5")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lagxv"]
-radius = 36.0121
-height = 104.054
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0lpav"]
-radius = 14.9801
-height = 80.0228
-
 [node name="MovingPlatform" type="Node2D"]
 script = ExtResource("1_8cl5o")
 
@@ -60,9 +51,9 @@ script = ExtResource("1_8cl5o")
 position = Vector2(110, 269)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(47, 2)
+position = Vector2(4.51368, 0.50473)
 rotation = 1.57995
-shape = SubResource("CapsuleShape2D_vuqgx")
+shape = SubResource("RectangleShape2D_ximtt")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture = ExtResource("1_xnnr2")
@@ -73,13 +64,3 @@ libraries = {
 }
 autoplay = "MovingPlatform"
 speed_scale = 0.025
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(-28, 15)
-rotation = 1.58838
-shape = SubResource("CapsuleShape2D_lagxv")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(-74, 35)
-rotation = 1.58838
-shape = SubResource("CapsuleShape2D_0lpav")

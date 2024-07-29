@@ -18,17 +18,10 @@ offset_top = -355.0
 offset_right = 554.0
 offset_bottom = 55.0
 
-[node name="ColorRect" parent="Screen" index="0"]
-offset_left = -52.0
-offset_top = -91.0
-offset_right = 39.0
-offset_bottom = 49.0
-
-[node name="ColorRect" parent="Screen/ColorRect" index="0"]
-offset_left = -503.5
-offset_top = -225.0
-offset_right = 509.5
-offset_bottom = 245.0
+[node name="ColorRect2" parent="Screen" index="0"]
+offset_top = -232.0
+offset_right = 501.0
+offset_bottom = 85.0
 
 [node name="CenterContainer" parent="Screen" index="1"]
 offset_left = 6.0
