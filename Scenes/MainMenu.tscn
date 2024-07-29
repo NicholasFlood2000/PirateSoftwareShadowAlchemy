@@ -56,9 +56,15 @@ offset_top = 441.0
 offset_right = 771.0
 offset_bottom = 532.0
 
+[node name="Menu" parent="Button" index="0"]
+offset_top = -400.0
+offset_bottom = 43.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7c5o5")
 autoplay = true
 script = ExtResource("6_uqsmb")
 
 [connection signal="pressed" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_pressed"]
+
+[editable path="Button"]
