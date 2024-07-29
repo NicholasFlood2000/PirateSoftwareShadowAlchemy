@@ -575,10 +575,12 @@ script = ExtResource("9_iy67j")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3uvdj")
 format = 2
+layer_0/z_index = 11
 layer_1/name = "Vines"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Water"
 layer_2/modulate = Color(0.239216, 0.282353, 0.647059, 0.823529)
+layer_2/z_index = 10
 layer_2/tile_data = PackedInt32Array()
 layer_3/name = "Nets"
 layer_3/modulate = Color(0.215686, 0.278431, 0.109804, 1)

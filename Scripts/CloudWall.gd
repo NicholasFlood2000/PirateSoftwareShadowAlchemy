@@ -1,6 +1,6 @@
-extends Node2D
+extends Sprite2D
 
-@onready var Collision = $AnimatableBody2D/CollisionShape2D
+@onready var Collision = $StaticBody2D/CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
