@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://r7c8bdc0ltmg"]
+[gd_scene load_steps=20 format=3 uid="uid://r7c8bdc0ltmg"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_wranl"]
 [ext_resource type="Texture2D" uid="uid://bjg42hw66hehb" path="res://Assets/Graphics/Tree.png" id="6_6h0k0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://clanr00r131n7" path="res://Scenes/Objects/PowerFlowers/EarthPowerFlower.tscn" id="16_qdpbp"]
 [ext_resource type="PackedScene" uid="uid://dxs8oe7i6o6lr" path="res://Scenes/Objects/PowerFlowers/WaterPowerFlower.tscn" id="17_15tqw"]
 [ext_resource type="PackedScene" uid="uid://d4c7f7764qsos" path="res://Scenes/end_screen.tscn" id="19_d0tey"]
+[ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="19_p4ex6"]
 [ext_resource type="PackedScene" uid="uid://bcn70jkgrsq1t" path="res://Scenes/Objects/Nest.tscn" id="19_t2gwp"]
 
 [node name="BaseLevel" instance=ExtResource("1_wranl")]
@@ -170,10 +171,10 @@ New Movement 500, 3, 650, 300"
 position = Vector2(95, 450)
 
 [node name="EndScreen" parent="CanvasLayer2" index="1" instance=ExtResource("19_d0tey")]
-offset_left = 161.0
-offset_top = 16.0
-offset_right = 633.72
-offset_bottom = 238.92
+offset_left = 157.0
+offset_top = 85.0
+offset_right = 629.72
+offset_bottom = 307.92
 
 [node name="Nest" parent="." index="8" instance=ExtResource("19_t2gwp")]
 position = Vector2(1141, 586)
@@ -192,3 +193,15 @@ position = Vector2(4701, -508)
 
 [node name="Nest3" parent="." index="13" instance=ExtResource("19_t2gwp")]
 position = Vector2(5589, -509)
+
+[node name="Tutorial" parent="." index="14" instance=ExtResource("19_p4ex6")]
+position = Vector2(3261, 603)
+
+[node name="Screen" parent="Tutorial" index="0"]
+offset_left = -632.0
+offset_top = -327.0
+offset_right = 364.0
+offset_bottom = 83.0
+
+[editable path="Tutorial"]
+[editable path="Tutorial/Screen"]

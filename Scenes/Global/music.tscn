@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://pidr5efhrnc3" path="res://Music/AirBackgroundMusic.ogg" id="5_78rh6"]
 
 [node name="Music" type="Node"]
+process_mode = 3
 script = ExtResource("1_6lera")
 
 [node name="Water" type="AudioStreamPlayer" parent="."]

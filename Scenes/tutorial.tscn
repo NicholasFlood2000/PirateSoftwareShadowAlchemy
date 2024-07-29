@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://5h4hyctajied"]
+
+[ext_resource type="PackedScene" uid="uid://d4c7f7764qsos" path="res://Scenes/end_screen.tscn" id="1_sexf2"]
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_y5ojo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcxxb"]
+size = Vector2(115, 394)
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_y5ojo")
+
+[node name="Screen" parent="." instance=ExtResource("1_sexf2")]
+process_mode = 4
+visible = false
+z_index = 4096
+offset_left = -442.0
+offset_top = -355.0
+offset_right = 554.0
+offset_bottom = 55.0
+
+[node name="ColorRect" parent="Screen" index="0"]
+offset_left = -52.0
+offset_top = -91.0
+offset_right = 39.0
+offset_bottom = 49.0
+
+[node name="ColorRect" parent="Screen/ColorRect" index="0"]
+offset_left = -503.5
+offset_top = -225.0
+offset_right = 509.5
+offset_bottom = 245.0
+
+[node name="CenterContainer" parent="Screen" index="1"]
+offset_left = 6.0
+offset_top = -30.0
+offset_right = 987.0
+offset_bottom = 405.0
+
+[node name="Header" parent="Screen/CenterContainer/GridContainer" index="0"]
+text = "Tutorial Screen"
+
+[node name="Text" parent="Screen/CenterContainer/GridContainer" index="2"]
+text = "This is the test version of the tutorials you see across the game.
+Hope you liked seeing them and they explained a lot.
+Have fun exploring the area. We have left some fun secrets
+for you to find."
+
+[node name="Button" parent="Screen/CenterContainer/GridContainer" index="4"]
+text = "Go Back to Exploring."
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-35, -210)
+shape = SubResource("RectangleShape2D_xcxxb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Screen"]

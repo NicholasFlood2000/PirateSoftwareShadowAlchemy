@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0g66wmus1ybu"]
+[gd_scene load_steps=20 format=3 uid="uid://d0g66wmus1ybu"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_xvcht"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_jxyac"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://tjcc4lf5fvkj" path="res://Assets/Graphics/Rocks3.png" id="16_i4s03"]
 [ext_resource type="Texture2D" uid="uid://cgx610wrmr0y2" path="res://Assets/Graphics/Rocks.png" id="17_qrm5w"]
 [ext_resource type="Texture2D" uid="uid://02hpc4frv5a8" path="res://Assets/Graphics/Tree2.png" id="18_cy5v6"]
+[ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="19_cxpr6"]
 
 [node name="BaseLevel" instance=ExtResource("1_xvcht")]
 InitialBackground = "Earth"
@@ -102,6 +103,77 @@ position = Vector2(2013, 826)
 position = Vector2(1717, 132)
 rotation = 3.14159
 
+[node name="Spike8" parent="Objects/Spikes" index="8" instance=ExtResource("10_lsaw7")]
+position = Vector2(2470, 1020)
+
+[node name="Spike10" parent="Objects/Spikes" index="9" instance=ExtResource("10_lsaw7")]
+position = Vector2(2654, 1020)
+
+[node name="Spike11" parent="Objects/Spikes" index="10" instance=ExtResource("10_lsaw7")]
+position = Vector2(2828, 1020)
+
+[node name="Decoration" type="Node" parent="Objects" index="3"]
+
+[node name="Grass2" type="Sprite2D" parent="Objects/Decoration" index="0"]
+position = Vector2(-304, 548)
+texture = ExtResource("13_cgceo")
+
+[node name="Grass" type="Sprite2D" parent="Objects/Decoration" index="1"]
+position = Vector2(-220, 611)
+texture = ExtResource("14_t2jaj")
+
+[node name="Grass3" type="Sprite2D" parent="Objects/Decoration" index="2"]
+position = Vector2(-27, 674)
+rotation = -3.14159
+scale = Vector2(0.959998, -1)
+texture = ExtResource("14_t2jaj")
+
+[node name="Grass5" type="Sprite2D" parent="Objects/Decoration" index="3"]
+position = Vector2(159, 674)
+texture = ExtResource("14_t2jaj")
+
+[node name="Grass6" type="Sprite2D" parent="Objects/Decoration" index="4"]
+position = Vector2(409, 675)
+texture = ExtResource("13_cgceo")
+
+[node name="Grass7" type="Sprite2D" parent="Objects/Decoration" index="5"]
+position = Vector2(959, 355)
+texture = ExtResource("13_cgceo")
+
+[node name="Grass8" type="Sprite2D" parent="Objects/Decoration" index="6"]
+position = Vector2(1760, 483)
+texture = ExtResource("14_t2jaj")
+
+[node name="Grass9" type="Sprite2D" parent="Objects/Decoration" index="7"]
+position = Vector2(2168, 355)
+texture = ExtResource("13_cgceo")
+
+[node name="Grass10" type="Sprite2D" parent="Objects/Decoration" index="8"]
+position = Vector2(2341, 738)
+texture = ExtResource("14_t2jaj")
+
+[node name="Grass11" type="Sprite2D" parent="Objects/Decoration" index="9"]
+position = Vector2(3011, 738)
+rotation = -3.14159
+scale = Vector2(0.957436, -1)
+texture = ExtResource("13_cgceo")
+
+[node name="Rocks2" type="Sprite2D" parent="Objects/Decoration" index="10"]
+position = Vector2(2256, 356)
+texture = ExtResource("15_shdb8")
+
+[node name="Rocks3" type="Sprite2D" parent="Objects/Decoration" index="11"]
+position = Vector2(1881, 485)
+texture = ExtResource("16_i4s03")
+
+[node name="Rocks" type="Sprite2D" parent="Objects/Decoration" index="12"]
+position = Vector2(-128, 611)
+texture = ExtResource("17_qrm5w")
+
+[node name="Tree2" type="Sprite2D" parent="Objects/Decoration" index="13"]
+position = Vector2(3110, 708)
+texture = ExtResource("18_cy5v6")
+
 [node name="Player" parent="." index="6"]
 position = Vector2(-482, 538)
 
@@ -120,69 +192,35 @@ HorizontalFlip = true
 position = Vector2(2776, 200)
 HorizontalFlip = true
 
-[node name="Grass2" type="Sprite2D" parent="." index="9"]
-position = Vector2(-304, 548)
-texture = ExtResource("13_cgceo")
+[node name="Tutorial" parent="." index="10" instance=ExtResource("19_cxpr6")]
+position = Vector2(-96, 630)
 
-[node name="Grass" type="Sprite2D" parent="." index="10"]
-position = Vector2(-220, 611)
-texture = ExtResource("14_t2jaj")
+[node name="ColorRect" parent="Tutorial/Screen" index="0"]
+offset_left = -19.0
+offset_top = -67.0
+offset_bottom = 114.0
 
-[node name="Grass3" type="Sprite2D" parent="." index="11"]
-position = Vector2(-27, 674)
-scale = Vector2(-0.959998, 1)
-texture = ExtResource("14_t2jaj")
+[node name="ColorRect" parent="Tutorial/Screen/ColorRect" index="0"]
+offset_left = -503.0
+offset_top = -259.5
+offset_right = 510.0
+offset_bottom = 268.5
 
-[node name="Grass5" type="Sprite2D" parent="." index="12"]
-position = Vector2(159, 674)
-texture = ExtResource("14_t2jaj")
+[node name="Header" parent="Tutorial/Screen/CenterContainer/GridContainer" index="0"]
+text = "Welcome to Level 1"
 
-[node name="Grass6" type="Sprite2D" parent="." index="13"]
-position = Vector2(409, 675)
-texture = ExtResource("13_cgceo")
+[node name="Text" parent="Tutorial/Screen/CenterContainer/GridContainer" index="2"]
+text = "Use WASD or Arrow keys to move around and Space to Jump. 
+This area is filled with the energy of the Earth. 
+Watch out for spikes by the way.
+Even the toughest alchemists get popped by the slightest touch
+of those spikes."
 
-[node name="Grass7" type="Sprite2D" parent="." index="14"]
-position = Vector2(959, 355)
-texture = ExtResource("13_cgceo")
+[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
+text = "Begin Level"
 
-[node name="Grass8" type="Sprite2D" parent="." index="15"]
-position = Vector2(1760, 483)
-texture = ExtResource("14_t2jaj")
+[node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
+position = Vector2(-50.5, -123)
 
-[node name="Grass9" type="Sprite2D" parent="." index="16"]
-position = Vector2(2168, 355)
-texture = ExtResource("13_cgceo")
-
-[node name="Grass10" type="Sprite2D" parent="." index="17"]
-position = Vector2(2341, 738)
-texture = ExtResource("14_t2jaj")
-
-[node name="Grass11" type="Sprite2D" parent="." index="18"]
-position = Vector2(3011, 738)
-scale = Vector2(-0.957436, 1)
-texture = ExtResource("13_cgceo")
-
-[node name="Rocks2" type="Sprite2D" parent="." index="19"]
-position = Vector2(2256, 356)
-texture = ExtResource("15_shdb8")
-
-[node name="Rocks3" type="Sprite2D" parent="." index="20"]
-position = Vector2(1881, 485)
-texture = ExtResource("16_i4s03")
-
-[node name="Rocks" type="Sprite2D" parent="." index="21"]
-position = Vector2(-128, 611)
-texture = ExtResource("17_qrm5w")
-
-[node name="Tree2" type="Sprite2D" parent="." index="22"]
-position = Vector2(3110, 708)
-texture = ExtResource("18_cy5v6")
-
-[node name="Spike" parent="." index="23" instance=ExtResource("10_lsaw7")]
-position = Vector2(2470, 1020)
-
-[node name="Spike2" parent="." index="24" instance=ExtResource("10_lsaw7")]
-position = Vector2(2654, 1020)
-
-[node name="Spike3" parent="." index="25" instance=ExtResource("10_lsaw7")]
-position = Vector2(2828, 1020)
+[editable path="Tutorial"]
+[editable path="Tutorial/Screen"]

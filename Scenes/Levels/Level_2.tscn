@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://44xdjx2fu0i7"]
+[gd_scene load_steps=21 format=3 uid="uid://44xdjx2fu0i7"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_x334a"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_tlouy"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cnu1jr7e7i2w7" path="res://Assets/Graphics/Grass.png" id="16_mo30u"]
 [ext_resource type="Texture2D" uid="uid://cgx610wrmr0y2" path="res://Assets/Graphics/Rocks.png" id="18_5grb7"]
 [ext_resource type="PackedScene" uid="uid://cw0diiawdgh5a" path="res://Scenes/Objects/Seaweed/sea_weed.tscn" id="19_xg2y2"]
+[ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="20_idlxg"]
 
 [node name="BaseLevel" instance=ExtResource("1_x334a")]
 InitialBackground = "Earth"
@@ -72,6 +73,44 @@ texture = ExtResource("16_mo30u")
 [node name="Tree2" type="Sprite2D" parent="Objects/Decoration" index="3"]
 position = Vector2(6534, -65)
 texture = ExtResource("13_stjfe")
+
+[node name="SeaWeed" parent="Objects/Decoration" index="4" instance=ExtResource("19_xg2y2")]
+position = Vector2(1924, 563)
+
+[node name="SeaWeed2" parent="Objects/Decoration" index="5" instance=ExtResource("19_xg2y2")]
+position = Vector2(1283, 499)
+rotation = -3.14159
+scale = Vector2(0.880005, -1)
+
+[node name="SeaWeed3" parent="Objects/Decoration" index="6" instance=ExtResource("19_xg2y2")]
+position = Vector2(2894, 755)
+
+[node name="SeaWeed4" parent="Objects/Decoration" index="7" instance=ExtResource("19_xg2y2")]
+position = Vector2(5092, 754)
+
+[node name="SeaWeed5" parent="Objects/Decoration" index="8" instance=ExtResource("19_xg2y2")]
+position = Vector2(5248, 754)
+rotation = -3.14159
+scale = Vector2(0.96, -1)
+
+[node name="SeaWeed6" parent="Objects/Decoration" index="9" instance=ExtResource("19_xg2y2")]
+position = Vector2(5887, 755)
+
+[node name="Rocks3" type="Sprite2D" parent="Objects/Decoration" index="10"]
+position = Vector2(-99, 675)
+texture = ExtResource("14_tghvf")
+
+[node name="Rocks" type="Sprite2D" parent="Objects/Decoration" index="11"]
+position = Vector2(308, 675)
+texture = ExtResource("18_5grb7")
+
+[node name="Grass3" type="Sprite2D" parent="Objects/Decoration" index="12"]
+position = Vector2(92, 677)
+texture = ExtResource("16_mo30u")
+
+[node name="Grass4" type="Sprite2D" parent="Objects/Decoration" index="13"]
+position = Vector2(-161, 676)
+texture = ExtResource("15_046bv")
 
 [node name="Spikes" type="Node" parent="Objects" index="2"]
 
@@ -173,40 +212,43 @@ position = Vector2(6014, 281)
 [node name="FlowerForPower64Water" parent="Objects/PowerFlower" index="1" instance=ExtResource("7_fbyol")]
 position = Vector2(781, 544)
 
-[node name="Rocks2" type="Sprite2D" parent="." index="7"]
-position = Vector2(-99, 675)
-texture = ExtResource("14_tghvf")
+[node name="Tutorial" parent="." index="8" instance=ExtResource("20_idlxg")]
+position = Vector2(836, 579)
 
-[node name="Rocks" type="Sprite2D" parent="." index="8"]
-position = Vector2(308, 675)
-texture = ExtResource("18_5grb7")
+[node name="Screen" parent="Tutorial" index="0"]
+offset_left = -1114.0
+offset_top = -167.0
+offset_right = -118.0
+offset_bottom = 243.0
 
-[node name="Grass" type="Sprite2D" parent="." index="9"]
-position = Vector2(92, 677)
-texture = ExtResource("16_mo30u")
+[node name="ColorRect" parent="Tutorial/Screen" index="0"]
+offset_left = -73.0
+offset_right = 73.0
+offset_bottom = 176.0
 
-[node name="Grass2" type="Sprite2D" parent="." index="10"]
-position = Vector2(-161, 676)
-texture = ExtResource("15_046bv")
+[node name="ColorRect" parent="Tutorial/Screen/ColorRect" index="0"]
+offset_left = -527.0
+offset_top = -275.5
+offset_right = 527.0
+offset_bottom = 284.5
 
-[node name="SeaWeed" parent="." index="12" instance=ExtResource("19_xg2y2")]
-position = Vector2(1924, 563)
+[node name="Header" parent="Tutorial/Screen/CenterContainer/GridContainer" index="0"]
+text = "Level 2"
 
-[node name="SeaWeed2" parent="." index="13" instance=ExtResource("19_xg2y2")]
-position = Vector2(1283, 499)
-scale = Vector2(-0.880005, 1)
+[node name="Text" parent="Tutorial/Screen/CenterContainer/GridContainer" index="2"]
+text = "Is that a Power Flower I spot? It looks like a water one.
+Power Flowers are used to change the energy in the environment
+to a new one with Z or J. Right now it is Earth again but if you
+change it to Water you can become a fish and swim.
+You can also speed around with Space but if you go too fast you
+may lose control."
 
-[node name="SeaWeed3" parent="." index="14" instance=ExtResource("19_xg2y2")]
-position = Vector2(2894, 755)
+[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
+text = "Go Get That Power Flower."
 
-[node name="SeaWeed4" parent="." index="15" instance=ExtResource("19_xg2y2")]
-position = Vector2(5092, 754)
-
-[node name="SeaWeed5" parent="." index="16" instance=ExtResource("19_xg2y2")]
-position = Vector2(5248, 754)
-scale = Vector2(-0.96, 1)
-
-[node name="SeaWeed6" parent="." index="17" instance=ExtResource("19_xg2y2")]
-position = Vector2(5887, 755)
+[node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
+position = Vector2(-762, -81)
 
 [editable path="Objects/Caves/LevelEntrance"]
+[editable path="Tutorial"]
+[editable path="Tutorial/Screen"]

@@ -15,7 +15,7 @@ extends Node2D
 @onready var AirBackgroundMiddle = $AirBackground/ParallaxLayer2/Sprite2D
 @onready var AirBackgroundFront = $AirBackground/ParallaxLayer3/Sprite2D
 
-signal BackgroundChanged(NewBackground)
+signal BackgroundChanged(OldBackground, NewBackground)
 
 var LayerNum = -100
 var CurrentBackground = InitialBackground
@@ -121,4 +121,4 @@ func toggleBackGround(OldBackground, NewBackground):
 			EarthBackgroundFront.visible = true
 			CurrentBackground = "Earth"
 	
-	BackgroundChanged.emit( CurrentBackground )
+	BackgroundChanged.emit(CurrentBackground)

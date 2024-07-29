@@ -297,7 +297,6 @@ func player_update(delta):
 						#if $sprite.scale.x >= last_direction or $sprite.scale.x <= last_direction:
 							#animation_tree_statemachine.travel("turn_around")
 						#else:
-					print("Walk animation")
 					animation_tree_statemachine.travel("bird_walk")
 					
 					#print(last_direction, $sprite.scale.x)

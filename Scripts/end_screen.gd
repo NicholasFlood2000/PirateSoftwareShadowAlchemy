@@ -3,7 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = true
+	if(visible):
+		get_tree().paused = true
 	pass # Replace with function body.
 
 
@@ -13,6 +14,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	print("Button Pressed")
 	get_tree().paused = false
 	queue_free()

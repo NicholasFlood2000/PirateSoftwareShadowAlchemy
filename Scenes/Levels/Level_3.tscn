@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c23jei12hdjji"]
+[gd_scene load_steps=19 format=3 uid="uid://c23jei12hdjji"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_7erpb"]
 [ext_resource type="Texture2D" uid="uid://opuck81b4cf7" path="res://Assets/Graphics/Tree trunk bottom.png" id="2_aqrg8"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://inh0x5bqhxfw" path="res://Scenes/Objects/MovingPlatforms/MovingPlatform.tscn" id="15_h4ps6"]
 [ext_resource type="Texture2D" uid="uid://bb0dpox654n2t" path="res://Assets/Graphics/Cloud decoration 2.png" id="15_t5bia"]
 [ext_resource type="PackedScene" uid="uid://bcgmhra24tt1e" path="res://Scenes/Objects/MovingPlatforms/horizontal_cloud.tscn" id="16_56cpd"]
+[ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="17_m75e4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0yak"]
 size = Vector2(322, 29)
@@ -413,6 +414,24 @@ texture = ExtResource("15_t5bia")
 position = Vector2(-222, 331)
 scale = Vector2(1, 2.2)
 
+[node name="Tutorial" parent="." index="9" instance=ExtResource("17_m75e4")]
+position = Vector2(19, 352)
+
+[node name="Header" parent="Tutorial/Screen/CenterContainer/GridContainer" index="0"]
+text = "Level 3"
+
+[node name="Text" parent="Tutorial/Screen/CenterContainer/GridContainer" index="2"]
+text = "Oh look. Some more Power Flowers. They Look like Air this time.
+If you turn the environment to Air you turn into a bird.
+This allows you to fly with Space. You don't fly for long so you
+will need to keep hit Space."
+
+[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
+text = "Time to Fly."
+
+[node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
+position = Vector2(-40, 149)
+
 [editable path="Objects/Nests/Nest"]
 [editable path="Objects/Nests/Nest2"]
 [editable path="Objects/MovingPlatforms/MovingPlatform"]
@@ -425,3 +444,5 @@ scale = Vector2(1, 2.2)
 [editable path="Objects/MovingPlatforms/Horizontal cloud2"]
 [editable path="Objects/MovingPlatforms/Horizontal cloud3"]
 [editable path="Objects/MovingPlatforms/Horizontal cloud4"]
+[editable path="Tutorial"]
+[editable path="Tutorial/Screen"]

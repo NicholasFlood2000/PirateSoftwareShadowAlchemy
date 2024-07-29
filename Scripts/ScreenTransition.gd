@@ -14,6 +14,4 @@ func transition_out():
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	$ColorRect.modulate.a = 1
 	tween.tween_property($ColorRect, "modulate", Color(1,1,1,0.0), 1.0).set_trans(Tween.TRANS_CUBIC)
-	print("Started transitioning")
 	await tween.finished
-	print("Done transitioning")
