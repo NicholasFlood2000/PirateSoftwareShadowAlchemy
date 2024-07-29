@@ -349,6 +349,15 @@ rotation = 3.14159
 position = Vector2(1078, -5176)
 rotation = 3.14159
 
+[node name="Spike23" parent="Objects/Spikes" index="22" instance=ExtResource("9_1l6g7")]
+position = Vector2(3758, -6408)
+
+[node name="Spike24" parent="Objects/Spikes" index="23" instance=ExtResource("9_1l6g7")]
+position = Vector2(3992, -6408)
+
+[node name="Spike25" parent="Objects/Spikes" index="24" instance=ExtResource("9_1l6g7")]
+position = Vector2(4233, -6408)
+
 [node name="Nests" type="Node" parent="Objects" index="2"]
 
 [node name="Nest" parent="Objects/Nests" index="0" instance=ExtResource("12_27wjs")]
@@ -425,6 +434,177 @@ rotation = -3.14159
 scale = Vector2(2.04, -1)
 texture = ExtResource("15_t5bia")
 
+[node name="CloudDecoration" type="Sprite2D" parent="Objects/Decoration" index="3"]
+position = Vector2(1840, -3626)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration5" type="Sprite2D" parent="Objects/Decoration" index="4"]
+position = Vector2(741, -3022)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration6" type="Sprite2D" parent="Objects/Decoration" index="5"]
+position = Vector2(2116, -4111)
+rotation = -3.14159
+scale = Vector2(1.38527, -1.37796)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration7" type="Sprite2D" parent="Objects/Decoration" index="6"]
+position = Vector2(822, -5581)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration8" type="Sprite2D" parent="Objects/Decoration" index="7"]
+position = Vector2(1322, -6018)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration9" type="Sprite2D" parent="Objects/Decoration" index="8"]
+position = Vector2(2139.5, -6120)
+scale = Vector2(1.75417, 1.775)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration10" type="Sprite2D" parent="Objects/Decoration" index="9"]
+position = Vector2(1115, -6582)
+rotation = -3.14159
+scale = Vector2(2.15083, -1.1)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration11" type="Sprite2D" parent="Objects/Decoration" index="10"]
+position = Vector2(756, -7831)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration12" type="Sprite2D" parent="Objects/Decoration" index="11"]
+position = Vector2(1731, -8421)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration13" type="Sprite2D" parent="Objects/Decoration" index="12"]
+position = Vector2(1193, -8145)
+rotation = -3.14159
+scale = Vector2(1.64, -1.52)
+texture = ExtResource("15_t5bia")
+
+[node name="CloudDecoration14" type="Sprite2D" parent="Objects/Decoration" index="13"]
+position = Vector2(846, -8525)
+rotation = -3.14159
+scale = Vector2(1.88, -1.48)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration15" type="Sprite2D" parent="Objects/Decoration" index="14"]
+position = Vector2(249, -2441)
+texture = ExtResource("18_gv57a")
+
+[node name="CloudDecoration16" type="Sprite2D" parent="Objects/Decoration" index="15"]
+position = Vector2(962, -1703)
+texture = ExtResource("18_gv57a")
+
+[node name="Grass2" type="Sprite2D" parent="Objects/Decoration" index="16"]
+position = Vector2(583, 931)
+texture = ExtResource("20_tcbo8")
+
+[node name="Grass" type="Sprite2D" parent="Objects/Decoration" index="17"]
+position = Vector2(776, 932)
+texture = ExtResource("21_nphmh")
+
+[node name="Rocks3" type="Sprite2D" parent="Objects/Decoration" index="18"]
+position = Vector2(281, 932)
+texture = ExtResource("22_wydyr")
+
+[node name="Rocks" type="Sprite2D" parent="Objects/Decoration" index="19"]
+position = Vector2(1046, 1029)
+texture = ExtResource("23_wva6s")
+
+[node name="Rocks2" type="Sprite2D" parent="Objects/Decoration" index="20"]
+position = Vector2(1353, 867)
+texture = ExtResource("23_wva6s")
+
+[node name="Grass3" type="Sprite2D" parent="Objects/Decoration" index="21"]
+position = Vector2(1250, -5598)
+texture = ExtResource("20_tcbo8")
+
+[node name="Grass4" type="Sprite2D" parent="Objects/Decoration" index="22"]
+position = Vector2(1723, -5597)
+texture = ExtResource("21_nphmh")
+
+[node name="Rocks4" type="Sprite2D" parent="Objects/Decoration" index="23"]
+position = Vector2(1848, -5597)
+texture = ExtResource("24_2veh4")
+
+[node name="CloudDecoration17" type="Sprite2D" parent="Objects/Decoration" index="24"]
+position = Vector2(2063, -8382)
+texture = ExtResource("15_t5bia")
+
+[node name="Rocks5" type="Sprite2D" parent="Objects/Decoration" index="25"]
+position = Vector2(2545, -8285)
+texture = ExtResource("22_wydyr")
+
+[node name="Rocks6" type="Sprite2D" parent="Objects/Decoration" index="26"]
+position = Vector2(2762, -8285)
+texture = ExtResource("23_wva6s")
+
+[node name="Grass5" type="Sprite2D" parent="Objects/Decoration" index="27"]
+position = Vector2(2603, -8286)
+texture = ExtResource("20_tcbo8")
+
+[node name="Grass6" type="Sprite2D" parent="Objects/Decoration" index="28"]
+position = Vector2(2715, -8286)
+texture = ExtResource("21_nphmh")
+
+[node name="Bubble1" type="Sprite2D" parent="Objects/Decoration" index="29"]
+position = Vector2(4357, -6406)
+texture = ExtResource("28_pjux5")
+
+[node name="Bubble2" type="Sprite2D" parent="Objects/Decoration" index="30"]
+position = Vector2(3695, -6606)
+texture = ExtResource("29_guxjs")
+
+[node name="Bubble3" type="Sprite2D" parent="Objects/Decoration" index="31"]
+position = Vector2(4215, -6857)
+texture = ExtResource("29_guxjs")
+
+[node name="Bubble4" type="Sprite2D" parent="Objects/Decoration" index="32"]
+position = Vector2(5617, -6062)
+texture = ExtResource("28_pjux5")
+
+[node name="Bubble5" type="Sprite2D" parent="Objects/Decoration" index="33"]
+position = Vector2(6346, -5840)
+texture = ExtResource("29_guxjs")
+
+[node name="SeaWeed" parent="Objects/Decoration" index="34" instance=ExtResource("30_ruhf1")]
+position = Vector2(5558, -5701)
+
+[node name="SeaWeed2" parent="Objects/Decoration" index="35" instance=ExtResource("30_ruhf1")]
+position = Vector2(6249, -5709)
+
+[node name="SeaWeed3" parent="Objects/Decoration" index="36" instance=ExtResource("30_ruhf1")]
+position = Vector2(5879, -5731)
+rotation = -3.14159
+scale = Vector2(1.2728, -1.40294)
+
+[node name="Rocks7" type="Sprite2D" parent="Objects/Decoration" index="37"]
+position = Vector2(7645, -6428)
+texture = ExtResource("22_wydyr")
+
+[node name="Grass7" type="Sprite2D" parent="Objects/Decoration" index="38"]
+position = Vector2(7759, -6429)
+texture = ExtResource("21_nphmh")
+
+[node name="Tree2" type="Sprite2D" parent="Objects/Decoration" index="39"]
+position = Vector2(2660, -8315)
+texture = ExtResource("25_6ijbe")
+
+[node name="Bush" type="Sprite2D" parent="Objects/Decoration" index="40"]
+position = Vector2(411, 928)
+texture = ExtResource("19_h675h")
+script = ExtResource("6_ts685")
+
+[node name="Bush2" type="Sprite2D" parent="Objects/Decoration" index="41"]
+position = Vector2(1418, -5600)
+texture = ExtResource("19_h675h")
+script = ExtResource("6_ts685")
+
+[node name="Bush3" type="Sprite2D" parent="Objects/Decoration" index="42"]
+position = Vector2(2408, -8289)
+texture = ExtResource("19_h675h")
+script = ExtResource("6_ts685")
+
 [node name="Vine" parent="." index="8" instance=ExtResource("14_74rmn")]
 position = Vector2(-222, 331)
 scale = Vector2(1, 2.2)
@@ -447,183 +627,11 @@ text = "Time to Fly."
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-40, 149)
 
-[node name="CloudDecoration" type="Sprite2D" parent="." index="10"]
-position = Vector2(1840, -3626)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration2" type="Sprite2D" parent="." index="11"]
-position = Vector2(741, -3022)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration3" type="Sprite2D" parent="." index="12"]
-position = Vector2(2116, -4111)
-scale = Vector2(-1.38527, 1.37796)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration4" type="Sprite2D" parent="." index="13"]
-position = Vector2(822, -5581)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration5" type="Sprite2D" parent="." index="14"]
-position = Vector2(1322, -6018)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration6" type="Sprite2D" parent="." index="15"]
-position = Vector2(2139.5, -6120)
-scale = Vector2(1.75417, 1.775)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration7" type="Sprite2D" parent="." index="16"]
-position = Vector2(1115, -6582)
-scale = Vector2(-2.15083, 1.1)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration8" type="Sprite2D" parent="." index="17"]
-position = Vector2(756, -7831)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration9" type="Sprite2D" parent="." index="18"]
-position = Vector2(1731, -8421)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration10" type="Sprite2D" parent="." index="19"]
-position = Vector2(1193, -8145)
-scale = Vector2(-1.64, 1.52)
-texture = ExtResource("15_t5bia")
-
-[node name="CloudDecoration11" type="Sprite2D" parent="." index="20"]
-position = Vector2(846, -8525)
-scale = Vector2(-1.88, 1.48)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration12" type="Sprite2D" parent="." index="21"]
-position = Vector2(249, -2441)
-texture = ExtResource("18_gv57a")
-
-[node name="CloudDecoration13" type="Sprite2D" parent="." index="22"]
-position = Vector2(962, -1703)
-texture = ExtResource("18_gv57a")
-
-[node name="Bush" type="Sprite2D" parent="." index="23"]
-position = Vector2(411, 928)
-texture = ExtResource("19_h675h")
-
-[node name="Grass2" type="Sprite2D" parent="." index="24"]
-position = Vector2(583, 931)
-texture = ExtResource("20_tcbo8")
-
-[node name="Grass" type="Sprite2D" parent="." index="25"]
-position = Vector2(776, 932)
-texture = ExtResource("21_nphmh")
-
-[node name="Rocks3" type="Sprite2D" parent="." index="26"]
-position = Vector2(281, 932)
-texture = ExtResource("22_wydyr")
-
-[node name="Rocks" type="Sprite2D" parent="." index="27"]
-position = Vector2(1046, 1029)
-texture = ExtResource("23_wva6s")
-
-[node name="Rocks2" type="Sprite2D" parent="." index="28"]
-position = Vector2(1353, 867)
-texture = ExtResource("23_wva6s")
-
-[node name="Bush2" type="Sprite2D" parent="." index="29"]
-position = Vector2(1418, -5600)
-texture = ExtResource("19_h675h")
-
-[node name="Grass3" type="Sprite2D" parent="." index="30"]
-position = Vector2(1250, -5598)
-texture = ExtResource("20_tcbo8")
-
-[node name="Grass4" type="Sprite2D" parent="." index="31"]
-position = Vector2(1723, -5597)
-texture = ExtResource("21_nphmh")
-
-[node name="Rocks4" type="Sprite2D" parent="." index="32"]
-position = Vector2(1848, -5597)
-texture = ExtResource("24_2veh4")
-
-[node name="Bush3" type="Sprite2D" parent="." index="33"]
-position = Vector2(2408, -8289)
-texture = ExtResource("19_h675h")
-
-[node name="CloudDecoration14" type="Sprite2D" parent="." index="34"]
-position = Vector2(2063, -8382)
-texture = ExtResource("15_t5bia")
-
-[node name="Rocks5" type="Sprite2D" parent="." index="35"]
-position = Vector2(2545, -8285)
-texture = ExtResource("22_wydyr")
-
-[node name="Rocks6" type="Sprite2D" parent="." index="36"]
-position = Vector2(2762, -8285)
-texture = ExtResource("23_wva6s")
-
-[node name="Tree2" type="Sprite2D" parent="." index="37"]
-position = Vector2(2660, -8315)
-texture = ExtResource("25_6ijbe")
-
-[node name="Grass5" type="Sprite2D" parent="." index="38"]
-position = Vector2(2603, -8286)
-texture = ExtResource("20_tcbo8")
-
-[node name="Grass6" type="Sprite2D" parent="." index="39"]
-position = Vector2(2715, -8286)
-texture = ExtResource("21_nphmh")
-
-[node name="FlowerForPower64Water" parent="." index="40" instance=ExtResource("26_efk8c")]
+[node name="FlowerForPower64Water" parent="." index="10" instance=ExtResource("26_efk8c")]
 position = Vector2(3072, -8288)
 
-[node name="Spike" parent="." index="41" instance=ExtResource("9_1l6g7")]
-position = Vector2(3758, -6408)
-
-[node name="Spike2" parent="." index="42" instance=ExtResource("9_1l6g7")]
-position = Vector2(3992, -6408)
-
-[node name="Spike3" parent="." index="43" instance=ExtResource("9_1l6g7")]
-position = Vector2(4233, -6408)
-
-[node name="LevelExit" parent="." index="44" instance=ExtResource("27_gnxsx")]
+[node name="LevelExit" parent="." index="11" instance=ExtResource("27_gnxsx")]
 position = Vector2(7939, -6524)
-
-[node name="Bubble1" type="Sprite2D" parent="." index="45"]
-position = Vector2(4357, -6406)
-texture = ExtResource("28_pjux5")
-
-[node name="Bubble2" type="Sprite2D" parent="." index="46"]
-position = Vector2(3695, -6606)
-texture = ExtResource("29_guxjs")
-
-[node name="Bubble3" type="Sprite2D" parent="." index="47"]
-position = Vector2(4215, -6857)
-texture = ExtResource("29_guxjs")
-
-[node name="Bubble4" type="Sprite2D" parent="." index="48"]
-position = Vector2(5617, -6062)
-texture = ExtResource("28_pjux5")
-
-[node name="Bubble5" type="Sprite2D" parent="." index="49"]
-position = Vector2(6346, -5840)
-texture = ExtResource("29_guxjs")
-
-[node name="SeaWeed" parent="." index="50" instance=ExtResource("30_ruhf1")]
-position = Vector2(5558, -5701)
-
-[node name="SeaWeed2" parent="." index="51" instance=ExtResource("30_ruhf1")]
-position = Vector2(6249, -5709)
-
-[node name="SeaWeed3" parent="." index="52" instance=ExtResource("30_ruhf1")]
-position = Vector2(5879, -5731)
-scale = Vector2(-1.2728, 1.40294)
-
-[node name="Rocks7" type="Sprite2D" parent="." index="53"]
-position = Vector2(7645, -6428)
-texture = ExtResource("22_wydyr")
-
-[node name="Grass7" type="Sprite2D" parent="." index="54"]
-position = Vector2(7759, -6429)
-texture = ExtResource("21_nphmh")
 
 [editable path="Objects/Nests/Nest"]
 [editable path="Objects/Nests/Nest2"]
