@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://brsyfl1pdn22i"]
+[gd_scene load_steps=9 format=3 uid="uid://brsyfl1pdn22i"]
 
 [ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_5ceaf"]
 [ext_resource type="Theme" uid="uid://bjjf52pu6ckx6" path="res://Themes/Menu.tres" id="1_b1v7n"]
 [ext_resource type="Script" path="res://Scripts/PlayGameButton.gd" id="1_daqvn"]
+[ext_resource type="Texture2D" uid="uid://b2xxa5wlhqfrd" path="res://Assets/Graphics/GameBackground.png" id="2_qdt6q"]
 [ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/SettingsButtons.tscn" id="3_nbu60"]
 [ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="5_7c5o5"]
 [ext_resource type="Script" path="res://Scripts/MusicVolume.gd" id="6_uqsmb"]
@@ -19,13 +20,15 @@ offset_right = 1288.0
 offset_bottom = 727.0
 theme = ExtResource("1_b1v7n")
 
-[node name="ColorRect2" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -6.0
-offset_right = 1305.0
-offset_bottom = 756.0
-color = Color(0.101961, 0.101961, 0.101961, 1)
+[node name="ColorRect2" type="TextureRect" parent="Control"]
+modulate = Color(0.496653, 0.496654, 0.496653, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qdt6q")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
