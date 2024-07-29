@@ -608,7 +608,13 @@ position = Vector2(-222, 331)
 scale = Vector2(1, 2.2)
 
 [node name="Tutorial" parent="." index="9" instance=ExtResource("17_m75e4")]
-position = Vector2(-35, 293)
+position = Vector2(-50, 88)
+
+[node name="Screen" parent="Tutorial" index="0"]
+offset_left = -541.0
+offset_top = -123.0
+offset_right = 455.0
+offset_bottom = 287.0
 
 [node name="ColorRect2" parent="Tutorial/Screen" index="0"]
 offset_right = 594.0
@@ -632,6 +638,9 @@ text = "Time to Fly."
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-40, 149)
 
+[node name="Sprite2D" parent="Tutorial" index="2"]
+position = Vector2(-39, 119)
+
 [node name="FlowerForPower64Water" parent="." index="10" instance=ExtResource("26_efk8c")]
 position = Vector2(3072, -8288)
 
@@ -646,7 +655,6 @@ script = ExtResource("31_adjct")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CloudMovingPlatform/StaticBody2D" index="0"]
 position = Vector2(-0.204346, 3.27368)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gouve")
 
 [node name="Spike" parent="." index="12" instance=ExtResource("11_use5j")]
