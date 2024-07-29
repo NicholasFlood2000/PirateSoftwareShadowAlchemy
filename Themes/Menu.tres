@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bjjf52pu6ckx6"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bjjf52pu6ckx6"]
 
 [ext_resource type="Texture2D" uid="uid://b1jh1fq73ercs" path="res://Assets/Graphics/BaseButton.png" id="1_a5tdx"]
 [ext_resource type="Texture2D" uid="uid://deg7gqwh8a36q" path="res://Assets/Graphics/MenuSliderButton.png" id="2_gf8xb"]
@@ -33,15 +33,17 @@ texture_margin_top = 8.0
 texture_margin_right = 50.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yupx7"]
+
 [resource]
 default_font_size = 32
 Button/styles/hover = SubResource("StyleBoxTexture_3qs36")
 Button/styles/normal = SubResource("StyleBoxTexture_dhfw0")
 Button/styles/pressed = SubResource("StyleBoxTexture_tgoht")
-HSlider/constants/center_grabber = 16
+HSlider/constants/center_grabber = 21
 HSlider/icons/grabber = ExtResource("2_gf8xb")
 HSlider/icons/grabber_disabled = ExtResource("2_gf8xb")
 HSlider/icons/grabber_highlight = ExtResource("2_gf8xb")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_6hvg0")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_6hvg0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yupx7")
 HSlider/styles/slider = SubResource("StyleBoxTexture_6hvg0")

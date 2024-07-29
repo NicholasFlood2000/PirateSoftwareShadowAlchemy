@@ -8,5 +8,5 @@ func LoadNextLevel():
 	if(CurrentLevel == len(Levels)):
 		print("Game Beat")
 	else:
-		get_tree().change_scene_to_file(Levels[CurrentLevel])
+		get_tree().call_deferred("change_scene_to_file", Levels[CurrentLevel] )
 		CurrentLevel += 1

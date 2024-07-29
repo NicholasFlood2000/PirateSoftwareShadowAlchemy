@@ -315,7 +315,7 @@ func player_update(delta):
 	move_and_slide()
 	
 	if(current_transform == transformations.BIRD):
-		if Input.is_action_just_released("Jump") and velocity.y < 0:
+		if Input.is_action_just_released("Jump") and velocity.y < 0 and current_state == states.JUMP:
 			velocity.y *= 0.5
 	else:
 		if Input.is_action_just_released("Jump") and velocity.y < 0:
