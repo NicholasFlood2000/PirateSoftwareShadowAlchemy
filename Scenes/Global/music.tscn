@@ -12,12 +12,17 @@ script = ExtResource("1_6lera")
 
 [node name="Water" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_p8ht7")
+bus = &"Music"
 script = ExtResource("3_i07ic")
 
 [node name="Earth" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xiicl")
+volume_db = -80.0
+bus = &"Music"
 script = ExtResource("3_i07ic")
 
 [node name="Air" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_78rh6")
+volume_db = -80.0
+bus = &"Music"
 script = ExtResource("3_i07ic")
