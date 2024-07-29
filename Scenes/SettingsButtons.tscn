@@ -78,6 +78,7 @@ theme_override_font_sizes/font_size = 15
 text = "Sound Effects Volume"
 
 [node name="SoundEffectSlider" type="HSlider" parent="Menu/VBoxContainer"]
+visible = false
 layout_mode = 2
 min_value = -80.0
 max_value = 24.0
@@ -100,9 +101,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 2
 text = " "
 
-[node name="ExitButton" type="Button" parent="Menu/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Menu"]
 layout_mode = 2
+offset_left = 74.0
+offset_top = 476.0
+offset_right = 342.0
+offset_bottom = 561.0
+pivot_offset = Vector2(132, 42.235)
 text = "Exit Settings"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="Menu/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="Menu/ExitButton" to="." method="_on_exit_button_pressed"]

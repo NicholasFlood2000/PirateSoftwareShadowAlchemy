@@ -593,7 +593,6 @@ script = ExtResource("2_xvrj2")
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("9_8aui6")]
-visible = false
 top_level = true
 z_index = 1000
 offset_left = 433.0

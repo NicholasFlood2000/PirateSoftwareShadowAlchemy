@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brsyfl1pdn22i"]
+[gd_scene load_steps=11 format=3 uid="uid://brsyfl1pdn22i"]
 
 [ext_resource type="Theme" uid="uid://dionndvrr35qx" path="res://Themes/ButtonTheme.tres" id="1_5ceaf"]
 [ext_resource type="Theme" uid="uid://bjjf52pu6ckx6" path="res://Themes/Menu.tres" id="1_b1v7n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b2xxa5wlhqfrd" path="res://Assets/Graphics/GameBackground.png" id="2_qdt6q"]
 [ext_resource type="PackedScene" uid="uid://c6pctbsywub2" path="res://Scenes/SettingsButtons.tscn" id="3_nbu60"]
 [ext_resource type="AudioStream" uid="uid://b01uw6u6l88dw" path="res://Music/WaterBackgroundMusic.ogg" id="5_7c5o5"]
+[ext_resource type="Texture2D" uid="uid://dc6kc2hbbucfg" path="res://Assets/Graphics/TitleAlchemistQuestInGame.png" id="5_pgy8b"]
+[ext_resource type="Script" path="res://Scenes/Title.gd" id="6_rvh8o"]
 [ext_resource type="Script" path="res://Scripts/MusicVolume.gd" id="6_uqsmb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cjwb2"]
@@ -31,6 +33,7 @@ grow_vertical = 2
 texture = ExtResource("2_qdt6q")
 
 [node name="Label" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 289.0
 offset_top = 55.0
@@ -42,19 +45,30 @@ label_settings = SubResource("LabelSettings_cjwb2")
 
 [node name="PlayGameButton" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 526.0
+offset_left = 882.0
 offset_top = 284.0
-offset_right = 785.0
+offset_right = 1141.0
 offset_bottom = 379.0
+pivot_offset = Vector2(126, 48)
 theme = ExtResource("1_5ceaf")
 text = "Play Game"
 script = ExtResource("1_daqvn")
 
+[node name="Title" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 60.0
+offset_right = 738.0
+offset_bottom = 360.0
+texture = ExtResource("5_pgy8b")
+script = ExtResource("6_rvh8o")
+
 [node name="Button" parent="." instance=ExtResource("3_nbu60")]
-offset_left = 522.0
-offset_top = 441.0
-offset_right = 771.0
-offset_bottom = 532.0
+offset_left = 882.0
+offset_top = 448.0
+offset_right = 1141.0
+offset_bottom = 539.0
+pivot_offset = Vector2(126, 48)
 
 [node name="Menu" parent="Button" index="0"]
 offset_top = -400.0
@@ -66,6 +80,10 @@ autoplay = true
 bus = &"Music"
 script = ExtResource("6_uqsmb")
 
+[connection signal="mouse_entered" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="Control/PlayGameButton" to="Control/PlayGameButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
 
 [editable path="Button"]
