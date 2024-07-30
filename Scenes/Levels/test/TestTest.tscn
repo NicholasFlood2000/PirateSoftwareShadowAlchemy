@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://r7c8bdc0ltmg"]
+[gd_scene load_steps=30 format=3 uid="uid://r7c8bdc0ltmg"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_wranl"]
 [ext_resource type="Texture2D" uid="uid://bjg42hw66hehb" path="res://Assets/Graphics/Tree.png" id="6_6h0k0"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://u2mmgirdqigp" path="res://Assets/Graphics/Tree branch extra.png" id="25_b86iq"]
 [ext_resource type="Texture2D" uid="uid://cstj60voiedex" path="res://Assets/Graphics/Tree top extra.png" id="26_sys42"]
 [ext_resource type="PackedScene" uid="uid://ceqbnkk7js2m" path="res://Scenes/Objects/PowerFlowers/BigEarthPowerFlower.tscn" id="27_ol8xu"]
+[ext_resource type="PackedScene" uid="uid://bcgmhra24tt1e" path="res://Scenes/Objects/MovingPlatforms/horizontal_cloud.tscn" id="28_2qbd1"]
+[ext_resource type="PackedScene" uid="uid://inh0x5bqhxfw" path="res://Scenes/Objects/MovingPlatforms/MovingPlatform.tscn" id="29_jwbu8"]
 
 [node name="BaseLevel" instance=ExtResource("1_wranl")]
 
@@ -183,137 +185,168 @@ offset_top = 85.0
 offset_right = 629.72
 offset_bottom = 307.92
 
-[node name="Nest" parent="." index="8" instance=ExtResource("19_t2gwp")]
-position = Vector2(1141, 586)
-
-[node name="Nest4" parent="." index="9" instance=ExtResource("19_t2gwp")]
+[node name="Nest4" parent="." index="8" instance=ExtResource("19_t2gwp")]
 position = Vector2(-4488, 4350)
 
-[node name="Nest5" parent="." index="10" instance=ExtResource("19_t2gwp")]
+[node name="Nest5" parent="." index="9" instance=ExtResource("19_t2gwp")]
 position = Vector2(-8202, 11331)
 
-[node name="Nest6" parent="." index="11" instance=ExtResource("19_t2gwp")]
+[node name="Nest6" parent="." index="10" instance=ExtResource("19_t2gwp")]
 position = Vector2(-8982, 10759)
 
-[node name="Nest2" parent="." index="12" instance=ExtResource("19_t2gwp")]
+[node name="Nest2" parent="." index="11" instance=ExtResource("19_t2gwp")]
 position = Vector2(4701, -508)
 
-[node name="Nest3" parent="." index="13" instance=ExtResource("19_t2gwp")]
+[node name="Nest3" parent="." index="12" instance=ExtResource("19_t2gwp")]
 position = Vector2(5589, -509)
 
-[node name="Tutorial" parent="." index="14" instance=ExtResource("19_p4ex6")]
+[node name="Tutorial" parent="." index="13" instance=ExtResource("19_p4ex6")]
 position = Vector2(3260, 471)
 
 [node name="Screen" parent="Tutorial" index="0"]
+visible = true
 offset_left = -620.0
 offset_top = -255.0
 offset_right = 376.0
 offset_bottom = 155.0
 
-[node name="Background1Element" type="Sprite2D" parent="." index="15"]
+[node name="ColorRect2" parent="Tutorial/Screen" index="0"]
+offset_right = 598.0
+
+[node name="Header" parent="Tutorial/Screen/CenterContainer/GridContainer" index="0"]
+text = "Hi There."
+
+[node name="Text" parent="Tutorial/Screen/CenterContainer/GridContainer" index="2"]
+text = "I never introduced myself did I?
+I am the Alchemist Dog. I hope you got help from me on your quest
+I am having fun watching you change the environments.
+Hope you had fun on your quest it was fun to make this quest for you."
+
+[node name="Background1Element" type="Sprite2D" parent="." index="14"]
 position = Vector2(-1489, 804)
 rotation = 0.444253
 texture = ExtResource("20_uid5e")
 
-[node name="Bubble1" type="Sprite2D" parent="." index="16"]
+[node name="Bubble1" type="Sprite2D" parent="." index="15"]
 position = Vector2(-769, 856)
 texture = ExtResource("21_in1lr")
 
-[node name="Bubble2" type="Sprite2D" parent="." index="17"]
+[node name="Bubble2" type="Sprite2D" parent="." index="16"]
 position = Vector2(-1015, 1052)
 texture = ExtResource("22_g3gn5")
 
-[node name="Bubble3" type="Sprite2D" parent="." index="18"]
+[node name="Bubble3" type="Sprite2D" parent="." index="17"]
 position = Vector2(-1475, 1064)
 texture = ExtResource("21_in1lr")
 
-[node name="Bubble4" type="Sprite2D" parent="." index="19"]
+[node name="Bubble4" type="Sprite2D" parent="." index="18"]
 position = Vector2(-1537, 968)
 texture = ExtResource("22_g3gn5")
 
-[node name="SeaWeed" parent="." index="20" instance=ExtResource("23_gmh3o")]
+[node name="SeaWeed" parent="." index="19" instance=ExtResource("23_gmh3o")]
 position = Vector2(-847, 1088)
 
-[node name="SeaWeed2" parent="." index="21" instance=ExtResource("23_gmh3o")]
+[node name="SeaWeed2" parent="." index="20" instance=ExtResource("23_gmh3o")]
 position = Vector2(-1553, 1084)
 
-[node name="SeaWeed3" parent="." index="22" instance=ExtResource("23_gmh3o")]
+[node name="SeaWeed3" parent="." index="21" instance=ExtResource("23_gmh3o")]
 position = Vector2(-1167, 1084)
 
-[node name="SeaWeed4" parent="." index="23" instance=ExtResource("23_gmh3o")]
+[node name="SeaWeed4" parent="." index="22" instance=ExtResource("23_gmh3o")]
 position = Vector2(-672, -192)
 
-[node name="TreeTopExtraBlack" type="Sprite2D" parent="." index="24"]
+[node name="TreeTopExtraBlack" type="Sprite2D" parent="." index="23"]
 position = Vector2(-1772.5, -498)
 scale = Vector2(1.61719, 1.64062)
 texture = ExtResource("24_rkgqw")
 
-[node name="TreeTopExtraBlack2" type="Sprite2D" parent="." index="25"]
+[node name="TreeTopExtraBlack2" type="Sprite2D" parent="." index="24"]
 position = Vector2(-1669, -551)
 texture = ExtResource("24_rkgqw")
 
-[node name="TreeBranchExtra" type="Sprite2D" parent="." index="26"]
+[node name="TreeBranchExtra" type="Sprite2D" parent="." index="25"]
 position = Vector2(-1386, -294)
 texture = ExtResource("25_b86iq")
+script = ExtResource("10_su4ho")
 
-[node name="TreeTopExtra" type="Sprite2D" parent="." index="27"]
+[node name="TreeTopExtra" type="Sprite2D" parent="." index="26"]
 position = Vector2(-1464, -307)
 texture = ExtResource("26_sys42")
+script = ExtResource("10_su4ho")
 
-[node name="TreeTopExtra2" type="Sprite2D" parent="." index="28"]
+[node name="TreeTopExtra2" type="Sprite2D" parent="." index="27"]
 position = Vector2(-1399, -368)
 texture = ExtResource("26_sys42")
+script = ExtResource("10_su4ho")
 
-[node name="TreeTop" type="Sprite2D" parent="." index="29"]
+[node name="TreeTop" type="Sprite2D" parent="." index="28"]
 position = Vector2(-1251, -288)
 texture = ExtResource("8_ydxq2")
+script = ExtResource("10_su4ho")
 
-[node name="TreeBranchExtra2" type="Sprite2D" parent="." index="30"]
+[node name="TreeBranchExtra2" type="Sprite2D" parent="." index="29"]
 position = Vector2(-1129, -251)
 rotation = -2.67607
 scale = Vector2(1.05469, 1.02344)
 texture = ExtResource("25_b86iq")
+script = ExtResource("10_su4ho")
 
-[node name="Tree" type="Sprite2D" parent="." index="31"]
+[node name="Tree" type="Sprite2D" parent="." index="30"]
 position = Vector2(-1633, -317)
 texture = ExtResource("6_6h0k0")
 
-[node name="TreeTrunkBottom" type="Sprite2D" parent="." index="32"]
+[node name="TreeTrunkBottom" type="Sprite2D" parent="." index="31"]
 position = Vector2(-1961, 296)
 scale = Vector2(1, 7.36)
 texture = ExtResource("6_yocyo")
+script = ExtResource("10_su4ho")
 
-[node name="TreeTrunkPlatform1" parent="." index="33" instance=ExtResource("7_1dxy4")]
-position = Vector2(-1886, 479)
+[node name="TreeTrunkPlatform1" parent="." index="32" instance=ExtResource("7_1dxy4")]
+position = Vector2(-1886, 509)
 
-[node name="TreeTrunkPlatform2" parent="." index="34" instance=ExtResource("8_rdijl")]
-position = Vector2(-2024, 366)
+[node name="TreeTrunkPlatform2" parent="." index="33" instance=ExtResource("8_rdijl")]
+position = Vector2(-2024, 394)
 
-[node name="Tree2Branch2" parent="." index="35" instance=ExtResource("9_kp3mv")]
-position = Vector2(-1950, 267)
+[node name="Tree2Branch2" parent="." index="34" instance=ExtResource("9_kp3mv")]
+position = Vector2(-1949, 332)
 
-[node name="TreeTrunkPlatform3" parent="." index="36" instance=ExtResource("8_rdijl")]
-position = Vector2(-2025, 184)
+[node name="TreeTrunkPlatform3" parent="." index="35" instance=ExtResource("8_rdijl")]
+position = Vector2(-2025, 233)
 
-[node name="Tree2Branch3" parent="." index="37" instance=ExtResource("9_kp3mv")]
+[node name="Tree2Branch3" parent="." index="36" instance=ExtResource("9_kp3mv")]
 position = Vector2(-1949, 610)
 
-[node name="Vine" parent="." index="38" instance=ExtResource("12_14std")]
+[node name="Vine" parent="." index="37" instance=ExtResource("12_14std")]
 position = Vector2(-2245, -11)
 
-[node name="Vine2" parent="." index="39" instance=ExtResource("11_gbqax")]
+[node name="Vine2" parent="." index="38" instance=ExtResource("11_gbqax")]
 position = Vector2(-2334, -9)
 
-[node name="FlowerForPower64Earth" parent="." index="40" instance=ExtResource("16_qdpbp")]
+[node name="FlowerForPower64Earth" parent="." index="39" instance=ExtResource("16_qdpbp")]
 position = Vector2(-1816, 610)
 
-[node name="BigFlowerForPowerEarth" parent="." index="41" instance=ExtResource("27_ol8xu")]
+[node name="BigFlowerForPowerEarth" parent="." index="40" instance=ExtResource("27_ol8xu")]
 position = Vector2(-1742, -317)
 
-[node name="Background1Element2" type="Sprite2D" parent="." index="42"]
+[node name="Background1Element2" type="Sprite2D" parent="." index="41"]
 position = Vector2(-3176, 1027)
 rotation = -2.5856
 texture = ExtResource("20_uid5e")
+
+[node name="Nest" parent="." index="42" instance=ExtResource("19_t2gwp")]
+position = Vector2(-2751, 605)
+
+[node name="Horizontal cloud" parent="." index="43" instance=ExtResource("28_2qbd1")]
+position = Vector2(-459, -1375)
+
+[node name="Horizontal cloud2" parent="." index="44" instance=ExtResource("28_2qbd1")]
+position = Vector2(-866, -1824)
+
+[node name="MovingPlatform" parent="." index="45" instance=ExtResource("29_jwbu8")]
+position = Vector2(-2211, -1643)
+
+[node name="Nest7" parent="." index="46" instance=ExtResource("19_t2gwp")]
+position = Vector2(2233, 813)
 
 [editable path="Tutorial"]
 [editable path="Tutorial/Screen"]

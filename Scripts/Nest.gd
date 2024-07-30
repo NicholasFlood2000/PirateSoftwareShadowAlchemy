@@ -16,6 +16,7 @@ func _process(delta):
 			Level.toggleBackGround(Level.CurrentBackground, Background)
 		else:
 			Player.current_transform = Player.transformations.BIRD
+			Background = Level.CurrentBackground
 			Level.toggleBackGround(Level.CurrentBackground, "Air")
 
 func _on_body_entered(body):
