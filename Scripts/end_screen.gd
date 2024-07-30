@@ -1,6 +1,6 @@
 extends Control
 
-
+var old_scale = scale
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(visible):
@@ -16,3 +16,13 @@ func _process(delta):
 func _on_button_pressed():
 	get_tree().paused = false
 	queue_free()
+
+
+func _on_button_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($CenterContainer/GridContainer/Button, "scale", old_scale / 0.8, 0.1).set_trans(Tween.TRANS_CUBIC)
+
+
+func _on_button_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($CenterContainer/GridContainer/Button, "scale", old_scale, 0.1).set_trans(Tween.TRANS_CUBIC)
