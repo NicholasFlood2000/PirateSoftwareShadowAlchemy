@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://44xdjx2fu0i7"]
+[gd_scene load_steps=25 format=3 uid="uid://44xdjx2fu0i7"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_x334a"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_tlouy"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="20_idlxg"]
 [ext_resource type="Texture2D" uid="uid://byep058cc3xkt" path="res://Assets/Graphics/Bubble2.png" id="21_71itr"]
 [ext_resource type="Texture2D" uid="uid://gfqeqe2dq3jv" path="res://Assets/Graphics/Bubble1.png" id="22_lvb0t"]
+[ext_resource type="Texture2D" uid="uid://cstj60voiedex" path="res://Assets/Graphics/Tree top extra.png" id="23_53cy8"]
+[ext_resource type="Texture2D" uid="uid://cpilsgfu2go3" path="res://Assets/Graphics/Bush black.png" id="24_2aibl"]
 
 [node name="BaseLevel" instance=ExtResource("1_x334a")]
 InitialBackground = "Earth"
@@ -276,6 +278,26 @@ texture = ExtResource("22_lvb0t")
 [node name="Bubble8" type="Sprite2D" parent="." index="16"]
 position = Vector2(3411, 396)
 texture = ExtResource("21_71itr")
+
+[node name="TreeTopExtra" type="Sprite2D" parent="." index="17"]
+position = Vector2(5961, -101)
+texture = ExtResource("23_53cy8")
+
+[node name="TreeTopExtra2" type="Sprite2D" parent="." index="18"]
+position = Vector2(6074, -235)
+texture = ExtResource("23_53cy8")
+
+[node name="BushBlack" type="Sprite2D" parent="." index="19"]
+position = Vector2(6148, 288)
+texture = ExtResource("24_2aibl")
+
+[node name="BushBlack2" type="Sprite2D" parent="." index="20"]
+position = Vector2(1033, 103)
+texture = ExtResource("24_2aibl")
+
+[node name="Grass" type="Sprite2D" parent="." index="21"]
+position = Vector2(1192, 100)
+texture = ExtResource("16_mo30u")
 
 [editable path="Objects/Caves/LevelEntrance"]
 [editable path="Tutorial"]
