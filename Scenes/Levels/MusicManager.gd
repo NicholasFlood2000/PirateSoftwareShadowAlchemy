@@ -7,7 +7,6 @@ extends Node
 var Level
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Water.play()
 	if(get_tree().current_scene.name == "BaseLevel"):
 		Level = get_tree().current_scene
 		pass

@@ -1,6 +1,6 @@
 extends Node
 
-var MasterVolume: int = 6
+var MasterVolume: int = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 var MusicVolume: int = 1
 var SoundVolume: int = -2
 var Blur: float = 0.0
