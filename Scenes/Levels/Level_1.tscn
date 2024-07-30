@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0g66wmus1ybu"]
+[gd_scene load_steps=21 format=3 uid="uid://d0g66wmus1ybu"]
 
 [ext_resource type="PackedScene" uid="uid://cinn1kp7a37h5" path="res://Scenes/Levels/base_level.tscn" id="1_xvcht"]
 [ext_resource type="PackedScene" uid="uid://dyg0b8w5epe4x" path="res://Scenes/Objects/Trees/tree_trunk_platform_1.tscn" id="2_jxyac"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://02hpc4frv5a8" path="res://Assets/Graphics/Tree2.png" id="18_cy5v6"]
 [ext_resource type="PackedScene" uid="uid://5h4hyctajied" path="res://Scenes/tutorial.tscn" id="19_cxpr6"]
 [ext_resource type="Texture2D" uid="uid://bcjbmib021w6q" path="res://Assets/Graphics/Tree top extra black.png" id="20_rny0r"]
-[ext_resource type="Texture2D" uid="uid://cstj60voiedex" path="res://Assets/Graphics/Tree top extra.png" id="21_en570"]
 
 [node name="BaseLevel" instance=ExtResource("1_xvcht")]
 InitialBackground = "Earth"
@@ -235,47 +234,18 @@ texture = ExtResource("20_rny0r")
 position = Vector2(3102, 154)
 texture = ExtResource("20_rny0r")
 
-[node name="TreeTopExtra" type="Sprite2D" parent="." index="14"]
-position = Vector2(119, 265)
-texture = ExtResource("21_en570")
+[node name="TreeTopExtraBlack4" type="Sprite2D" parent="." index="14"]
+position = Vector2(-552, 163)
+texture = ExtResource("20_rny0r")
 
-[node name="TreeTopExtra2" type="Sprite2D" parent="." index="15"]
-position = Vector2(128, 206)
-texture = ExtResource("21_en570")
+[node name="TreeTopExtraBlack5" type="Sprite2D" parent="." index="15"]
+position = Vector2(-497, 237)
+rotation = -1.29216
+texture = ExtResource("20_rny0r")
 
-[node name="TreeTopExtra3" type="Sprite2D" parent="." index="16"]
-position = Vector2(339, 290)
-texture = ExtResource("21_en570")
-
-[node name="TreeTopExtra4" type="Sprite2D" parent="." index="17"]
-position = Vector2(364, 197)
-texture = ExtResource("21_en570")
-
-[node name="TreeTopExtra5" type="Sprite2D" parent="." index="18"]
-position = Vector2(226, 410)
-texture = ExtResource("21_en570")
-
-[node name="TreeTopExtra6" type="Sprite2D" parent="." index="19"]
-position = Vector2(177, 334)
-texture = ExtResource("21_en570")
-
-[node name="TreeTop" type="Sprite2D" parent="." index="20"]
-position = Vector2(258, 313)
-texture = ExtResource("9_hyp20")
-
-[node name="TreeTopExtra7" type="Sprite2D" parent="." index="21"]
-position = Vector2(2509, 304)
-rotation = -0.886991
-scale = Vector2(1.52, 1.44)
-texture = ExtResource("21_en570")
-
-[node name="TreeTop2" type="Sprite2D" parent="." index="22"]
-position = Vector2(-534, 262)
-texture = ExtResource("9_hyp20")
-
-[node name="TreeTopExtra8" type="Sprite2D" parent="." index="23"]
-position = Vector2(-561, 129)
-texture = ExtResource("21_en570")
+[node name="TreeTopExtraBlack6" type="Sprite2D" parent="." index="16"]
+position = Vector2(-500, 309)
+texture = ExtResource("20_rny0r")
 
 [editable path="Tutorial"]
 [editable path="Tutorial/Screen"]
