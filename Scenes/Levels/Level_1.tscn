@@ -212,8 +212,9 @@ Watch out for spikes by the way.
 Even the toughest alchemists get popped by the slightest touch
 of those spikes."
 
-[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
-text = "Begin Level"
+[node name="Button" parent="Tutorial/Screen" index="2"]
+offset_left = 42.0
+offset_right = 976.0
 
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-50.5, -123)

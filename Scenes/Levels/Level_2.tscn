@@ -237,8 +237,11 @@ change it to Water you can become a fish and swim.
 You can also speed around with Space but if you go too fast you
 may lose control."
 
-[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
-text = "Go Get That Power Flower."
+[node name="Button" parent="Tutorial/Screen" index="2"]
+offset_left = 35.0
+offset_top = 384.0
+offset_right = 969.0
+offset_bottom = 469.0
 
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-762, -81)

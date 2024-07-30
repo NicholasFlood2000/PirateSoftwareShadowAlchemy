@@ -637,8 +637,11 @@ The nests these Power Flowers are on are special too.
 They allow you to remove the Air as well letting another environment
 take over."
 
-[node name="Button" parent="Tutorial/Screen/CenterContainer/GridContainer" index="4"]
-text = "Time to Fly."
+[node name="Button" parent="Tutorial/Screen" index="2"]
+offset_left = 86.0
+offset_top = 439.0
+offset_right = 1020.0
+offset_bottom = 524.0
 
 [node name="CollisionShape2D" parent="Tutorial/Area2D" index="0"]
 position = Vector2(-40, 149)

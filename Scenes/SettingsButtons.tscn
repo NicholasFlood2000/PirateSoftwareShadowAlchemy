@@ -64,11 +64,13 @@ max_value = -2.0
 value = -2.0
 
 [node name="MusicVolume" type="Label" parent="Menu/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Music Volume"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Menu/VBoxContainer"]
+visible = false
 layout_mode = 2
 min_value = -80.0
 max_value = 1.0

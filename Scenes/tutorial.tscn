@@ -1,11 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://5h4hyctajied"]
+[gd_scene load_steps=8 format=3 uid="uid://5h4hyctajied"]
 
 [ext_resource type="PackedScene" uid="uid://d4c7f7764qsos" path="res://Scenes/end_screen.tscn" id="1_sexf2"]
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_y5ojo"]
-[ext_resource type="Texture2D" uid="uid://dbv73bh2vuv35" path="res://Assets/Graphics/NPC_Dog_Alchemist_.png" id="3_lglw1"]
+[ext_resource type="Texture2D" uid="uid://bwyyu0ueb5wf4" path="res://Assets/Graphics/NPC_Dog_Alchemist_-Sheet.png" id="3_015ck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcxxb"]
 size = Vector2(115, 181)
+
+[sub_resource type="Animation" id="Animation_i5m8l"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ww41y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wntdj"]
+_data = {
+"RESET": SubResource("Animation_ww41y"),
+"idle": SubResource("Animation_i5m8l")
+}
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_y5ojo")
@@ -39,9 +77,6 @@ Hope you liked seeing them and they explained a lot.
 Have fun exploring the area. We have left some fun secrets
 for you to find."
 
-[node name="Button" parent="Screen/CenterContainer/GridContainer" index="4"]
-text = "Go Back to Exploring."
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -49,7 +84,14 @@ position = Vector2(3, 33.5)
 shape = SubResource("RectangleShape2D_xcxxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_lglw1")
+texture = ExtResource("3_015ck")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wntdj")
+}
+autoplay = "idle"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
