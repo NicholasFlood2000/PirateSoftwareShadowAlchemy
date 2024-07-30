@@ -224,6 +224,7 @@ offset_right = -126.0
 offset_bottom = 93.0
 
 [node name="ColorRect2" parent="Tutorial/Screen" index="0"]
+offset_right = 522.0
 offset_bottom = 175.0
 
 [node name="Header" parent="Tutorial/Screen/CenterContainer/GridContainer" index="0"]

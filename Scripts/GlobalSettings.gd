@@ -22,6 +22,7 @@ func _process(delta):
 
 func UpdateMasterVolume(NewVolume):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), NewVolume)
+	MasterVolume = NewVolume
 	pass
 
 func UpdateMusicVolume(NewVolume):

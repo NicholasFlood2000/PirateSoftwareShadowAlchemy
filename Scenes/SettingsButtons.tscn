@@ -54,7 +54,7 @@ text = "Volume"
 
 [node name="GameVolume" type="Label" parent="Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 18
 text = "Master Volume"
 
 [node name="GameVolumeSlider" type="HSlider" parent="Menu/VBoxContainer"]

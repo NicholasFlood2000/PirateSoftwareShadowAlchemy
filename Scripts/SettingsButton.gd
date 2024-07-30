@@ -11,7 +11,7 @@ var old_scale = scale
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Menu.visible = false
-	GameVolumeSlider.set_value_no_signal(GlobalSettings.MasterVolume)
+	GameVolumeSlider.set_value(GlobalSettings.MasterVolume)
 	MusicVolumeSlider.set_value_no_signal(GlobalSettings.MusicVolume)
 	SoundVolumeSlider.set_value_no_signal(GlobalSettings.SoundVolume)
 	BlurSlider.set_value_no_signal(GlobalSettings.Blur)
