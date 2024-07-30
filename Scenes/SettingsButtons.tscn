@@ -13,7 +13,6 @@ text = "Settings"
 script = ExtResource("2_8phgq")
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = -60.0
 offset_top = -166.0
@@ -60,7 +59,8 @@ text = "Master Volume"
 [node name="GameVolumeSlider" type="HSlider" parent="Menu/VBoxContainer"]
 layout_mode = 2
 min_value = -80.0
-max_value = 6.0
+max_value = -2.0
+value = -2.0
 
 [node name="MusicVolume" type="Label" parent="Menu/VBoxContainer"]
 layout_mode = 2
@@ -73,6 +73,7 @@ min_value = -80.0
 max_value = 1.0
 
 [node name="SoundEffectsVolume" type="Label" parent="Menu/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Sound Effects Volume"
